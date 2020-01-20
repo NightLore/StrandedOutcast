@@ -50,13 +50,13 @@ Material:
     m_Floats:
     - _Depth: 0.98
     - _DepthFalloff: -13
-    - _Distortion: 0.2
+    - _Distortion: 0.1
     - _Float0: 0.0192
     - _Float1: 0.85
     - _Float3: 0.9
     - _Foam: 1.79
     - _FoamDepth: 0.3
-    - _FoamFalloff: -50
+    - _FoamFalloff: -2
     - _FoamPower: 4
     - _FoamSmoothness: 0.3
     - _FoamSpecular: 0.3
@@ -68,11 +68,11 @@ Material:
     - _Smoothness: 0.9
     - _Specular: 0.1
     - _TessValue: 6
-    - _WaterDepth: 0.99
+    - _WaterDepth: -0.5
     - _WaterFalloff: -10
     - _WaterSmoothness: 0.3
     - _WaterSpecular: 0.3
-    - _WavesAmount: 3
+    - _WavesAmount: 1
     - _WavesAmplitude: 0.02
     - __dirty: 0
     m_Colors:
@@ -80,5 +80,5 @@ Material:
     - _Color0: {r: 0, g: 0.6749488, b: 0.8088235, a: 0}
     - _Color1: {r: 0, g: 0.048731543, b: 0.22794023, a: 0}
     - _DeepColor: {r: 0.2511125, g: 0.7187613, b: 0.9339623, a: 1}
-    - _ShalowColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ShalowColor: {r: 0.48627454, g: 0.909804, b: 1, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
