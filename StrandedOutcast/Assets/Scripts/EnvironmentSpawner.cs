@@ -130,6 +130,6 @@ public class EnvironmentSpawner : MonoBehaviour
         Vector3 position = Camera.main.ViewportToWorldPoint(new Vector3(x, z, Camera.main.transform.position.y));
         position.y = obj.transform.position.y;
 
-        return Instantiate(obj, position, obj.transform.rotation);
+        return Instantiate(obj, position, Quaternion.Euler(Vector3.up * Random.Range(0, 360)));
     }
 }

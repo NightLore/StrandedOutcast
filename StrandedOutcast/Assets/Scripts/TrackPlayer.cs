@@ -5,7 +5,7 @@ using UnityEngine;
 public class TrackPlayer : MonoBehaviour
 {
     public float speed = 10.0f;
-    private float bufferDistance = 2.0f;
+    public float bufferDistance = 2.5f;
     public GameObject player;
 
     // Start is called before the first frame update
@@ -17,8 +17,12 @@ public class TrackPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 target = player.transform.position - Vector3.Normalize(player.transform.position - transform.position) * bufferDistance;
+        float step = speed * Time.deltaTime;
+        Vector3 direction = Vector3.Normalize(player.transform.position - transform.position);
+        Vector3 target = player.transform.position - direction * bufferDistance;
+        target.y = transform.position.y;
 
-        transform.position = Vector3.MoveTowards(transform.position, new Vector3(target.x, transform.position.y, target.z), speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target, step);
+        transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, direction, step, 0.0f));
     }
 }
