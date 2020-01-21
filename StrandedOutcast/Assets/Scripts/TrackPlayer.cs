@@ -6,7 +6,7 @@ public class TrackPlayer : MonoBehaviour
 {
     public float speed = 10.0f;
     public float bufferDistance = 2.5f;
-    public GameObject player;
+    private GameObject player;
 
     // Start is called before the first frame update
     void Start()

@@ -16,7 +16,9 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float step = speed * Time.deltaTime;
         Vector3 direction = Vector3.Normalize(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")));
-        controller.Move(direction * speed * Time.deltaTime);
+        controller.Move(direction * step);
+        transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, direction, step, 0.0f));
     }
 }
