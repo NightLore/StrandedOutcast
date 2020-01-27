@@ -985,6 +985,8 @@ GameObject:
   - component: {fileID: 7351356704047452778}
   - component: {fileID: 272340677453577955}
   - component: {fileID: 3057021953409134623}
+  - component: {fileID: 6047839721678048025}
+  - component: {fileID: 6047839721678048026}
   m_Layer: 0
   m_Name: Fox1
   m_TagString: Untagged
@@ -1080,4 +1082,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   bufferDistance: 2.5
-  player: {fileID: 0}
+--- !u!114 &6047839721678048025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063373095095974138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6edaeebcd3635345a5dca075e00e234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 9128768956643486140, guid: 14fa99297b438ad439f2ca7d4a7116a2, type: 3}
+  damage: 5
+  spawnDistance: 2
+--- !u!114 &6047839721678048026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063373095095974138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ddf21a4acb08bc45917e9e3ed3b12ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 10
+  hp: 10

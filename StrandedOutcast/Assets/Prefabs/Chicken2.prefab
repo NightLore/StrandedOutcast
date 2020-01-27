@@ -264,6 +264,8 @@ GameObject:
   - component: {fileID: 7410407866792535361}
   - component: {fileID: 2864005329582102897}
   - component: {fileID: 6077223805028173837}
+  - component: {fileID: 2027042671202461307}
+  - component: {fileID: 2027042671202461308}
   m_Layer: 0
   m_Name: Chicken2
   m_TagString: Untagged
@@ -341,6 +343,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.9215574, y: 19.903913, z: 19.578964}
   m_Center: {x: 0.014367202, y: 9.451956, z: 1.1675317}
+--- !u!114 &2027042671202461307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7410407866785191043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6edaeebcd3635345a5dca075e00e234, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 9128768956643486140, guid: 14fa99297b438ad439f2ca7d4a7116a2, type: 3}
+  damage: 5
+  spawnDistance: 2
+--- !u!114 &2027042671202461308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7410407866785191043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ddf21a4acb08bc45917e9e3ed3b12ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 10
+  hp: 10
 --- !u!1 &7410407866785194889
 GameObject:
   m_ObjectHideFlags: 0
