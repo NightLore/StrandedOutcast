@@ -6,7 +6,7 @@ public class Attack : MonoBehaviour
 {
     public GameObject owner;
     public int damage;
-    public float lifeSpan;
+    public static float lifeSpan = 0.2f;
 
     private float time;
     // Start is called before the first frame update
