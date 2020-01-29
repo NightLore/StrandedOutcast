@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EnvironmentSpawner : MonoBehaviour
 {
@@ -8,30 +9,34 @@ public class EnvironmentSpawner : MonoBehaviour
     private int decorAmount = 200;
     private int waterAmount = 50;
 
-    public int itemsMax = 10;
-    public int passiveMax = 20;
-    public int aggroMax = 10;
+    public GameObject titleScreen;
+    public GameObject gameScreen;
+    public GameObject gameOverScreen;
+    public GameObject creditsScreen;
+
+    public GameObject titleObjects;
+    public TextMeshProUGUI waveText;
+    public TextMeshProUGUI timeText;
+
     public GameObject[] itemsPrefabs;
     public GameObject[] decorPrefabs;
     public GameObject[] passivePrefabs;
     public GameObject[] aggroPrefabs;
     public GameObject water;
-     
+
+    public GameObject player;
     public GameObject passiveCreatures;
     public GameObject aggroCreatures;
     public GameObject environment;
     public GameObject items;
 
-    public float minDelay = 2f;
-    public float maxDelay = 10f;
+    public bool inGame = false;
+    private int waveNumber;
+    private float timer;
+
     // Start is called before the first frame update
     void Start()
     {
-        SpawnWaterAtBounds(water, bounds, waterAmount);
-        SpawnDecoration(decorAmount);
-        Invoke("SpawnRandomItems", RandomDelay());
-        Invoke("SpawnAggro", RandomDelay());
-        Invoke("SpawnPassive", RandomDelay());
 
     }
 
@@ -41,9 +46,40 @@ public class EnvironmentSpawner : MonoBehaviour
 
     }
 
+    // -------------------------- Screens ------------------------- //
+
+    public void StartGame()
+    {
+        titleScreen.SetActive(false);
+        gameScreen.SetActive(true);
+
+        inGame = true;
+        waveNumber = 0;
+        Instantiate(player);
+        SpawnWaterAtBounds(water, bounds, waterAmount);
+        SpawnDecoration(decorAmount);
+        StartCoroutine(SpawnRandomItems());
+        StartCoroutine(SpawnPassive());
+        SpawnWave();
+    }
+
+    public void GameOver()
+    {
+        gameScreen.SetActive(false);
+        gameOverScreen.SetActive(true);
+    }
+
+    public void MainMenu()
+    {
+        gameOverScreen.SetActive(false);
+        titleScreen.SetActive(true);
+    }
+
+    // -------------------------- Spawning ------------------------- //
+
     float RandomDelay()
     {
-        return Random.Range(minDelay, maxDelay);
+        return Random.Range(GameSettings.minSpawnDelay, GameSettings.maxSpawnDelay);
     }
 
     void SpawnWaterAtBounds(GameObject water, float bounds, int amount)
@@ -69,39 +105,47 @@ public class EnvironmentSpawner : MonoBehaviour
         }
     }
 
-    void SpawnRandomItems()
+    IEnumerator SpawnRandomItems()
     {
-        SpawnInBounds(itemsPrefabs, bounds).transform.SetParent(items.transform);
-        Invoke("SpawnRandomItems", RandomDelay());
+        while (inGame)
+        {
+            yield return new WaitForSeconds(RandomDelay());
+            SpawnInBounds(itemsPrefabs, bounds).transform.SetParent(items.transform);
+        }
+    }
+
+    IEnumerator SpawnPassive()
+    {
+        while (inGame)
+        {
+            yield return new WaitForSeconds(RandomDelay());
+            if (passiveCreatures.GetComponentsInChildren<Transform>().Length < GameSettings.maxPassiveCreatures)
+            {
+                SpawnCreature(passivePrefabs, passiveCreatures, bounds);
+            }
+        }
+    }
+
+    private void SpawnWave()
+    {
+        waveNumber++;
+        timer = GameSettings.waveDelay;
+        for (int i = 0; i < waveNumber; i++)
+        {
+            SpawnCreature(aggroPrefabs, aggroCreatures, bounds);
+        }
     }
 
     GameObject SpawnInBounds(GameObject[] objects, float bounds)
     {
         int index = Random.Range(0, objects.Length);
         Vector3 spawnPos = new Vector3(Random.Range(-bounds, bounds), objects[index].transform.position.y, Random.Range(-bounds, bounds));
-
         return Instantiate(objects[index], spawnPos, Quaternion.Euler(Vector3.up * Random.Range(0, 360)));
     }
 
-    void SpawnAggro()
+    void SpawnCreature(GameObject[] objects, GameObject storage, float bounds)
     {
-        SpawnCreature(aggroPrefabs, aggroCreatures, aggroMax, bounds);
-        Invoke("SpawnAggro", RandomDelay());
-    }
-
-    void SpawnPassive()
-    {
-        SpawnCreature(passivePrefabs, passiveCreatures, passiveMax, bounds);
-        Invoke("SpawnPassive", RandomDelay());
-
-    }
-
-    void SpawnCreature(GameObject[] objects, GameObject storage, int max, float bounds)
-    {
-        if (storage.GetComponentsInChildren<Transform>().Length < max)
-        {
-            SpawnOffScreen(objects[Random.Range(0, objects.Length)], bounds).transform.SetParent(storage.transform, true);
-        }
+        SpawnOffScreen(objects[Random.Range(0, objects.Length)], bounds).transform.SetParent(storage.transform, true);
     }
 
     GameObject SpawnOffScreen(GameObject obj, float bounds)

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    public ParticleSystem bloodSplatter;
     public GameObject owner;
     public int damage;
     public static float lifeSpan = 0.2f;
@@ -31,17 +32,18 @@ public class Attack : MonoBehaviour
         if (other.gameObject != owner && attackable != null)
         {
             attackable.takeDamage(damage);
+            Instantiate(bloodSplatter, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Attackable attackable = collision.gameObject.GetComponent<Attackable>();
-        if (collision.gameObject != owner && attackable != null)
-        {
-            attackable.takeDamage(damage);
-            Destroy(gameObject);
-        }
+        //Attackable attackable = collision.gameObject.GetComponent<Attackable>();
+        //if (collision.gameObject != owner && attackable != null)
+        //{
+        //    attackable.takeDamage(damage);
+        //    Destroy(gameObject);
+        //}
     }
 }

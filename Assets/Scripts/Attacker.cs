@@ -20,14 +20,14 @@ public class Attacker : MonoBehaviour
         
     }
 
-    public void Attack(Animator animator, float delay)
+    public void Attack(Animator animator, float lengthModifier)
     {
         if (CanAttack)
         {
             animator.SetFloat("Speed_f", 0.0f);
             animator.SetTrigger("Attack_trig");
-            Debug.Log(animator.GetCurrentAnimatorStateInfo(0).ToString());
-            delay = GameSettings.attackAnimationLength - GameSettings.attackLifeSpan;
+            animator.speed = lengthModifier;
+            float delay = GameSettings.attackAnimationLength / lengthModifier - GameSettings.attackLifeSpan;
             Invoke("SpawnAttack", delay);
             Invoke("AllowAttack", GameSettings.attackAnimationLength);
             CanAttack = false;

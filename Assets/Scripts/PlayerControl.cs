@@ -7,6 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(Attacker))]
 public class PlayerControl : MonoBehaviour
 {
+    private GameObject playerLocation;
     private CharacterController controller;
     private Animator animator;
     private Attacker attacker;
@@ -19,6 +20,7 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame updateSpee
     void Start()
     {
+        playerLocation = GameObject.Find("Player");
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         attacker = GetComponent<Attacker>();
@@ -56,6 +58,9 @@ public class PlayerControl : MonoBehaviour
             dirtSplatter.Stop();
         }
         lastPos = transform.position;
+
+        playerLocation.transform.position = transform.position;
+        playerLocation.transform.rotation = transform.rotation;
     }
 
     private void CheckAttack()
@@ -63,10 +68,7 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetAxis("Fire1") == 0)
             return;
 
-        //animator.SetFloat("Speed_f", 0.0f);
-        //animator.SetTrigger("Attack_trig");
-        //animator.SetInteger("Animation_int", 5);
-        attacker.Attack(animator, animator.GetCurrentAnimatorStateInfo(0).length - GameSettings.attackLifeSpan);
+        attacker.Attack(animator, 1);
     }
 
     private bool IsAttacking()
