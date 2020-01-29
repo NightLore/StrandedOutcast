@@ -18,6 +18,8 @@ public class EnvironmentSpawner : MonoBehaviour
     public TextMeshProUGUI waveText;
     public TextMeshProUGUI timeText;
 
+    public TextMeshProUGUI resultText;
+
     public GameObject[] itemsPrefabs;
     public GameObject[] decorPrefabs;
     public GameObject[] passivePrefabs;
@@ -43,7 +45,15 @@ public class EnvironmentSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (inGame)
+        {
+            timer -= Time.deltaTime;
+            timeText.text = "Time: " + Mathf.Round(timer);
+            if (timer <= 0)
+            {
+                SpawnWave();
+            }
+        }
     }
 
     // -------------------------- Screens ------------------------- //
@@ -51,6 +61,7 @@ public class EnvironmentSpawner : MonoBehaviour
     public void StartGame()
     {
         titleScreen.SetActive(false);
+        titleObjects.SetActive(false);
         gameScreen.SetActive(true);
 
         inGame = true;
@@ -67,12 +78,15 @@ public class EnvironmentSpawner : MonoBehaviour
     {
         gameScreen.SetActive(false);
         gameOverScreen.SetActive(true);
+
+        resultText.text = "You survived " + waveNumber + " waves!";
     }
 
     public void MainMenu()
     {
         gameOverScreen.SetActive(false);
         titleScreen.SetActive(true);
+        titleObjects.SetActive(false);
     }
 
     // -------------------------- Spawning ------------------------- //
@@ -110,7 +124,13 @@ public class EnvironmentSpawner : MonoBehaviour
         while (inGame)
         {
             yield return new WaitForSeconds(RandomDelay());
-            SpawnInBounds(itemsPrefabs, bounds).transform.SetParent(items.transform);
+            if (items.GetComponentsInChildren<Transform>().Length < GameSettings.maxItems)
+            {
+                SpawnInBounds(itemsPrefabs, bounds).transform.SetParent(items.transform);
+                SpawnInBounds(itemsPrefabs, bounds).transform.SetParent(items.transform);
+                SpawnInBounds(itemsPrefabs, bounds).transform.SetParent(items.transform);
+                SpawnInBounds(itemsPrefabs, bounds).transform.SetParent(items.transform);
+            }
         }
     }
 
@@ -129,7 +149,9 @@ public class EnvironmentSpawner : MonoBehaviour
     private void SpawnWave()
     {
         waveNumber++;
+        waveText.text = "Wave: " + waveNumber;
         timer = GameSettings.waveDelay;
+        timeText.text = "Time: " + Mathf.Round(timer);
         for (int i = 0; i < waveNumber; i++)
         {
             SpawnCreature(aggroPrefabs, aggroCreatures, bounds);

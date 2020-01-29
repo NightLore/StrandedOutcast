@@ -15,6 +15,7 @@ public class GameSettings : MonoBehaviour
     public static int maxPassiveCreatures = 20;
 
     public static float waveDelay = 10.0f;
+
     // Start is called before the first frame update
     void Start()
     {

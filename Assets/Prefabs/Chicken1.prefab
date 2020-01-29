@@ -235,7 +235,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack: {fileID: 9128768956643486140, guid: 14fa99297b438ad439f2ca7d4a7116a2, type: 3}
   damage: 5
-  spawnDistance: 2
 --- !u!114 &668729394
 MonoBehaviour:
   m_ObjectHideFlags: 0

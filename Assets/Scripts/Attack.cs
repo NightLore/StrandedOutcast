@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    public ParticleSystem bloodSplatter;
+    public GameObject bloodSplatter;
     public GameObject owner;
     public int damage;
     public static float lifeSpan = 0.2f;
@@ -13,7 +13,7 @@ public class Attack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -35,15 +35,5 @@ public class Attack : MonoBehaviour
             Instantiate(bloodSplatter, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        //Attackable attackable = collision.gameObject.GetComponent<Attackable>();
-        //if (collision.gameObject != owner && attackable != null)
-        //{
-        //    attackable.takeDamage(damage);
-        //    Destroy(gameObject);
-        //}
     }
 }
