@@ -1,38 +1,50 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using TMPro;
 
 public class Inventory : MonoBehaviour
 {
     private AudioSource source;
     public AudioClip pickupSound;
 
-    public int numSticks = 0;
-    public int numRocks = 0;
+    public int[] itemCounts;
+    private TextMeshProUGUI[] quantityTexts;
     // Start is called before the first frame update
     void Start()
     {
         source = GetComponent<AudioSource>();
+        itemCounts = new int[GameSettings.NUMITEMTYPES];
+        quantityTexts = new TextMeshProUGUI[GameSettings.NUMITEMTYPES];
+        for (int i = 0; i < GameSettings.NUMITEMTYPES; i++)
+        {
+            quantityTexts[i] = GameObject.Find(GameSettings.itemTypes[i] + "QuantityText").GetComponent<TextMeshProUGUI>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-   private void OnTriggerEnter(Collider other)
+    public void UpdateQuantityText(int item)
+    {
+        quantityTexts[item].text = "" + itemCounts[item];
+    }
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag.Equals("Item"))
         {
             if (other.gameObject.name.Contains("Stick"))
             {
-                numSticks++;
+                itemCounts[GameSettings.STICK]++;
+                UpdateQuantityText(GameSettings.STICK);
                 pickup(other.gameObject);
             }
             else if (other.gameObject.name.Contains("Rock"))
             {
-                numRocks++;
+                itemCounts[GameSettings.ROCK]++;
+                UpdateQuantityText(GameSettings.ROCK);
                 pickup(other.gameObject);
             }
         }
@@ -41,6 +53,6 @@ public class Inventory : MonoBehaviour
     private void pickup(GameObject gameObject)
     {
         Destroy(gameObject);
-        source.PlayOneShot(pickupSound, 1.0f);
+        source.PlayOneShot(pickupSound, GameSettings.soundVolume);
     }
 }

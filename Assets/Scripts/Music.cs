@@ -6,14 +6,15 @@ public class Music : MonoBehaviour
 {
     private AudioSource source;
     public AudioClip[] music;
-    public float musicVolume = 0.25f;
 
-    private int count = 0;
+    private int count;
     // Start is called before the first frame update
     void Start()
     {
+        count = 0;
         source = GetComponent<AudioSource>();
-        Invoke("PlayNextSong", 0);
+
+        PlayNextSong();
     }
 
     // Update is called once per frame
@@ -23,14 +24,10 @@ public class Music : MonoBehaviour
 
     void PlayNextSong()
     {
-        source.clip = music[count];
-        source.volume = musicVolume;
+        source.clip = music[count % music.Length];
+        source.volume = GameSettings.musicVolume;
         source.Play();
         count++;
-        if (count >= music.Length)
-        {
-            count = 0;
-        }
-        Invoke("PlayNextSong", source.clip.length - 1);
+        Invoke("PlayNextSong", source.clip.length);
     }
 }

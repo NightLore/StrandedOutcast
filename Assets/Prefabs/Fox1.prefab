@@ -1050,8 +1050,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.08096421, y: 0.24422894, z: 0.33063388}
-  m_Center: {x: -0.00017482042, y: 0.092371844, z: 0.01674299}
+  m_Size: {x: 0.10848892, y: 0.24422894, z: 0.33063388}
+  m_Center: {x: -0.00097590685, y: 0.092371844, z: 0.01674299}
 --- !u!54 &272340677453577955
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1082,6 +1082,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   bufferDistance: 2.5
+  attackDamage: 2
+  attackScale: {x: 1, y: 1, z: 1}
+  attackSpeed: 2
 --- !u!114 &6047839721678048025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1095,7 +1098,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 9128768956643486140, guid: 14fa99297b438ad439f2ca7d4a7116a2, type: 3}
-  damage: 5
 --- !u!114 &6047839721678048026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1108,5 +1110,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ddf21a4acb08bc45917e9e3ed3b12ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 10
-  hp: 10
+  maxHp: 5

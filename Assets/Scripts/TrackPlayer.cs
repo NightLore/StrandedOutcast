@@ -11,25 +11,28 @@ public class TrackPlayer : MonoBehaviour
     private GameObject player;
     private Attacker attacker;
     private Animator animator;
+    public int attackDamage = 2;
+    public Vector3 attackScale = new Vector3(1, 1, 1);
+    public float attackSpeed = 2.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
-        player = GameObject.Find("Player");
+        player = GameObject.FindWithTag("Player");
         attacker = GetComponent<Attacker>();
         animator = GetComponent<Animator>();
+        attacker.SetStats(attackDamage, attackScale, attackSpeed);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (attacker.CanAttack)
+        if (player && attacker.CanAttack)
         {
             Track();
             if ((player.transform.position - transform.position).magnitude <= GameSettings.attackDistance + 1)
             {
-                attacker.Attack(animator, 1);
+                attacker.Attack(animator);
             }
         }
     }

@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class EnvironmentSpawner : MonoBehaviour
 {
-    public float bounds = 50.0f;
-    private int decorAmount = 200;
-    private int waterAmount = 50;
-
     public GameObject titleScreen;
     public GameObject gameScreen;
     public GameObject gameOverScreen;
@@ -26,20 +24,23 @@ public class EnvironmentSpawner : MonoBehaviour
     public GameObject[] aggroPrefabs;
     public GameObject water;
 
-    public GameObject player;
+    public GameObject playerCharacter;
     public GameObject passiveCreatures;
     public GameObject aggroCreatures;
     public GameObject environment;
     public GameObject items;
 
-    public bool inGame = false;
+    private GameObject player;
+    private GameObject playerReference;
+    private bool inGame = false;
+    public int killCount;
     private int waveNumber;
     private float timer;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        playerReference = GameObject.Find("PlayerReference");
     }
 
     // Update is called once per frame
@@ -53,6 +54,10 @@ public class EnvironmentSpawner : MonoBehaviour
             {
                 SpawnWave();
             }
+            if (!player)
+            {
+                GameOver();
+            }
         }
     }
 
@@ -60,18 +65,20 @@ public class EnvironmentSpawner : MonoBehaviour
 
     public void StartGame()
     {
-        titleScreen.SetActive(false);
-        titleObjects.SetActive(false);
-        gameScreen.SetActive(true);
-
         inGame = true;
-        waveNumber = 0;
-        Instantiate(player);
-        SpawnWaterAtBounds(water, bounds, waterAmount);
-        SpawnDecoration(decorAmount);
+        killCount = 0;
+        waveNumber = -1;
+        player = Instantiate(playerCharacter);
+        player.transform.SetParent(playerReference.transform);
+        SpawnWaterAtBounds(water, GameSettings.bounds, GameSettings.waterAmount);
+        SpawnDecoration(GameSettings.decorAmount);
         StartCoroutine(SpawnRandomItems());
         StartCoroutine(SpawnPassive());
         SpawnWave();
+
+        titleScreen.SetActive(false);
+        titleObjects.SetActive(false);
+        gameScreen.SetActive(true);
     }
 
     public void GameOver()
@@ -79,14 +86,27 @@ public class EnvironmentSpawner : MonoBehaviour
         gameScreen.SetActive(false);
         gameOverScreen.SetActive(true);
 
-        resultText.text = "You survived " + waveNumber + " waves!";
+        inGame = false;
+        resultText.text = "You killed " + (killCount-1) + " creatures and survived " + waveNumber + " waves!";
+    }
+
+    public void Credits()
+    {
+        titleScreen.SetActive(false);
+        titleObjects.SetActive(false);
+        creditsScreen.SetActive(true);
     }
 
     public void MainMenu()
     {
-        gameOverScreen.SetActive(false);
+        creditsScreen.SetActive(false);
         titleScreen.SetActive(true);
-        titleObjects.SetActive(false);
+        titleObjects.SetActive(true);
+    }
+
+    public void Reload()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     // -------------------------- Spawning ------------------------- //
@@ -94,6 +114,11 @@ public class EnvironmentSpawner : MonoBehaviour
     float RandomDelay()
     {
         return Random.Range(GameSettings.minSpawnDelay, GameSettings.maxSpawnDelay);
+    }
+
+    GameObject RandomPrefab(GameObject[] prefabs)
+    {
+        return prefabs[Random.Range(0, prefabs.Length)];
     }
 
     void SpawnWaterAtBounds(GameObject water, float bounds, int amount)
@@ -115,7 +140,7 @@ public class EnvironmentSpawner : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            SpawnInBounds(decorPrefabs, bounds).transform.SetParent(environment.transform);
+            SpawnInBounds(RandomPrefab(decorPrefabs), GameSettings.bounds).transform.SetParent(environment.transform);
         }
     }
 
@@ -126,10 +151,10 @@ public class EnvironmentSpawner : MonoBehaviour
             yield return new WaitForSeconds(RandomDelay());
             if (items.GetComponentsInChildren<Transform>().Length < GameSettings.maxItems)
             {
-                SpawnInBounds(itemsPrefabs, bounds).transform.SetParent(items.transform);
-                SpawnInBounds(itemsPrefabs, bounds).transform.SetParent(items.transform);
-                SpawnInBounds(itemsPrefabs, bounds).transform.SetParent(items.transform);
-                SpawnInBounds(itemsPrefabs, bounds).transform.SetParent(items.transform);
+                SpawnInBounds(itemsPrefabs[0], GameSettings.bounds).transform.SetParent(items.transform);
+                SpawnInBounds(itemsPrefabs[0], GameSettings.bounds).transform.SetParent(items.transform);
+                SpawnInBounds(itemsPrefabs[1], GameSettings.bounds).transform.SetParent(items.transform);
+                SpawnInBounds(itemsPrefabs[2], GameSettings.bounds).transform.SetParent(items.transform);
             }
         }
     }
@@ -141,7 +166,7 @@ public class EnvironmentSpawner : MonoBehaviour
             yield return new WaitForSeconds(RandomDelay());
             if (passiveCreatures.GetComponentsInChildren<Transform>().Length < GameSettings.maxPassiveCreatures)
             {
-                SpawnCreature(passivePrefabs, passiveCreatures, bounds);
+                SpawnCreature(RandomPrefab(passivePrefabs), passiveCreatures, GameSettings.bounds);
             }
         }
     }
@@ -152,50 +177,56 @@ public class EnvironmentSpawner : MonoBehaviour
         waveText.text = "Wave: " + waveNumber;
         timer = GameSettings.waveDelay;
         timeText.text = "Time: " + Mathf.Round(timer);
-        for (int i = 0; i < waveNumber; i++)
+        SpawnCreatures(aggroPrefabs[0], aggroCreatures, GameSettings.bounds / 2, waveNumber % 5);
+        SpawnCreatures(aggroPrefabs[1], aggroCreatures, GameSettings.bounds / 2, waveNumber / 5);
+    }
+
+    GameObject SpawnInBounds(GameObject prefab, float bounds)
+    {
+        Vector3 spawnPos = new Vector3(Random.Range(-bounds, bounds), prefab.transform.position.y, Random.Range(-bounds, bounds));
+        return Instantiate(prefab, spawnPos, Quaternion.Euler(Vector3.up * Random.Range(0, 360)));
+    }
+
+    void SpawnCreatures(GameObject prefab, GameObject parent, float bounds, int amount)
+    {
+        for (int i = 0; i < amount; i++)
         {
-            SpawnCreature(aggroPrefabs, aggroCreatures, bounds);
+            SpawnCreature(prefab, parent, bounds);
         }
     }
 
-    GameObject SpawnInBounds(GameObject[] objects, float bounds)
+    void SpawnCreature(GameObject prefab, GameObject parent, float bounds)
     {
-        int index = Random.Range(0, objects.Length);
-        Vector3 spawnPos = new Vector3(Random.Range(-bounds, bounds), objects[index].transform.position.y, Random.Range(-bounds, bounds));
-        return Instantiate(objects[index], spawnPos, Quaternion.Euler(Vector3.up * Random.Range(0, 360)));
+        SpawnInBounds(prefab, bounds).transform.SetParent(parent.transform, true);
+        //InstantiateOffScreen(prefabs, bounds).transform.SetParent(storage.transform, true);
     }
 
-    void SpawnCreature(GameObject[] objects, GameObject storage, float bounds)
-    {
-        SpawnOffScreen(objects[Random.Range(0, objects.Length)], bounds).transform.SetParent(storage.transform, true);
-    }
+    //GameObject InstantiateOffScreen(GameObject prefab, float bounds)
+    //{
+    //    float x = 0;
+    //    float z = 0;
+    //    switch(Random.Range(0, 4)) // random side of the screen to spawn off from
+    //    {
+    //        case 0: // left
+    //            x = -0.1f;
+    //            z = Random.value;
+    //            break;
+    //        case 1: // top
+    //            x = Random.value;
+    //            z = -0.1f;
+    //            break;
+    //        case 2: // right
+    //            x = 1.1f;
+    //            z = Random.value;
+    //            break;
+    //        case 3: // bottom
+    //            x = Random.value;
+    //            z = 1.1f;
+    //            break;
+    //    }
+    //    Vector3 position = Camera.main.ViewportToWorldPoint(new Vector3(x, z, Camera.main.transform.position.y));
+    //    position.y = prefab.transform.position.y;
 
-    GameObject SpawnOffScreen(GameObject obj, float bounds)
-    {
-        float x = 0;
-        float z = 0;
-        switch(Random.Range(0, 4)) // random side of the screen to spawn off from
-        {
-            case 0: // left
-                x = -0.1f;
-                z = Random.value;
-                break;
-            case 1: // top
-                x = Random.value;
-                z = -0.1f;
-                break;
-            case 2: // right
-                x = 1.1f;
-                z = Random.value;
-                break;
-            case 3: // bottom
-                x = Random.value;
-                z = 1.1f;
-                break;
-        }
-        Vector3 position = Camera.main.ViewportToWorldPoint(new Vector3(x, z, Camera.main.transform.position.y));
-        position.y = obj.transform.position.y;
-
-        return Instantiate(obj, position, Quaternion.Euler(Vector3.up * Random.Range(0, 360)));
-    }
+    //    return Instantiate(prefab, position, Quaternion.Euler(Vector3.up * Random.Range(0, 360)));
+    //}
 }

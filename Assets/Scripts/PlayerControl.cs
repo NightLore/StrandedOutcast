@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CharacterController))]
@@ -13,21 +11,18 @@ public class PlayerControl : MonoBehaviour
     private Attacker attacker;
     public ParticleSystem dirtSplatter;
 
-    public float speed = 10;
+    private float speed = GameSettings.playerSpeed;
     private Vector3 lastPos;
-    private bool wasAttacking;
 
-    // Start is called before the first frame updateSpee
     void Start()
     {
-        playerLocation = GameObject.Find("Player");
+        playerLocation = GameObject.Find("PlayerLocation");
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         attacker = GetComponent<Attacker>();
         lastPos = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (attacker.CanAttack)
@@ -46,9 +41,11 @@ public class PlayerControl : MonoBehaviour
         //transform.position = new Vector3(transform.position.x, 0, transform.position.z); // force player on the ground
         transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, direction, step, 0.0f));
 
+        // Animate 
         animator.SetBool("Static_b", false);
         if (lastPos != transform.position)
         {
+            animator.speed = 1.0f;
             animator.SetFloat("Speed_f", 0.6f);
             dirtSplatter.Play();
         }
@@ -68,12 +65,6 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetAxis("Fire1") == 0)
             return;
 
-        attacker.Attack(animator, 1);
-    }
-
-    private bool IsAttacking()
-    {
-        var a = animator.GetCurrentAnimatorStateInfo(0);
-        return a.IsName("Attack") && (a.normalizedTime <= 1 || animator.IsInTransition(0));
+        attacker.Attack(animator);
     }
 }

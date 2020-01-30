@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnSoundEffect : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-    private AudioSource audioSource;
-    public AudioClip attackSound;
+    // Note: move TrackPlayer enemy stuff here
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        audioSource.PlayOneShot(attackSound, GameSettings.soundVolume);
+        
     }
 
     // Update is called once per frame

@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Attackable : MonoBehaviour
 {
+    public EnvironmentSpawner environmentSpawner;
     public int maxHp;
-    public int hp;
+    private int hp;
     // Start is called before the first frame update
     void Start()
     {
+        environmentSpawner = GameObject.Find("EnvironmentSpawner").GetComponent<EnvironmentSpawner>();
         hp = maxHp;
     }
 
@@ -18,16 +20,17 @@ public class Attackable : MonoBehaviour
         
     }
 
-    void heal(int amount)
-    {
-        hp = Mathf.Min(hp + amount, maxHp);
-    }
+    //void heal(int amount)
+    //{
+    //    hp = Mathf.Min(hp + amount, maxHp);
+    //}
 
     public void takeDamage(int amount)
     {
         hp -= amount;
         if (hp <= 0)
         {
+            environmentSpawner.killCount++;
             Destroy(gameObject);
         }
     }

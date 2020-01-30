@@ -679,7 +679,7 @@ Transform:
   m_GameObject: {fileID: 8189271948642991689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 12, y: 12, z: 12}
   m_Children:
   - {fileID: 8189271948642513997}
   - {fileID: 8189271948642566909}
@@ -726,8 +726,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.077384904, y: 0.24982701, z: 0.31838906}
-  m_Center: {x: 0.00000035762787, y: 0.10076933, z: 0.016696215}
+  m_Size: {x: 0.10459888, y: 0.24982701, z: 0.31838906}
+  m_Center: {x: 0.0008052111, y: 0.10076933, z: 0.016696215}
 --- !u!54 &6276110073935120515
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -758,6 +758,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   bufferDistance: 2.5
+  attackDamage: 4
+  attackScale: {x: 1.5, y: 1.5, z: 1.5}
+  attackSpeed: 2
 --- !u!114 &6052567163690361965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -771,7 +774,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attack: {fileID: 9128768956643486140, guid: 14fa99297b438ad439f2ca7d4a7116a2, type: 3}
-  damage: 5
 --- !u!114 &6052567163690361966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,7 +787,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 10
-  hp: 10
 --- !u!1 &8189271948642992105
 GameObject:
   m_ObjectHideFlags: 0
