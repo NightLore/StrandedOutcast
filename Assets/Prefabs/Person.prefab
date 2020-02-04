@@ -792,6 +792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ddf21a4acb08bc45917e9e3ed3b12ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  environmentSpawner: {fileID: 0}
   maxHp: 10
 --- !u!114 &7937342625486235179
 MonoBehaviour:

@@ -4,7 +4,6 @@ Shader "LowPoly/SimpleWater"
 {
 	Properties
 	{
-		_TessValue( "Max Tessellation", Range( 1, 32 ) ) = 16
 		_WaterNormal("Water Normal", 2D) = "bump" {}
 		_NormalScale("Normal Scale", Float) = 0
 		_DeepColor("Deep Color", Color) = (0,0,0,0)
@@ -34,8 +33,8 @@ Shader "LowPoly/SimpleWater"
 		#include "UnityStandardUtils.cginc"
 		#include "UnityShaderVariables.cginc"
 		#include "UnityCG.cginc"
-		#pragma target 4.6
-		#pragma surface surf StandardSpecular keepalpha vertex:vertexDataFunc tessellate:tessFunction 
+		#pragma target 3.0
+		#pragma surface surf StandardSpecular keepalpha vertex:vertexDataFunc
 		struct Input
 		{
 			float2 uv_texcoord;
@@ -62,12 +61,6 @@ Shader "LowPoly/SimpleWater"
 		uniform float _FoamSmoothness;
 		uniform float _WavesAmount;
 		uniform float _WavesAmplitude;
-		uniform float _TessValue;
-
-		float4 tessFunction( )
-		{
-			return _TessValue;
-		}
 
 		void vertexDataFunc( inout appdata_full v )
 		{
