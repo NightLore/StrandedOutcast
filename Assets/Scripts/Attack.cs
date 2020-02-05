@@ -28,10 +28,10 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Attackable attackable = other.gameObject.GetComponent<Attackable>();
-        if (other.gameObject != owner && attackable != null)
+        Health health = other.gameObject.GetComponent<Health>();
+        if (other.gameObject != owner && health != null)
         {
-            attackable.takeDamage(damage);
+            health.takeDamage(damage);
             Instantiate(bloodSplatter, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }

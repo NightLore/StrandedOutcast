@@ -580,6 +580,7 @@ GameObject:
   - component: {fileID: 7937342625486235176}
   - component: {fileID: 7937342625486235179}
   - component: {fileID: 2120101884049886975}
+  - component: {fileID: -2936326018206275088}
   m_Layer: 0
   m_Name: Person
   m_TagString: Player
@@ -656,7 +657,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.4000651, y: 3.038881, z: 1.112878}
-  m_Center: {x: 0.0070753694, y: 1.5160567, z: 0.009406745}
+  m_Center: {x: 0, y: 1.5160567, z: 0.009406745}
 --- !u!82 &7937342625486235182
 AudioSource:
   m_ObjectHideFlags: 0
@@ -794,6 +795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   environmentSpawner: {fileID: 0}
   maxHp: 10
+  hp: 0
 --- !u!114 &7937342625486235179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -832,6 +834,87 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f49768bddff76954884a7f4f0cf36819, type: 3}
   - {fileID: 21300000, guid: 5d275dc9cf5f8434ea791193a0424d6f, type: 3}
   defaultImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+--- !u!114 &-2936326018206275088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7937342625486332158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65a7ac9d02f1c214c8604e414fa6e68d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emptyTex: {fileID: 2800000, guid: 9ac8eab2844a2294fbf9333d172b129e, type: 3}
+  fullTex: {fileID: 2800000, guid: 7c122b4344625a945996234c29ffb739, type: 3}
+  style:
+    m_Name: health
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0.29411766, g: 0.27450982, b: 0.6862745, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 12800000, guid: 32de974c3db9e4756969d3fd9309e8e4, type: 3}
+    m_FontSize: 0
+    m_FontStyle: 1
+    m_Alignment: 4
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 1
 --- !u!1 &7937342625486345350
 GameObject:
   m_ObjectHideFlags: 0

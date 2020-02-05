@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attackable : MonoBehaviour
+public class Health : MonoBehaviour
 {
     public EnvironmentSpawner environmentSpawner;
     public int maxHp;
-    private int hp;
+    public int hp;
     // Start is called before the first frame update
     void Start()
     {

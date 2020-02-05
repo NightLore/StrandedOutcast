@@ -11,11 +11,14 @@ public class GameSettings : MonoBehaviour
     public static float musicVolume = 0.10f;
     public static float soundVolume = 1.0f;
 
+    public static Vector2 healthBarSize = new Vector2(100, 20);
+
     public static float attackLifeSpan = 0.2f;
     public static int attackDistance = 2;
     public static float attackAnimationLength = 2.28f;
 
     public static float playerSpeed = 10.0f;
+    public static float playerTurnSpeed = 30.0f;
 
     public static float enemyAttackSpeed = 1.0f;
 

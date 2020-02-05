@@ -11,7 +11,6 @@ public class PlayerControl : MonoBehaviour
     private Attacker attacker;
     public ParticleSystem dirtSplatter;
 
-    private float speed = GameSettings.playerSpeed;
     private Vector3 lastPos;
 
     void Start()
@@ -34,12 +33,13 @@ public class PlayerControl : MonoBehaviour
 
     private void Move()
     {
-        float step = speed * Time.deltaTime;
         Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        controller.Move(direction * step);
-        
+        controller.Move(direction * GameSettings.playerSpeed * Time.deltaTime);
+
         //transform.position = new Vector3(transform.position.x, 0, transform.position.z); // force player on the ground
-        transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, direction, step, 0.0f));
+
+        Vector3 r = Vector3.RotateTowards(transform.forward, direction, GameSettings.playerTurnSpeed * Time.deltaTime, 0.0f);
+        transform.rotation = Quaternion.LookRotation(r);
 
         // Animate 
         animator.SetBool("Static_b", false);
