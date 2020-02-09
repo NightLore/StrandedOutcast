@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
 {
     public EnvironmentSpawner environmentSpawner;
     public int maxHp;
-    public int hp;
+    private int hp;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,18 +20,28 @@ public class Health : MonoBehaviour
         
     }
 
+    public int GetHP()
+    {
+        return hp;
+    }
+
     //void heal(int amount)
     //{
     //    hp = Mathf.Min(hp + amount, maxHp);
     //}
 
-    public void takeDamage(int amount)
+    /*
+     * Decreases health by the specified amount. Returns true if health is less than or equal to 0 and Destroys this gameobject
+     */
+    public bool takeDamage(int amount)
     {
         hp -= amount;
         if (hp <= 0)
         {
             environmentSpawner.killCount++;
             Destroy(gameObject);
+            return true;
         }
+        return false;
     }
 }

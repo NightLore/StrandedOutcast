@@ -581,6 +581,8 @@ GameObject:
   - component: {fileID: 7937342625486235179}
   - component: {fileID: 2120101884049886975}
   - component: {fileID: -2936326018206275088}
+  - component: {fileID: -335141526418281627}
+  - component: {fileID: 421097204759211898}
   m_Layer: 0
   m_Name: Person
   m_TagString: Player
@@ -841,7 +843,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7937342625486332158}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 65a7ac9d02f1c214c8604e414fa6e68d, type: 3}
   m_Name: 
@@ -915,6 +917,99 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 1
+--- !u!114 &-335141526418281627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7937342625486332158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1af39bd0099f4a4ab8720adf95902ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emptyTex: {fileID: 2800000, guid: 9ac8eab2844a2294fbf9333d172b129e, type: 3}
+  fullTex: {fileID: 2800000, guid: 7c122b4344625a945996234c29ffb739, type: 3}
+  style:
+    m_Name: 
+    m_Normal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Hover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Active:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Focused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnNormal:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnHover:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnActive:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_OnFocused:
+      m_Background: {fileID: 0}
+      m_ScaledBackgrounds: []
+      m_TextColor: {r: 0, g: 0, b: 0, a: 1}
+    m_Border:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Margin:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Padding:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Overflow:
+      m_Left: 0
+      m_Right: 0
+      m_Top: 0
+      m_Bottom: 0
+    m_Font: {fileID: 0}
+    m_FontSize: 0
+    m_FontStyle: 0
+    m_Alignment: 0
+    m_WordWrap: 0
+    m_RichText: 1
+    m_TextClipping: 0
+    m_ImagePosition: 0
+    m_ContentOffset: {x: 0, y: 0}
+    m_FixedWidth: 0
+    m_FixedHeight: 0
+    m_StretchWidth: 1
+    m_StretchHeight: 0
+--- !u!114 &421097204759211898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7937342625486332158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ec70c362db1e8418366fccd12ead26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7937342625486345350
 GameObject:
   m_ObjectHideFlags: 0
@@ -1536,15 +1631,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0169672840b1dde468fe8324a76ce492, type: 3}
---- !u!1 &567791772415163645 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1713214988236272, guid: 0169672840b1dde468fe8324a76ce492,
-    type: 3}
-  m_PrefabInstance: {fileID: 569465329285974285}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &573778204111584241 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4887946386961148, guid: 0169672840b1dde468fe8324a76ce492,
+    type: 3}
+  m_PrefabInstance: {fileID: 569465329285974285}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &567791772415163645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1713214988236272, guid: 0169672840b1dde468fe8324a76ce492,
     type: 3}
   m_PrefabInstance: {fileID: 569465329285974285}
   m_PrefabAsset: {fileID: 0}
@@ -1626,15 +1721,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f3c20bf41104034d92e2a7ddaf3d539, type: 3}
---- !u!1 &758648902670328800 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1748390405283232, guid: 1f3c20bf41104034d92e2a7ddaf3d539,
-    type: 3}
-  m_PrefabInstance: {fileID: 757014917746179648}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &761202369391752564 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4820856247765812, guid: 1f3c20bf41104034d92e2a7ddaf3d539,
+    type: 3}
+  m_PrefabInstance: {fileID: 757014917746179648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &758648902670328800 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1748390405283232, guid: 1f3c20bf41104034d92e2a7ddaf3d539,
     type: 3}
   m_PrefabInstance: {fileID: 757014917746179648}
   m_PrefabAsset: {fileID: 0}
@@ -1868,15 +1963,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d499d11147fcf384dab65255bac2f8bf, type: 3}
---- !u!4 &7391228030622482801 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1132169639205793774, guid: d499d11147fcf384dab65255bac2f8bf,
-    type: 3}
-  m_PrefabInstance: {fileID: 7576370628819562143}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7391228030622482811 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1132169639205793764, guid: d499d11147fcf384dab65255bac2f8bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 7576370628819562143}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7391228030622482801 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1132169639205793774, guid: d499d11147fcf384dab65255bac2f8bf,
     type: 3}
   m_PrefabInstance: {fileID: 7576370628819562143}
   m_PrefabAsset: {fileID: 0}

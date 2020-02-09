@@ -18,7 +18,7 @@ public class HealthBar : MonoBehaviour
     {
         boxCollider = GetComponent<BoxCollider>();
         health = GetComponent<Health>();
-        fullBar = new Rect(0, 0, GameSettings.healthBarSize.x, GameSettings.healthBarSize.y);
+        fullBar = new Rect(0, 0, GameSettings.healthBarHorizontal.x, GameSettings.healthBarHorizontal.y);
 
         // Style is set through Unity
         //style = new GUIStyle();
@@ -35,19 +35,21 @@ public class HealthBar : MonoBehaviour
 
     void OnGUI()
     {
+        if (health.GetHP() == health.maxHp) // don't display when full hp
+            return;
         Vector3 position = transform.position; // get current position
         position.y += boxCollider.size.y * transform.localScale.y; // move to top of object
         Vector2 targetPos = Camera.main.WorldToScreenPoint(position); // convert to screen coordinates
 
         //draw the background rectangle:
-        GUI.BeginGroup(new Rect(targetPos.x - GameSettings.healthBarSize.x / 2, Screen.height - targetPos.y, GameSettings.healthBarSize.x, GameSettings.healthBarSize.y));
+        GUI.BeginGroup(new Rect(targetPos.x - GameSettings.healthBarHorizontal.x / 2, Screen.height - targetPos.y, GameSettings.healthBarHorizontal.x, GameSettings.healthBarHorizontal.y));
         style.normal.background = emptyTex; // Fill background
-        GUI.Box(fullBar, health.hp + "/" + health.maxHp, style);
+        GUI.Box(fullBar, health.GetHP() + "/" + health.maxHp, style);
 
         //draw the filled-in part:
-        GUI.BeginGroup(new Rect(0, 0, GameSettings.healthBarSize.x * health.hp / health.maxHp, GameSettings.healthBarSize.y));
+        GUI.BeginGroup(new Rect(0, 0, GameSettings.healthBarHorizontal.x * health.GetHP() / health.maxHp, GameSettings.healthBarHorizontal.y));
         style.normal.background = fullTex;
-        GUI.Box(fullBar, health.hp + "/" + health.maxHp, style);
+        GUI.Box(fullBar, health.GetHP() + "/" + health.maxHp, style);
         GUI.EndGroup();
         GUI.EndGroup();
     }

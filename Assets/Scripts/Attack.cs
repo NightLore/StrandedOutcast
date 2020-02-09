@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
@@ -31,7 +29,11 @@ public class Attack : MonoBehaviour
         Health health = other.gameObject.GetComponent<Health>();
         if (other.gameObject != owner && health != null)
         {
-            health.takeDamage(damage);
+            if (health.takeDamage(damage) && owner.CompareTag("Player")) // if killed "other" and is from player
+            {
+                Hunger hunger = owner.GetComponent<Hunger>();
+                hunger.IncreaseHunger(10);
+            }
             Instantiate(bloodSplatter, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }
