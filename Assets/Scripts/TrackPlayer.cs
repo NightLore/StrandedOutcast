@@ -29,7 +29,7 @@ public class TrackPlayer : MonoBehaviour
     {
         if (player && attacker.CanAttack)
         {
-            Track();
+            //Track();
             if ((player.transform.position - transform.position).magnitude <= GameSettings.attackDistance + 1)
             {
                 attacker.Attack(animator);
@@ -37,7 +37,10 @@ public class TrackPlayer : MonoBehaviour
         }
     }
 
-    private void Track()
+    /*
+     * Now we are using NavMesh
+     * 
+     * private void Track()
     {
         float step = speed * Time.deltaTime;
         Vector3 direction = Vector3.Normalize(player.transform.position - transform.position);
@@ -46,5 +49,5 @@ public class TrackPlayer : MonoBehaviour
 
         transform.position = Vector3.MoveTowards(transform.position, target, step);
         transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, direction, step, 0.0f));
-    }
+    }*/
 }

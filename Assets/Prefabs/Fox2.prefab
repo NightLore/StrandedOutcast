@@ -664,6 +664,8 @@ GameObject:
   - component: {fileID: 6052567163690361965}
   - component: {fileID: 6052567163690361966}
   - component: {fileID: 6537228522897882856}
+  - component: {fileID: 426227717064313936}
+  - component: {fileID: 1191060123938479262}
   m_Layer: 0
   m_Name: Fox2
   m_TagString: Untagged
@@ -752,7 +754,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8189271948642991689}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d468cfec6cc02745a9b820c9da6cf70, type: 3}
   m_Name: 
@@ -789,7 +791,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   environmentSpawner: {fileID: 0}
   maxHp: 10
-  hp: 0
 --- !u!114 &6537228522897882856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,6 +872,40 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 1
+--- !u!195 &426227717064313936
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8189271948642991689}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 0
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1191060123938479262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8189271948642991689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c03a6158ee8484f6496d7255b350e8ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8189271948642992105
 GameObject:
   m_ObjectHideFlags: 0
