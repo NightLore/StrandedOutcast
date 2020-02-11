@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Item
   - Recipe
+  - Button
   layers:
   - Default
   - TransparentFX
