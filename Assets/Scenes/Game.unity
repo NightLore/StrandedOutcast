@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9267,6 +9267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1940115119}
   - component: {fileID: 1940115118}
+  - component: {fileID: 1940115120}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -9348,6 +9349,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1940115120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940115117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb8b196584763a4988e14c6c07cd982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1949212181
 GameObject:
   m_ObjectHideFlags: 0

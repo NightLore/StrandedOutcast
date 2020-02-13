@@ -49,9 +49,15 @@ public class EnvironmentSpawner : MonoBehaviour
         if (inGame)
         {
             timer -= Time.deltaTime;
-            timeText.text = "Time: " + Mathf.Round(timer);
+            if (GameSettings.day) {
+                timeText.text = "Time left in day: " + Mathf.Round(timer);
+            }
+            else {
+                timeText.text = "Time left in night: " + Mathf.Round(timer);
+            }
             if (timer <= 0)
             {
+                GameSettings.day = !GameSettings.day;
                 SpawnWave();
             }
             if (!player)
@@ -176,7 +182,12 @@ public class EnvironmentSpawner : MonoBehaviour
         waveNumber++;
         waveText.text = "Wave: " + waveNumber;
         timer = GameSettings.waveDelay;
-        timeText.text = "Time: " + Mathf.Round(timer);
+        // if (GameSettings.day) {
+        //     timeText.text = "Time left in day: " + Mathf.Round(timer);
+        // }
+        // else {
+        //     timeText.text = "Time left in night: " + Mathf.Round(timer);
+        // }
         SpawnCreatures(aggroPrefabs[0], aggroCreatures, GameSettings.bounds / 2, waveNumber % 5);
         SpawnCreatures(aggroPrefabs[1], aggroCreatures, GameSettings.bounds / 2, waveNumber / 5);
     }
