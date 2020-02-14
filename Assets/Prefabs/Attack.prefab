@@ -110,6 +110,7 @@ MonoBehaviour:
   bloodSplatter: {fileID: 331467393979060907, guid: 8a0d9482392f38747b9568c57410f1c3,
     type: 3}
   owner: {fileID: 0}
+  meat: {fileID: 116614, guid: 7fe3fdccc2238034cb79964fbbf73d9f, type: 3}
   damage: 0
 --- !u!82 &-7891836898604181999
 AudioSource:

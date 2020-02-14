@@ -4,6 +4,7 @@ public class Attack : MonoBehaviour
 {
     public GameObject bloodSplatter;
     public GameObject owner;
+    public GameObject meat;
     public int damage;
     public static float lifeSpan = 0.2f;
 
@@ -27,12 +28,18 @@ public class Attack : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Health health = other.gameObject.GetComponent<Health>();
+        Vector3 enemyPosition = other.GetComponent<Transform>().position;
+        enemyPosition.y = 0;
+
         if (other.gameObject != owner && health != null)
         {
             if (health.takeDamage(damage) && owner.CompareTag("Player")) // if killed "other" and is from player
             {
-                Hunger hunger = owner.GetComponent<Hunger>();
-                hunger.IncreaseHunger(10);
+                /* Spawn meat when enemies are killed, 50% chance of dropping */
+                if (Random.Range(0, 10) % 2 == 0)
+                {
+                    Instantiate(meat, enemyPosition, owner.GetComponent<Transform>().rotation);
+                }
             }
             Instantiate(bloodSplatter, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);

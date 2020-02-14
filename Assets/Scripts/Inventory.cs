@@ -5,6 +5,7 @@ public class Inventory : MonoBehaviour
 {
     private AudioSource source;
     public AudioClip pickupSound;
+    public GameObject owner;
 
     public int[] itemCounts;
     private TextMeshProUGUI[] quantityTexts;
@@ -45,6 +46,12 @@ public class Inventory : MonoBehaviour
             {
                 itemCounts[GameSettings.ROCK]++;
                 UpdateQuantityText(GameSettings.ROCK);
+                pickup(other.gameObject);
+            }
+            else if (other.gameObject.name.Contains("Raw Meat"))
+            {
+                Hunger hunger = owner.GetComponent<Hunger>();
+                hunger.IncreaseHunger(10);
                 pickup(other.gameObject);
             }
         }

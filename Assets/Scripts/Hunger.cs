@@ -35,9 +35,14 @@ public class Hunger : MonoBehaviour
         return hunger;
     }
 
+    /* Increases Hunger by amount, caps at max Hunger */
     public void IncreaseHunger(float amount)
     {
         hunger += amount;
+        if (hunger > GetMaxHunger())
+        {
+            hunger = GetMaxHunger();
+        }
     }
 
     /*
