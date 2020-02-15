@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameSettings : MonoBehaviour
 {
-    public static float bounds = 50.0f;
+    public static float bounds = 70.0f;
     public static int decorAmount = 200;
     public static int waterAmount = 50;
 
