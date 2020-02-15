@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,8 +41,10 @@ public class GameSettings : MonoBehaviour
     public const int AXE = 2;
     public const int SPEAR = 3;
     public const int KNIFE = 4;
-    public const int NUMITEMTYPES = 5;
-    public static string[] itemTypes = { "Stick", "Rock", "Axe", "Spear", "Knife" };
+    public const int STICKimage = 5;
+    public const int ROCKimage = 6;
+    public const int NUMITEMTYPES = 7;
+    public static string[] itemTypes = { "Stick", "Rock", "Axe", "Spear", "Knife", "StickImage", "RockImage" };
 
 
     public static int defaultDamage = 1;
@@ -68,6 +70,10 @@ public class GameSettings : MonoBehaviour
         new int[]{ 3, 1 },
         new int[]{ 1, 1 }
     };
-
     public static bool day = true;
+    public static float flickerSpeed = 0.2f;
+    public static float minFlicker = 0.5f;
+    public static float maxFlicker = 1.0f;
+    public static float minDeltaFlicker = -0.1f;
+    public static float maxDeltaFlicker = 0.1f;
 }

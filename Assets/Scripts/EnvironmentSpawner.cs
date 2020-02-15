@@ -29,13 +29,14 @@ public class EnvironmentSpawner : MonoBehaviour
     public GameObject aggroCreatures;
     public GameObject environment;
     public GameObject items;
+    public GameObject campfire;
 
     private GameObject player;
     private GameObject playerReference;
     private bool inGame = false;
     public int killCount;
     private int waveNumber;
-    private float timer;
+    public float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +76,7 @@ public class EnvironmentSpawner : MonoBehaviour
         killCount = 0;
         waveNumber = -1;
         player = Instantiate(playerCharacter);
+        Instantiate(campfire);
         player.transform.SetParent(playerReference.transform);
         SpawnWaterAtBounds(water, GameSettings.bounds, GameSettings.waterAmount);
         SpawnDecoration(GameSettings.decorAmount);

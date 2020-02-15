@@ -17,7 +17,9 @@ public class Inventory : MonoBehaviour
         quantityTexts = new TextMeshProUGUI[GameSettings.NUMITEMTYPES];
         for (int i = 0; i < GameSettings.NUMITEMTYPES; i++)
         {
-            quantityTexts[i] = GameObject.Find(GameSettings.itemTypes[i] + "QuantityText").GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI objectText = GameObject.Find(GameSettings.itemTypes[i] + "QuantityText").GetComponent<TextMeshProUGUI>();
+            quantityTexts[i] = objectText;
+            objectText.transform.parent.gameObject.SetActive(false); //turn buttons off
         }
     }
 
@@ -39,13 +41,18 @@ public class Inventory : MonoBehaviour
             if (other.gameObject.name.Contains("Stick"))
             {
                 itemCounts[GameSettings.STICK]++;
+                itemCounts[GameSettings.STICKimage]++;
                 UpdateQuantityText(GameSettings.STICK);
+                UpdateQuantityText(GameSettings.STICKimage);
+                Debug.Log("before pickup");
                 pickup(other.gameObject);
             }
             else if (other.gameObject.name.Contains("Rock"))
             {
                 itemCounts[GameSettings.ROCK]++;
+                itemCounts[GameSettings.ROCKimage]++;
                 UpdateQuantityText(GameSettings.ROCK);
+                UpdateQuantityText(GameSettings.ROCKimage);
                 pickup(other.gameObject);
             }
             else if (other.gameObject.name.Contains("Raw Meat"))

@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
 
     private void DisplaySubButtons() {
         foreach (Transform child in transform) {
-            if (child.CompareTag("Button")) {
+            if (child.CompareTag("Button") || child.CompareTag("Image")) {
                 child.gameObject.SetActive(true);
             }
         }
@@ -41,7 +41,7 @@ public class UIManager : MonoBehaviour
     private void CloseOtherSubButtons() {
         foreach (GameObject button in categoryButtons) {
             foreach (Transform child in button.transform) {
-                if (child.CompareTag("Button")) {
+                if (child.CompareTag("Button") || child.CompareTag("Image")) {
                     child.gameObject.SetActive(false);
                 }
             }
