@@ -21,7 +21,7 @@ public class GameSettings : MonoBehaviour
     public static int attackDistance = 2;
     public static float attackAnimationLength = 2.28f;
 
-    public static float playerSpeed = 10.0f;
+    public static float playerSpeed = 300.0f;
     public static float playerTurnSpeed = 100.0f;
 
     public static float enemyAttackSpeed = 1.0f;

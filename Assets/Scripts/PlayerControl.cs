@@ -34,7 +34,7 @@ public class PlayerControl : MonoBehaviour
     private void Move()
     {
         Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        controller.Move(direction * GameSettings.playerSpeed * Time.deltaTime);
+        controller.SimpleMove(direction.normalized * GameSettings.playerSpeed * Time.deltaTime);
 
         //transform.position = new Vector3(transform.position.x, 0, transform.position.z); // force player on the ground
 
