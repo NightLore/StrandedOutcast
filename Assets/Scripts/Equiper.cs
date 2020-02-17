@@ -20,7 +20,7 @@ public class Equiper : MonoBehaviour
     /*
      * references to scripts
      */
-    private int currentWeapon = GameSettings.FISTS;
+    private Weapon currentWeapon = GameSettings.weapons[0];
 
     /*
      * Objects with references assigned in start()
@@ -57,32 +57,39 @@ public class Equiper : MonoBehaviour
      */
     public void Equip(int weapon)
     {
-        // if attacking, don't equip
+        Equip(GameSettings.weapons[weapon + 1]);
+    }
+
+    public void Equip(Weapon weapon)
+    {
+        // if attacking, don't equip -- current purpose is to avoid hacking the attack speed
         if (!attacker.CanAttack)
             return;
-        if (weapon < 0) // if default weapon
+        
+        // don't equip non-default weapons that you don't have and can't craft
+        if (weapon != GameSettings.weapons[0] && inventory.itemCounts[weapon.GetID()] <= 0 && !CraftWeapon(weapon))
+            return;
+        currentWeaponText.text = weapon.GetName();
+        attacker.SetStats(weapon.GetDamage(),
+                            weapon.GetSize(),
+                            weapon.GetSpeed());
+        // update visual
+        if (weapon == GameSettings.weapons[0])
         {
-            currentWeaponText.text = "Fists";
-            attacker.SetStats(GameSettings.defaultDamage, 
-                              GameSettings.defaultAttackSize, 
-                              GameSettings.defaultAttackSpeed);
             equipImage.sprite = defaultImage;
         }
         else
         {
-            // don't equip weapons that you don't have and can't craft
-            if (inventory.itemCounts[weapon] <= 0 && !CraftWeapon(weapon))
-                return;
-            currentWeaponText.text = GameSettings.itemTypes[weapon];
-            attacker.SetStats(GameSettings.weaponDamages[weapon],
-                              GameSettings.weaponSizes[weapon],
-                              GameSettings.weaponSpeeds[weapon]);
-            weapons[weapon].SetActive(true);
-            equipImage.sprite = weaponImages[weapon];
+            weapons[weapon.GetID()].SetActive(true);
+            equipImage.sprite = weaponImages[weapon.GetID()];
         }
-        if (currentWeapon >= 0) // deactivate old weapon
-            weapons[currentWeapon].SetActive(false);
-        currentWeapon = weapon; // update currentWeapon to new weapon
+
+        // deactivate old weapon if not default weapon
+        if (currentWeapon != GameSettings.weapons[0])
+            weapons[currentWeapon.GetID()].SetActive(false);
+
+        // update currentWeapon to new weapon
+        currentWeapon = weapon;
     }
 
     /* CraftWeapon
@@ -99,20 +106,24 @@ public class Equiper : MonoBehaviour
      *          inventory
      * 
      */
-    private bool CraftWeapon(int weapon)
+    private bool CraftWeapon(Weapon weapon)
     {
-        int[] recipe = GameSettings.weaponParts[weapon];
-        if (inventory.itemCounts[GameSettings.STICK] >= recipe[GameSettings.STICK] 
+        int[] recipe = weapon.GetRecipe();
+        Debug.Log("Sticks: " + inventory.itemCounts[GameSettings.STICK] + ", " + recipe[GameSettings.STICK]
+               + "\nRocks: " + inventory.itemCounts[GameSettings.ROCK] + ", " + recipe[GameSettings.ROCK]);
+        if (inventory.itemCounts[GameSettings.STICK] >= recipe[GameSettings.STICK]
          && inventory.itemCounts[GameSettings.ROCK] >= recipe[GameSettings.ROCK])
         {
-            inventory.itemCounts[weapon]++;
-            inventory.UpdateQuantityText(weapon);
+            inventory.itemCounts[weapon.GetID()]++;
+            inventory.UpdateQuantityText(weapon.GetID());
             inventory.itemCounts[GameSettings.STICK] -= recipe[GameSettings.STICK];
             inventory.UpdateQuantityText(GameSettings.STICK);
             inventory.itemCounts[GameSettings.ROCK] -= recipe[GameSettings.ROCK];
             inventory.UpdateQuantityText(GameSettings.ROCK);
+            Debug.Log("Successfully Crafted Weapon");
             return true;
         }
+        Debug.Log("Failed to Craft Weapon");
         return false;
     }
 }

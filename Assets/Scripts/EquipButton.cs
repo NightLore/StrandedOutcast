@@ -9,11 +9,13 @@ public class EquipButton : MonoBehaviour
 
     private Button button;
     private Equiper equiper;
+    private Weapon weapon;
     // Start is called before the first frame update
     void Start()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(Equip);
+        weapon = GameSettings.weapons[equipment];
     }
 
     // Update is called once per frame
@@ -29,6 +31,6 @@ public class EquipButton : MonoBehaviour
 
     private void Equip()
     {
-        equiper.Equip(equipment);
+        equiper.Equip(weapon);
     }
 }

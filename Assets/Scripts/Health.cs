@@ -25,10 +25,13 @@ public class Health : MonoBehaviour
         return hp;
     }
 
-    //void heal(int amount)
-    //{
-    //    hp = Mathf.Min(hp + amount, maxHp);
-    //}
+    /*
+     * Increases health by the specified amount until maxHp
+     */ 
+    public void Heal(int amount)
+    {
+        hp = Mathf.Min(hp + amount, maxHp);
+    }
 
     /*
      * Decreases health by the specified amount. Returns true if health is less than or equal to 0 and Destroys this gameobject

@@ -35,12 +35,16 @@ public class Hunger : MonoBehaviour
         return hunger;
     }
 
-    /* Increases Hunger by amount, caps at max Hunger */
+    /* 
+     * Increases Hunger by amount up to max hunger. 
+     * Heals by GameSettings.saturationRegen each time it goes above max hunger.
+     */
     public void IncreaseHunger(float amount)
     {
         hunger += amount;
         if (hunger > GetMaxHunger())
         {
+            health.Heal(GameSettings.saturationRegen);
             hunger = GetMaxHunger();
         }
     }

@@ -44,7 +44,6 @@ public class Inventory : MonoBehaviour
                 itemCounts[GameSettings.STICKimage]++;
                 UpdateQuantityText(GameSettings.STICK);
                 UpdateQuantityText(GameSettings.STICKimage);
-                Debug.Log("before pickup");
                 pickup(other.gameObject);
             }
             else if (other.gameObject.name.Contains("Rock"))
