@@ -5,9 +5,9 @@ using UnityEngine;
 public class GameSettings : MonoBehaviour
 {
     // ENVIRONMENT
-    public static float bounds = 70.0f;
+    public static float bounds = 120;
     public static int decorAmount = 200;
-    public static int waterAmount = 50;
+    public static int waterAmount = Mathf.RoundToInt(bounds * 0.60f);
 
     // SOUND & VOLUME
     public static float musicVolume = 0.10f;

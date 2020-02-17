@@ -79,9 +79,9 @@ public class EnvironmentSpawner : MonoBehaviour
         Instantiate(campfire);
         player.transform.SetParent(playerReference.transform);
         SpawnWaterAtBounds(water, GameSettings.bounds, GameSettings.waterAmount);
-        SpawnDecoration(GameSettings.decorAmount);
-        StartCoroutine(SpawnRandomItems());
-        StartCoroutine(SpawnPassive());
+        SpawnDecoration(GameSettings.decorAmount, GameSettings.bounds / 2);
+        StartCoroutine(SpawnRandomItems(GameSettings.bounds / 2));
+        StartCoroutine(SpawnPassive(GameSettings.bounds / 2));
         SpawnWave();
 
         titleScreen.SetActive(false);
@@ -144,37 +144,37 @@ public class EnvironmentSpawner : MonoBehaviour
         }
     }
 
-    void SpawnDecoration(int amount)
+    void SpawnDecoration(int amount, float bounds)
     {
         for (int i = 0; i < amount; i++)
         {
-            SpawnInBounds(RandomPrefab(decorPrefabs), GameSettings.bounds).transform.SetParent(environment.transform);
+            SpawnInBounds(RandomPrefab(decorPrefabs), bounds).transform.SetParent(environment.transform);
         }
     }
 
-    IEnumerator SpawnRandomItems()
+    IEnumerator SpawnRandomItems(float bounds)
     {
         while (inGame)
         {
             yield return new WaitForSeconds(RandomDelay());
             if (items.GetComponentsInChildren<Transform>().Length < GameSettings.maxItems)
             {
-                SpawnInBounds(itemsPrefabs[0], GameSettings.bounds).transform.SetParent(items.transform);
-                SpawnInBounds(itemsPrefabs[0], GameSettings.bounds).transform.SetParent(items.transform);
-                SpawnInBounds(itemsPrefabs[1], GameSettings.bounds).transform.SetParent(items.transform);
-                SpawnInBounds(itemsPrefabs[2], GameSettings.bounds).transform.SetParent(items.transform);
+                SpawnInBounds(itemsPrefabs[0], bounds).transform.SetParent(items.transform);
+                SpawnInBounds(itemsPrefabs[0], bounds).transform.SetParent(items.transform);
+                SpawnInBounds(itemsPrefabs[1], bounds).transform.SetParent(items.transform);
+                SpawnInBounds(itemsPrefabs[2], bounds).transform.SetParent(items.transform);
             }
         }
     }
 
-    IEnumerator SpawnPassive()
+    IEnumerator SpawnPassive(float bounds)
     {
         while (inGame)
         {
             yield return new WaitForSeconds(RandomDelay());
             if (passiveCreatures.GetComponentsInChildren<Transform>().Length < GameSettings.maxPassiveCreatures)
             {
-                SpawnCreature(RandomPrefab(passivePrefabs), passiveCreatures, GameSettings.bounds);
+                SpawnCreature(RandomPrefab(passivePrefabs), passiveCreatures, bounds);
             }
         }
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1744,7 +1744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c57b03e13862543b89e3d9b6e72e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipment: -1
+  equipment: 0
 --- !u!4 &291221764 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4129394384437362, guid: f8d0f3737197d764b928916a0cf1d45f,
@@ -1806,7 +1806,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114182925583747938, guid: 7854233eb813c4b579a4127f65d79c76, type: 3}
+    - {fileID: 114218260579059578, guid: 7854233eb813c4b579a4127f65d79c76, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7854233eb813c4b579a4127f65d79c76, type: 3}
 --- !u!4 &309550710 stripped
 Transform:
@@ -2610,7 +2612,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &423247685
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2679,7 +2681,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 423247684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -630, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 50, y: 1, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5958,7 +5960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c57b03e13862543b89e3d9b6e72e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipment: 1
+  equipment: 2
 --- !u!1001 &957311979
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8942,7 +8944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c57b03e13862543b89e3d9b6e72e80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipment: 0
+  equipment: 1
 --- !u!4 &1632482596 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1419152992, guid: fb82dfb8d1c7044c69afd2486befecb3,
@@ -9346,7 +9348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695751832}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -675, y: 60.5, z: -222.8}
+  m_LocalPosition: {x: -675, y: 61.4, z: -222.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 707824908}
