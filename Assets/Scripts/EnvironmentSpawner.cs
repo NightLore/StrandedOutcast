@@ -79,7 +79,7 @@ public class EnvironmentSpawner : MonoBehaviour
         Instantiate(campfire);
         player.transform.SetParent(playerReference.transform);
         //SpawnWaterAtBounds(water, GameSettings.bounds, GameSettings.waterAmount);
-        SpawnDecoration(GameSettings.decorAmount, GameSettings.bounds / 2);
+        //SpawnDecoration(GameSettings.decorAmount, GameSettings.bounds / 2);
         StartCoroutine(SpawnRandomItems(GameSettings.bounds / 2));
         StartCoroutine(SpawnPassive(GameSettings.bounds / 2));
         SpawnWave();
