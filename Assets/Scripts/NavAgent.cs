@@ -24,6 +24,7 @@ public class NavAgent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (agent.pathPending) return;
         agent.SetDestination(target.transform.position);
     }
 }
