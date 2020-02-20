@@ -56,10 +56,10 @@ public class Inventory : MonoBehaviour
             }
             else if (other.gameObject.name.Contains("Raw Meat"))
             {
-                itemCounts[GameSettings.RAWMEATimage]++;
-                UpdateQuantityText(GameSettings.RAWMEATimage);
-                Hunger hunger = owner.GetComponent<Hunger>();
-                hunger.IncreaseHunger(10);
+                itemCounts[GameSettings.RAWMEAT]++;
+                UpdateQuantityText(GameSettings.RAWMEAT);
+                // Hunger hunger = owner.GetComponent<Hunger>();
+                // hunger.IncreaseHunger(10);
                 pickup(other.gameObject);
             }
         }

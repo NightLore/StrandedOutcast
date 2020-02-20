@@ -51,9 +51,10 @@ public class GameSettings : MonoBehaviour
     public const int STONEKNIFE = 4;
     public const int STICKimage = 5;
     public const int ROCKimage = 6;
-    public const int RAWMEATimage = 7;
-    public const int NUMITEMTYPES = 8;
-    public static string[] itemTypes = { "Stick", "Rock", "Axe", "Spear", "Knife", "StickImage", "RockImage", "RawMeatImage" };
+    public const int RAWMEAT = 7;
+    public const int COOKEDMEAT = 8;
+    public const int NUMITEMTYPES = 9;
+    public static string[] itemTypes = { "Stick", "Rock", "Axe", "Spear", "Knife", "StickImage", "RockImage", "RawMeat", "CookedMeat" };
 
     /*
      * Weapon defaults
@@ -80,6 +81,8 @@ public class GameSettings : MonoBehaviour
     public static float maxFlicker = 1.0f;
     public static float minDeltaFlicker = -0.1f;
     public static float maxDeltaFlicker = 0.1f;
+
+    public static float[] foodvalues = {10.0f};
 
     public static bool canCook = false;
 }
