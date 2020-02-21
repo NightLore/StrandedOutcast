@@ -53,8 +53,11 @@ public class GameSettings : MonoBehaviour
     public const int ROCKimage = 6;
     public const int RAWMEAT = 7;
     public const int COOKEDMEAT = 8;
-    public const int NUMITEMTYPES = 9;
-    public static string[] itemTypes = { "Stick", "Rock", "Axe", "Spear", "Knife", "StickImage", "RockImage", "RawMeat", "CookedMeat" };
+    public const int BONFIRE = 9;
+    public const int NUMITEMTYPES = 10;
+    public static string[] itemTypes = 
+    {   "Stick", "Rock", "Axe", "Spear", "Knife", "StickImage", "RockImage",
+        "RawMeat", "CookedMeat", "Bonfire" };
 
     /*
      * Weapon defaults
@@ -73,6 +76,11 @@ public class GameSettings : MonoBehaviour
         new Weapon(  "StoneAxe", new int[]{2, 2},   STONEAXE, 6, new Vector3(4.0f, 1.0f, 4.0f), 2.0f, 15),
         new Weapon("StoneSpear", new int[]{3, 1}, STONESPEAR, 6, new Vector3(1.0f, 5.0f, 5.0f), 3.0f, 15),
         new Weapon("StoneKnife", new int[]{1, 2}, STONEKNIFE, 3, new Vector3(1.5f, 1.5f, 1.5f), 5.0f, 10),
+    };
+
+    public static Item[] buildings = 
+    {
+        new Item(     "Bonfire", new int[]{2, 2})
     };
 
     public static bool day = true;

@@ -6,8 +6,8 @@ public class Inventory : MonoBehaviour
     private AudioSource source;
     public AudioClip pickupSound;
     public GameObject owner;
-
     public int[] itemCounts;
+    
     private TextMeshProUGUI[] quantityTexts;
     // Start is called before the first frame update
     void Start()

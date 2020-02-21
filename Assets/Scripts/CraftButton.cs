@@ -7,15 +7,22 @@ public class CraftButton : MonoBehaviour
 {
     public GameObject recipeText;
 
-    public int item;
+    public int itemIndex;
 
     private Weapon weapon;
+    private Item item;
     // Start is called before the first frame update
     void Start()
     {
         if (transform.parent.name.Equals("WeaponButton")) {
-            weapon = GameSettings.weapons[item];
+            weapon = GameSettings.weapons[itemIndex];
             int[] recipe = weapon.GetRecipe();
+            recipeText.GetComponent<TextMeshProUGUI>().text = "Sticks: " + recipe[GameSettings.STICK]
+                                                        + "\nRocks: " + recipe[GameSettings.ROCK];
+        }
+        else if (transform.parent.name.Equals("BuildingButton")) {
+            item = GameSettings.buildings[itemIndex];
+            int[] recipe = item.GetRecipe();
             recipeText.GetComponent<TextMeshProUGUI>().text = "Sticks: " + recipe[GameSettings.STICK]
                                                         + "\nRocks: " + recipe[GameSettings.ROCK];
         }
@@ -32,7 +39,6 @@ public class CraftButton : MonoBehaviour
     public void onPointerEnter()
     {
         recipeText.SetActive(true);
-        Debug.Log("pointer entered");
     }
 
     public void OnPointerExit()

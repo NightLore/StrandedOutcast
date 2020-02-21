@@ -22,7 +22,6 @@ public class CookButton : MonoBehaviour
     }
 
     private void Cook() {
-        Debug.Log(inventory.itemCounts[GameSettings.RAWMEAT]);
         if (inventory.itemCounts[GameSettings.RAWMEAT] > 0 && GameSettings.canCook) {
             inventory.itemCounts[GameSettings.RAWMEAT]--;
             inventory.itemCounts[GameSettings.COOKEDMEAT]++;

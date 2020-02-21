@@ -108,6 +108,7 @@ public class Equiper : MonoBehaviour
      */
     private bool CraftWeapon(Weapon weapon)
     {
+        Debug.Log(inventory);
         int[] recipe = weapon.GetRecipe();
         Debug.Log("Sticks: " + inventory.itemCounts[GameSettings.STICK] + ", " + recipe[GameSettings.STICK]
                + "\nRocks: " + inventory.itemCounts[GameSettings.ROCK] + ", " + recipe[GameSettings.ROCK]);
