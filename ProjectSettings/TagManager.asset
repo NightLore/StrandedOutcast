@@ -8,6 +8,7 @@ TagManager:
   - Recipe
   - Button
   - Image
+  - NightEnemy
   layers:
   - Default
   - TransparentFX
