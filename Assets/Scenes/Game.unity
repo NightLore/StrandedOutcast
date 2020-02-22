@@ -8340,7 +8340,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Stranded Outlaw
+  m_text: Stranded Outcast
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff9dfb9dcfa9b451da0749c3d2b449a9, type: 2}
   m_sharedMaterial: {fileID: 21956123629259200, guid: ff9dfb9dcfa9b451da0749c3d2b449a9,
@@ -8410,7 +8410,7 @@ MonoBehaviour:
   m_margin: {x: -259.82153, y: -164.63013, z: -419.00598, w: 22.291748}
   m_textInfo:
     textComponent: {fileID: 1158124862}
-    characterCount: 15
+    characterCount: 16
     spriteCount: 0
     spaceCount: 1
     wordCount: 2

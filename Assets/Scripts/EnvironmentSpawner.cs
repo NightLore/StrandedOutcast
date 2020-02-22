@@ -59,6 +59,13 @@ public class EnvironmentSpawner : MonoBehaviour
             if (timer <= 0)
             {
                 GameSettings.day = !GameSettings.day;
+
+                // delete enemies at the end of each round
+                foreach (Transform t in aggroCreatures.transform)
+                {
+                    Destroy(t.gameObject);
+                }
+
                 SpawnWave();
             }
             if (!player)
