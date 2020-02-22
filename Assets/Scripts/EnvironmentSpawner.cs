@@ -82,6 +82,7 @@ public class EnvironmentSpawner : MonoBehaviour
         inGame = true;
         killCount = 0;
         waveNumber = -1;
+        GameSettings.day = true;
         player = Instantiate(playerCharacter);
         Instantiate(campfire);
         player.transform.SetParent(playerReference.transform);
