@@ -8,7 +8,7 @@ public class CookButton : MonoBehaviour
     private Inventory inventory;
     private Button button;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(Cook);

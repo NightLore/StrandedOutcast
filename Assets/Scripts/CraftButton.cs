@@ -12,7 +12,7 @@ public class CraftButton : MonoBehaviour
     private Weapon weapon;
     private Item item;
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         if (transform.parent.name.Equals("WeaponButton")) {
             weapon = GameSettings.weapons[itemIndex];

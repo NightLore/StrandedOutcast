@@ -1444,7 +1444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipeText: {fileID: 851078513}
-  itemIndex: 0
+  itemIndex: 3
 --- !u!114 &167629219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2941,7 +2941,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &377127748
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3765,7 +3765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipeText: {fileID: 1828142708}
-  itemIndex: 0
+  itemIndex: 4
 --- !u!114 &506917015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7568,7 +7568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recipeText: {fileID: 707731184}
-  itemIndex: 0
+  itemIndex: 5
 --- !u!114 &1022702044
 MonoBehaviour:
   m_ObjectHideFlags: 0

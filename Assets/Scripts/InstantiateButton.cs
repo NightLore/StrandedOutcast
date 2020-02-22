@@ -15,8 +15,7 @@ public class InstantiateButton : MonoBehaviour
     private Item item;
     private int[] recipe;
     // Start is called before the first frame update
-    void Start()
-    {
+    void OnEnable() {
         button = GetComponent<Button>();
         button.onClick.AddListener(Create);
         playerTransform = GameObject.FindWithTag("Player").transform;
@@ -26,10 +25,8 @@ public class InstantiateButton : MonoBehaviour
     }
 
     void Create() {
-        Debug.Log(inventory);
-        Debug.Log(inventory.itemCounts);
         if (inventory.itemCounts[GameSettings.STICK] >= recipe[GameSettings.STICK] &&
-            inventory.itemCounts[GameSettings.ROCK] >= recipe[GameSettings.ROCK])
+            inventory.itemCounts[GameSettings.ROCK] >= recipe[GameSettings.ROCK]) {
             inventory.itemCounts[GameSettings.STICK] -= recipe[GameSettings.STICK];
             inventory.itemCounts[GameSettings.ROCK] -= recipe[GameSettings.ROCK];
             inventory.itemCounts[GameSettings.STICKimage] -= recipe[GameSettings.STICK];
@@ -39,6 +36,7 @@ public class InstantiateButton : MonoBehaviour
             inventory.UpdateQuantityText(GameSettings.ROCKimage);
             inventory.UpdateQuantityText(GameSettings.STICKimage);
             Instantiate(toCreate, playerTransform.position, toCreate.transform.rotation);
+        }
     }
 
     // Update is called once per frame
