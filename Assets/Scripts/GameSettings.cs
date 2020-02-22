@@ -39,7 +39,7 @@ public class GameSettings : MonoBehaviour
     public static int maxItems = 20;
     public static int maxPassiveCreatures = 20;
 
-    public static float waveDelay = 10.0f;
+    public static float waveDelay = 20.0f;
 
 
     // Note: make an Enum/Class of Items

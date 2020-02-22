@@ -25,6 +25,31 @@ public class NavAgent : MonoBehaviour
     void Update()
     {
         if (agent.pathPending) return;
-        agent.SetDestination(target.transform.position);
+
+        if (GameSettings.day)
+        {
+            /*if (agent.remainingDistance > agent.stoppingDistance) return;
+
+            int[] randomDistances = new int[] { -10, 0, 10 };
+
+            float xval = agent.transform.position.x + randomDistances[Random.Range(0, randomDistances.Length)];
+            float zval = agent.transform.position.z + randomDistances[Random.Range(0, randomDistances.Length)];
+            Vector3 position = new Vector3(xval, agent.transform.position.y, zval);
+
+            agent.SetDestination(position);*/
+
+            if (Vector3.Distance(agent.transform.position, target.transform.position) < 10)
+            {
+                agent.SetDestination(target.transform.position);
+            }
+            else
+            {
+                agent.SetDestination(agent.transform.position);
+            }
+        }
+        else
+        {
+            agent.SetDestination(target.transform.position);
+        }
     }
 }
