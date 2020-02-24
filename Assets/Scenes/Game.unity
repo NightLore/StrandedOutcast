@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3359,12 +3359,6 @@ MonoBehaviour:
   - {fileID: 8533699120571369429, guid: 1a2c345fd5dbf084eb4128a2b8eba519, type: 3}
   - {fileID: 556113956712541055, guid: 47a62679af8474f449a5bf9d3a5cb93a, type: 3}
   - {fileID: 1132169639205793764, guid: d499d11147fcf384dab65255bac2f8bf, type: 3}
-  decorPrefabs:
-  - {fileID: 4919858016505531813, guid: b417a4e60ac817f448bc9d02ddb39eb4, type: 3}
-  - {fileID: 6180745297756019389, guid: 196bc318b6601db458653b62f6878ac6, type: 3}
-  - {fileID: 1555191950515905314, guid: 365a9baf57157c94ab6d8a07880fe508, type: 3}
-  - {fileID: 8897234331526319300, guid: 335bab1b3f8f0ed448571f4f40e36a91, type: 3}
-  - {fileID: 2396000785372471481, guid: 41b30e3b8ce165e41b1661754a8b2581, type: 3}
   passivePrefabs:
   - {fileID: 7824160230563261622, guid: b90e91171e7f62447917f50b161a6e02, type: 3}
   - {fileID: 5984811582261677801, guid: 2bfdbe83553cb0f4987c6ee998593141, type: 3}
@@ -3372,7 +3366,6 @@ MonoBehaviour:
   aggroPrefabs:
   - {fileID: 1063373095095974138, guid: ab971241920a1bb448e8bdd4cc351007, type: 3}
   - {fileID: 8189271948642991689, guid: 8c0b2596ff952a94fa6dbd66b9e527cc, type: 3}
-  water: {fileID: 9184216741431451006, guid: deefbb4b2ada4844483274b64f9b3228, type: 3}
   playerCharacter: {fileID: 7937342625486332158, guid: 0176e75b5f0680344b7bc429b5d2dd74,
     type: 3}
   passiveCreatures: {fileID: 1560810477}

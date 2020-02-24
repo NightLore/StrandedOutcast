@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameSettings : MonoBehaviour
-{
-    // ENVIRONMENT
-    public static float bounds = 120;
-    public static int decorAmount = 200;
-    public static int waterAmount = Mathf.RoundToInt(bounds * 0.60f);
+{   
 
     // SOUND & VOLUME
     public static float musicVolume = 0.10f;
@@ -40,6 +36,14 @@ public class GameSettings : MonoBehaviour
     public static int maxPassiveCreatures = 20;
 
     public static float waveDelay = 20.0f;
+
+    public static float maxSpawnRadius = 120;
+
+    public static Vector3 stickSpawnCenter = new Vector3(-30, 0, 60);
+    public static float stickSpawnRadius = 50;
+
+    public static Vector3 rockSpawnCenter = new Vector3(-60, 0, 50);
+    public static float rockSpawnRadius = 50;
 
 
     // Note: make an Enum/Class of Items
