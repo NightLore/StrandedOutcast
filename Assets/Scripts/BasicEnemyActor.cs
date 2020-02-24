@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Attacker))]
-public class TrackPlayer : MonoBehaviour
+public class BasicEnemyActor : MonoBehaviour
 {
     public float speed = 10.0f;
     public float bufferDistance = GameSettings.attackDistance;
