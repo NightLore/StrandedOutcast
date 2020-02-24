@@ -19,9 +19,20 @@ public class LightController : MonoBehaviour
     {
         timer = GameObject.Find("EnvironmentSpawner").GetComponent<EnvironmentSpawner>().timer;
         if (GameSettings.day) {
-            lightIntensity = timer / GameSettings.waveDelay;
+            if (timer > GameSettings.waveDelay / 2) {
+                lightIntensity = (GameSettings.waveDelay - time + GameSettings.waveDelay / 2) / GameSettings.waveDelay;
+            }
+            else {
+                lightIntensity = (timer + GameSettings.waveDelay / 2) / GameSettings.waveDelay;
+            }
         }
-        else {
+        else { // fix this CLAY
+            if (timer > GameSettings.waveDelay / 2) {
+                lightIntensity = (GameSettings.waveDelay - timer / 2) / GameSettings.waveDelay;
+            }
+            else {
+                lightIntensity = (GameSettings.waveDelay - time - GameSettings.waveDelay / 2) / GameSettings.waveDelay;
+            }
             lightIntensity = (GameSettings.waveDelay - timer) / GameSettings.waveDelay;
         }
         dayLight.intensity = lightIntensity;
