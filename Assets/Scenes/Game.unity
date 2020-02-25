@@ -13250,6 +13250,25 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &1964736044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: d3bcd0be584af40b0a136ccefceeb729,
+    type: 3}
+  m_PrefabInstance: {fileID: 1744901107}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1964736045
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964736044}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.986572, y: 6.6861796, z: 4.902349}
+  m_Center: {x: -2.2144039, y: -1.6838353, z: -0.14859161}
 --- !u!1 &2000908342
 GameObject:
   m_ObjectHideFlags: 0
