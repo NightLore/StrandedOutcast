@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour
     public AudioClip pickupSound;
     public GameObject owner;
     public int[] itemCounts;
-    
+
     private TextMeshProUGUI[] quantityTexts;
     // Start is called before the first frame update
     void Start()
@@ -17,6 +17,7 @@ public class Inventory : MonoBehaviour
         quantityTexts = new TextMeshProUGUI[GameSettings.NUMITEMTYPES];
         for (int i = 0; i < GameSettings.NUMITEMTYPES; i++)
         {
+            Debug.Log(GameSettings.itemTypes[i]);
             TextMeshProUGUI objectText = GameObject.Find(GameSettings.itemTypes[i] + "QuantityText").GetComponent<TextMeshProUGUI>();
             quantityTexts[i] = objectText;
             objectText.transform.parent.gameObject.SetActive(false); //turn buttons off
@@ -32,6 +33,7 @@ public class Inventory : MonoBehaviour
     public void UpdateQuantityText(int item)
     {
         quantityTexts[item].text = "" + itemCounts[item];
+        Debug.Log("text of item should have become " + itemCounts[item]);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -58,8 +60,6 @@ public class Inventory : MonoBehaviour
             {
                 itemCounts[GameSettings.RAWMEAT]++;
                 UpdateQuantityText(GameSettings.RAWMEAT);
-                // Hunger hunger = owner.GetComponent<Hunger>();
-                // hunger.IncreaseHunger(10);
                 pickup(other.gameObject);
             }
         }

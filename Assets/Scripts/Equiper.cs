@@ -55,11 +55,6 @@ public class Equiper : MonoBehaviour
      *          currentWeaponText
      *          equipImage
      */
-    public void Equip(int weapon)
-    {
-        Equip(GameSettings.weapons[weapon + 1]);
-    }
-
     public void Equip(Weapon weapon)
     {
         // if attacking, don't equip -- current purpose is to avoid hacking the attack speed
@@ -116,6 +111,7 @@ public class Equiper : MonoBehaviour
          && inventory.itemCounts[GameSettings.ROCK] >=  recipe.Get(GameSettings.ROCK))
         {
             inventory.itemCounts[weapon.GetID()]++;
+            Debug.Log(inventory.itemCounts[weapon.GetID()]);
             inventory.UpdateQuantityText(weapon.GetID());
             inventory.itemCounts[GameSettings.STICK] -= recipe.Get(GameSettings.STICK);
             inventory.UpdateQuantityText(GameSettings.STICK);

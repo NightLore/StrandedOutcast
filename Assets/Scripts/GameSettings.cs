@@ -53,15 +53,16 @@ public class GameSettings : MonoBehaviour
     public const int STONEAXE = 2;
     public const int STONESPEAR = 3;
     public const int STONEKNIFE = 4;
-    public const int STICKimage = 5;
-    public const int ROCKimage = 6;
-    public const int RAWMEAT = 7;
-    public const int COOKEDMEAT = 8;
-    public const int BONFIRE = 9;
-    public const int NUMITEMTYPES = 10;
+    public const int STONEPICK = 5;
+    public const int STICKimage = 6;
+    public const int ROCKimage = 7;
+    public const int RAWMEAT = 8;
+    public const int COOKEDMEAT = 9;
+    public const int BONFIRE = 10;
+    public const int NUMITEMTYPES = 11;
     public static string[] itemTypes = 
     {   "Stick", "Rock", "Axe", "Spear", "Knife", "StickImage", "RockImage",
-        "RawMeat", "CookedMeat", "Bonfire" };
+        "RawMeat", "CookedMeat", "Bonfire", "SPick" };
 
     /*
      * Weapon defaults
@@ -81,6 +82,7 @@ public class GameSettings : MonoBehaviour
         new Weapon(  "StoneAxe", recipe.Reset().Set(STICK, 2).Set(ROCK, 2).GetRecipe(),   STONEAXE, 6, new Vector3(4.0f, 1.0f, 4.0f), 2.0f, 15),
         new Weapon("StoneSpear", recipe.Reset().Set(STICK, 3).Set(ROCK, 1).GetRecipe(), STONESPEAR, 6, new Vector3(1.0f, 5.0f, 5.0f), 3.0f, 15),
         new Weapon("StoneKnife", recipe.Reset().Set(STICK, 1).Set(ROCK, 2).GetRecipe(), STONEKNIFE, 3, new Vector3(1.5f, 1.5f, 1.5f), 5.0f, 10),
+        new Weapon( "StonePick", recipe.Reset().Set(STICK, 3).Set(ROCK, 3).GetRecipe(),  STONEPICK, 2, new Vector3(2.0f, 1.5f, 1.5f), 2.5f, 10)
     };
 
     public static Item[] buildings = 
