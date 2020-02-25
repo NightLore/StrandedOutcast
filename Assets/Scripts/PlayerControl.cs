@@ -65,6 +65,6 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetAxis("Fire1") == 0)
             return;
 
-        attacker.Attack(animator);
+        attacker.Attack();
     }
 }
