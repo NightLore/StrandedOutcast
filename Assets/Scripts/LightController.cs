@@ -28,12 +28,11 @@ public class LightController : MonoBehaviour
         }
         else { // fix this CLAY
             if (timer > GameSettings.waveDelay / 2) {
-                lightIntensity = (GameSettings.waveDelay - timer / 2) / GameSettings.waveDelay;
+                lightIntensity = (timer - GameSettings.waveDelay / 2) / GameSettings.waveDelay;
             }
             else {
-                lightIntensity = (GameSettings.waveDelay - timer - GameSettings.waveDelay / 2) / GameSettings.waveDelay;
+                lightIntensity = (GameSettings.waveDelay / 2 - timer) / GameSettings.waveDelay;
             }
-            lightIntensity = (GameSettings.waveDelay - timer) / GameSettings.waveDelay;
         }
         dayLight.intensity = lightIntensity;
         // if (GameSettings.day) {
