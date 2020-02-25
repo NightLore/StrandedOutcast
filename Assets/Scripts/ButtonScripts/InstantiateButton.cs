@@ -13,7 +13,7 @@ public class InstantiateButton : MonoBehaviour
     private Inventory inventory;
     private Transform playerTransform;
     private Item item;
-    private int[] recipe;
+    private Recipe recipe;
     // Start is called before the first frame update
     void OnEnable() {
         button = GetComponent<Button>();
@@ -25,12 +25,12 @@ public class InstantiateButton : MonoBehaviour
     }
 
     void Create() {
-        if (inventory.itemCounts[GameSettings.STICK] >= recipe[GameSettings.STICK] &&
-            inventory.itemCounts[GameSettings.ROCK] >= recipe[GameSettings.ROCK]) {
-            inventory.itemCounts[GameSettings.STICK] -= recipe[GameSettings.STICK];
-            inventory.itemCounts[GameSettings.ROCK] -= recipe[GameSettings.ROCK];
-            inventory.itemCounts[GameSettings.STICKimage] -= recipe[GameSettings.STICK];
-            inventory.itemCounts[GameSettings.ROCKimage] -= recipe[GameSettings.ROCK];
+        if (inventory.itemCounts[GameSettings.STICK] >= recipe.Get(GameSettings.STICK) &&
+            inventory.itemCounts[GameSettings.ROCK]  >= recipe.Get(GameSettings.ROCK)) {
+            inventory.itemCounts[GameSettings.STICK] -= recipe.Get(GameSettings.STICK);
+            inventory.itemCounts[GameSettings.ROCK]  -= recipe.Get(GameSettings.ROCK);
+            inventory.itemCounts[GameSettings.STICKimage] -= recipe.Get(GameSettings.STICK);
+            inventory.itemCounts[GameSettings.ROCKimage]  -= recipe.Get(GameSettings.ROCK);
             inventory.UpdateQuantityText(GameSettings.ROCK);
             inventory.UpdateQuantityText(GameSettings.STICK);
             inventory.UpdateQuantityText(GameSettings.ROCKimage);

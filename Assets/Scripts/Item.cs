@@ -5,9 +5,9 @@ using UnityEngine;
 public class Item
 {
     private readonly string name;
-    private readonly int[] recipe;
+    private readonly Recipe recipe;
 
-    public Item(string name, int[] recipe)
+    public Item(string name, Recipe recipe)
     {
         this.name = name;
         this.recipe = recipe;
@@ -18,7 +18,7 @@ public class Item
         return name;
     }
 
-    public int[] GetRecipe()
+    public Recipe GetRecipe()
     {
         return recipe;
     }

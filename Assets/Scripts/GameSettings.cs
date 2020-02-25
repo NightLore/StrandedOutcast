@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameSettings : MonoBehaviour
-{   
+{
 
     // SOUND & VOLUME
     public static float musicVolume = 0.10f;
@@ -72,19 +72,20 @@ public class GameSettings : MonoBehaviour
      * 
      * NOTE: ID is deprecated, will try to remove soon.
      */
+    private static readonly Recipe.Builder recipe = new Recipe.Builder();
     public static Weapon[] weapons =
     {
-        new Weapon(     "Fists", new int[]{0, 0},      FISTS, 1, new Vector3(1.0f, 1.0f, 1.0f), 4.0f, int.MaxValue),
-        new Weapon(     "Stick", new int[]{1, 0},      STICK, 1, new Vector3(1.0f, 1.5f, 1.0f), 4.0f, int.MaxValue),
-        new Weapon(      "Rock", new int[]{0, 1},       ROCK, 4, new Vector3(1.0f, 1.0f, 1.0f), 1.0f, int.MaxValue),
-        new Weapon(  "StoneAxe", new int[]{2, 2},   STONEAXE, 6, new Vector3(4.0f, 1.0f, 4.0f), 2.0f, 15),
-        new Weapon("StoneSpear", new int[]{3, 1}, STONESPEAR, 6, new Vector3(1.0f, 5.0f, 5.0f), 3.0f, 15),
-        new Weapon("StoneKnife", new int[]{1, 2}, STONEKNIFE, 3, new Vector3(1.5f, 1.5f, 1.5f), 5.0f, 10),
+        new Weapon(     "Fists", recipe.Reset().Set(STICK, 0).Set(ROCK, 0).GetRecipe(),      FISTS, 1, new Vector3(1.0f, 1.0f, 1.0f), 4.0f, int.MaxValue),
+        new Weapon(     "Stick", recipe.Reset().Set(STICK, 1).Set(ROCK, 0).GetRecipe(),      STICK, 1, new Vector3(1.0f, 1.5f, 1.0f), 4.0f, int.MaxValue),
+        new Weapon(      "Rock", recipe.Reset().Set(STICK, 0).Set(ROCK, 1).GetRecipe(),       ROCK, 4, new Vector3(1.0f, 1.0f, 1.0f), 1.0f, int.MaxValue),
+        new Weapon(  "StoneAxe", recipe.Reset().Set(STICK, 2).Set(ROCK, 2).GetRecipe(),   STONEAXE, 6, new Vector3(4.0f, 1.0f, 4.0f), 2.0f, 15),
+        new Weapon("StoneSpear", recipe.Reset().Set(STICK, 3).Set(ROCK, 1).GetRecipe(), STONESPEAR, 6, new Vector3(1.0f, 5.0f, 5.0f), 3.0f, 15),
+        new Weapon("StoneKnife", recipe.Reset().Set(STICK, 1).Set(ROCK, 2).GetRecipe(), STONEKNIFE, 3, new Vector3(1.5f, 1.5f, 1.5f), 5.0f, 10),
     };
 
     public static Item[] buildings = 
     {
-        new Item(     "Bonfire", new int[]{2, 2})
+        new Item(     "Bonfire", recipe.Reset().Set(STICK, 2).Set(ROCK, 2).GetRecipe())
     };
 
     public static bool day = true;

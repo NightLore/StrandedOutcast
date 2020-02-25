@@ -34,8 +34,6 @@ public class UIManager : MonoBehaviour
                 child.gameObject.SetActive(true);
             }
         }
-        Debug.Log(gameObject);
-        Debug.Log(gameObject.transform.childCount);
     }
 
     private void CloseOtherSubButtons() {

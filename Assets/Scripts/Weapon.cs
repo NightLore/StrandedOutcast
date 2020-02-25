@@ -13,7 +13,7 @@ public class Weapon : Item
 
     public Weapon(
         string name,
-        int[] recipe,
+        Recipe recipe,
         int id,
         int damage,
         Vector3 size,

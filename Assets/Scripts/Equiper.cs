@@ -109,17 +109,17 @@ public class Equiper : MonoBehaviour
     private bool CraftWeapon(Weapon weapon)
     {
         Debug.Log(inventory);
-        int[] recipe = weapon.GetRecipe();
-        Debug.Log("Sticks: " + inventory.itemCounts[GameSettings.STICK] + ", " + recipe[GameSettings.STICK]
-               + "\nRocks: " + inventory.itemCounts[GameSettings.ROCK] + ", " + recipe[GameSettings.ROCK]);
-        if (inventory.itemCounts[GameSettings.STICK] >= recipe[GameSettings.STICK]
-         && inventory.itemCounts[GameSettings.ROCK] >= recipe[GameSettings.ROCK])
+        Recipe recipe = weapon.GetRecipe();
+        Debug.Log("Sticks: " + inventory.itemCounts[GameSettings.STICK] + ", " + recipe.Get(GameSettings.STICK)
+               + "\nRocks: " + inventory.itemCounts[GameSettings.ROCK] + ", " +  recipe.Get(GameSettings.ROCK));
+        if (inventory.itemCounts[GameSettings.STICK] >= recipe.Get(GameSettings.STICK)
+         && inventory.itemCounts[GameSettings.ROCK] >=  recipe.Get(GameSettings.ROCK))
         {
             inventory.itemCounts[weapon.GetID()]++;
             inventory.UpdateQuantityText(weapon.GetID());
-            inventory.itemCounts[GameSettings.STICK] -= recipe[GameSettings.STICK];
+            inventory.itemCounts[GameSettings.STICK] -= recipe.Get(GameSettings.STICK);
             inventory.UpdateQuantityText(GameSettings.STICK);
-            inventory.itemCounts[GameSettings.ROCK] -= recipe[GameSettings.ROCK];
+            inventory.itemCounts[GameSettings.ROCK] -= recipe.Get(GameSettings.ROCK);
             inventory.UpdateQuantityText(GameSettings.ROCK);
             Debug.Log("Successfully Crafted Weapon");
             return true;
