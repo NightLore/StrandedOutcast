@@ -28,12 +28,12 @@ public class RecipeButton : MonoBehaviour
         if (transform.parent.name.Equals("WeaponButton"))
         {
             weapon = GameSettings.weapons[itemIndex];
-            recipeText.text = weapon.GetRecipe().ToString();
+            recipeText.text = weapon.GetName() + "\n" + weapon.GetRecipe().ToString();
         }
         else if (transform.parent.name.Equals("BuildingButton"))
         {
             item = GameSettings.buildings[itemIndex];
-            recipeText.text = item.GetRecipe().ToString();
+            recipeText.text = item.GetName() + "\n" +  item.GetRecipe().ToString();
         }
         else if (transform.parent.name.Equals("FoodButton"))
         {
