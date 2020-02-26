@@ -151,6 +151,20 @@ public class EnvironmentSpawner : MonoBehaviour
         return child;
     }
 
+    Vector3 GetGroundPoint(Vector3 position)
+    {
+        // Note: only works if ground is within +/-100 of starting spot
+        if (Physics.Raycast(position + new Vector3(0, 100.0f, 0), Vector3.down, out RaycastHit hit, 200.0f))
+        {
+            return hit.point;
+        }
+        else
+        {
+            Debug.Log("there seems to be no ground at this position");
+            return new Vector3();
+        }
+    }
+
     // -------------------------- Spawning ------------------------- //
 
     IEnumerator SpawnRandomItems()
@@ -193,12 +207,6 @@ public class EnvironmentSpawner : MonoBehaviour
         SpawnCreatures(aggroPrefabs[1], aggroCreatures, GameSettings.maxSpawnRadius, waveNumber / 5);
     }
 
-    //GameObject SpawnInBounds(GameObject prefab, float bounds)
-    //{
-    //    Vector3 spawnPos = new Vector3(Random.Range(-bounds, bounds), prefab.transform.position.y, Random.Range(-bounds, bounds));
-    //    return Instantiate(prefab, spawnPos, Quaternion.Euler(Vector3.up * RandomDirection()));
-    //}
-
     void SpawnCreatures(GameObject prefab, GameObject parent, float bounds, int amount)
     {
         for (int i = 0; i < amount; i++)
@@ -210,14 +218,13 @@ public class EnvironmentSpawner : MonoBehaviour
     void SpawnCreature(GameObject prefab, GameObject parent, float bounds)
     {
         SetParent(SpawnAroundLocation(prefab, new Vector3(), bounds), parent);
-        //SpawnInBounds(prefab, bounds).transform.SetParent(parent.transform, true);
         //InstantiateOffScreen(prefabs, bounds).transform.SetParent(storage.transform, true);
     }
 
     GameObject SpawnAroundLocation(GameObject prefab, Vector3 center, float maxDistance)
     {
-        Vector3 spawnPos = RandomInArea(center, maxDistance);
-        spawnPos.y = prefab.transform.position.y;
+        Vector3 spawnPos = GetGroundPoint(RandomInArea(center, maxDistance));
+        spawnPos.y += prefab.transform.position.y; // set Offset from ground
         return Instantiate(prefab, spawnPos, Quaternion.Euler(Vector3.up * RandomDirection()));
     }
 
