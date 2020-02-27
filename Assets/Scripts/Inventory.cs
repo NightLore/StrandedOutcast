@@ -21,6 +21,11 @@ public class Inventory : MonoBehaviour
             TextMeshProUGUI objectText = GameObject.Find(GameSettings.itemTypes[i] + "QuantityText").GetComponent<TextMeshProUGUI>();
             quantityTexts[i] = objectText;
             objectText.transform.parent.gameObject.SetActive(false); //turn buttons off
+            if (objectText.transform.parent.parent.parent.CompareTag("Button") &&
+                objectText.transform.parent.parent.GetComponentsInChildren<Transform>().GetLength(0) < 3) {
+                Debug.Log("turning off grand" + objectText.transform.parent.parent.gameObject);
+                objectText.transform.parent.parent.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -33,7 +38,7 @@ public class Inventory : MonoBehaviour
     public void UpdateQuantityText(int item)
     {
         quantityTexts[item].text = "" + itemCounts[item];
-        Debug.Log("text of item should have become " + itemCounts[item]);
+        Debug.Log("text of item should have become " + itemCounts[item] + " but is " + quantityTexts[item].text);
     }
 
     private void OnTriggerEnter(Collider other)

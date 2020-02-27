@@ -31,7 +31,12 @@ public class UIManager : MonoBehaviour
     private void DisplaySubButtons() {
         foreach (Transform child in transform) {
             if (child.CompareTag("Button") || child.CompareTag("Image")) {
-                child.gameObject.SetActive(true);
+                if (child.gameObject.activeSelf) {
+                    child.gameObject.SetActive(false);
+                } 
+                else {
+                    child.gameObject.SetActive(true);
+                }
             }
         }
     }
