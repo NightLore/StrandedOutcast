@@ -208,11 +208,19 @@ public class EnvironmentSpawner : MonoBehaviour
         SpawnCreatures(aggroPrefabs[2], aggroCreatures, GameSettings.maxSpawnRadius, waveNumber);
     }
 
+    private void SpawnNearPlayer(GameObject prefab, GameObject parent, float bounds)
+    {
+        Vector3 direction = player.transform.position.normalized;
+        Vector3 newCenter = direction * (GameSettings.maxSpawnRadius - bounds);
+        SetParent(SpawnAroundLocation(prefab, newCenter, bounds), parent);
+    }
+
     void SpawnCreatures(GameObject prefab, GameObject parent, float bounds, int amount)
     {
         for (int i = 0; i < amount; i++)
         {
-            SpawnCreature(prefab, parent, bounds);
+            //SpawnCreature(prefab, parent, bounds);
+            SpawnNearPlayer(prefab, parent, bounds);
         }
     }
 

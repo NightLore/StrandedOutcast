@@ -37,13 +37,14 @@ public class GameSettings : MonoBehaviour
 
     public static float waveDelay = 20.0f;
 
-    public static float maxSpawnRadius = 120;
+    public static float maxSpawnRadius = 100;
+    public static float enemySpawnDistance = 10;
 
     public static Vector3 stickSpawnCenter = new Vector3(-30, 0, 60);
-    public static float stickSpawnRadius = 50;
+    public static float stickSpawnRadius = 40;
 
     public static Vector3 rockSpawnCenter = new Vector3(-60, 0, 50);
-    public static float rockSpawnRadius = 50;
+    public static float rockSpawnRadius = 40;
 
 
     // Note: make an Enum/Class of Items
