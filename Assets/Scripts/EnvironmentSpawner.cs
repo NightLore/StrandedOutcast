@@ -152,8 +152,9 @@ public class EnvironmentSpawner : MonoBehaviour
 
     Vector3 GetGroundPoint(Vector3 position)
     {
+        position.y = 100;
         // Note: only works if ground is within +/-100 of starting spot
-        if (Physics.Raycast(position + new Vector3(0, 100.0f, 0), Vector3.down, out RaycastHit hit, 200.0f))
+        if (Physics.Raycast(position, Vector3.down, out RaycastHit hit, 200.0f))
         {
             return hit.point;
         }
