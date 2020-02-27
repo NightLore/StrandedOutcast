@@ -22,11 +22,11 @@ public class CookButton : MonoBehaviour
     }
 
     private void Cook() {
-        if (inventory.itemCounts[GameSettings.RAWMEAT] > 0 && GameSettings.canCook) {
-            inventory.itemCounts[GameSettings.RAWMEAT]--;
-            inventory.itemCounts[GameSettings.COOKEDMEAT]++;
-            inventory.UpdateQuantityText(GameSettings.RAWMEAT);
-            inventory.UpdateQuantityText(GameSettings.COOKEDMEAT);
+        // TODO: use CraftRecipe()
+        if (inventory.GetQuantity(GameSettings.RAWMEAT) > 0 && GameSettings.canCook) {
+            inventory.DecrementQuantity(GameSettings.RAWMEAT);
+            inventory.IncrementQuantity(GameSettings.COOKEDMEAT);
+            inventory.UpdateQuantities();
         }
     }
 }

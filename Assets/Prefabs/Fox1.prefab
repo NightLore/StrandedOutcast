@@ -1069,7 +1069,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &3057021953409134623
 MonoBehaviour:
@@ -1114,7 +1114,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environmentSpawner: {fileID: 0}
+  meat: {fileID: 116614, guid: 7fe3fdccc2238034cb79964fbbf73d9f, type: 3}
   maxHp: 5
+  meatDropChance: 0.5
 --- !u!114 &-2169323046920905349
 MonoBehaviour:
   m_ObjectHideFlags: 0

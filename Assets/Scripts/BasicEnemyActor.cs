@@ -10,7 +10,6 @@ public class BasicEnemyActor : MonoBehaviour
 
     private GameObject player;
     private Attacker attacker;
-    private Animator animator;
     public int attackDamage = 2;
     public Vector3 attackScale = new Vector3(1, 1, 1);
     public float attackSpeed = 2.0f;
@@ -20,7 +19,6 @@ public class BasicEnemyActor : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         attacker = GetComponent<Attacker>();
-        animator = GetComponent<Animator>();
         attacker.SetStats(attackDamage, attackScale, attackSpeed);
     }
 
@@ -32,7 +30,7 @@ public class BasicEnemyActor : MonoBehaviour
             //Track();
             if ((player.transform.position - transform.position).magnitude <= GameSettings.attackDistance + 1)
             {
-                attacker.Attack(animator);
+                attacker.Attack();
             }
         }
     }

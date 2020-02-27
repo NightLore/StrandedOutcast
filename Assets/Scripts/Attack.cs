@@ -36,10 +36,10 @@ public class Attack : MonoBehaviour
             if (health.takeDamage(damage) && owner.CompareTag("Player")) // if killed "other" and is from player
             {
                 /* Spawn meat when enemies are killed, 50% chance of dropping */
-                if (Random.Range(0, 10) % 2 == 0)
-                {
-                    Instantiate(meat, enemyPosition, owner.GetComponent<Transform>().rotation);
-                }
+                // if (Random.Range(0, 10) % 2 == 0)
+                // {
+                //     Instantiate(meat, enemyPosition, owner.GetComponent<Transform>().rotation);
+                // }
             }
             Instantiate(bloodSplatter, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);

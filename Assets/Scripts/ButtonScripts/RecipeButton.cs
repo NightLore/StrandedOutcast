@@ -25,17 +25,20 @@ public class RecipeButton : MonoBehaviour
 
     public void UpdateInfo()
     {
-        if (transform.parent.name.Equals("WeaponButton"))
+        if (transform.parent.name.Equals("WeaponButton") || 
+            transform.parent.parent.name.Equals("WeaponButton"))
         {
             weapon = GameSettings.weapons[itemIndex];
             recipeText.text = weapon.GetName() + "\n" + weapon.GetRecipe().ToString();
         }
-        else if (transform.parent.name.Equals("BuildingButton"))
+        else if (transform.parent.name.Equals("BuildingButton") ||
+                 transform.parent.parent.name.Equals("BuildingButton"))
         {
             item = GameSettings.buildings[itemIndex];
             recipeText.text = item.GetName() + "\n" +  item.GetRecipe().ToString();
         }
-        else if (transform.parent.name.Equals("FoodButton"))
+        else if (transform.parent.name.Equals("FoodButton") ||
+                 transform.parent.parent.name.Equals("FoodButton"))
         {
             recipeText.text = "Can Cook?\n" + (GameSettings.canCook ? "Yes" : "No");
         }

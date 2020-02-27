@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class Attacker : MonoBehaviour
 {
     public GameObject attack;
+
+    private Animator animator;
+
     private int damage;
     private Vector3 scale;
     private float speed;
@@ -13,6 +17,7 @@ public class Attacker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         CanAttack = true;
     }
 
@@ -29,7 +34,7 @@ public class Attacker : MonoBehaviour
         speed = s;
     }
 
-    public void Attack(Animator animator)
+    public void Attack()
     {
         if (CanAttack)
         {
@@ -48,7 +53,6 @@ public class Attacker : MonoBehaviour
         Vector3 pos = gameObject.transform.position;
         Vector3 dir = gameObject.transform.forward;
         Vector3 spawnPos = pos + dir * GameSettings.attackDistance;
-        //spawnPos.y = attack.transform.position.y;
 
         Attack a = Instantiate(attack, spawnPos, Quaternion.LookRotation(attack.transform.forward, dir)).GetComponent<Attack>();
         a.owner = gameObject;
@@ -58,6 +62,7 @@ public class Attacker : MonoBehaviour
 
     private void AllowAttack()
     {
+        animator.SetFloat("Speed_f", 0.5f);
         CanAttack = true;
     }
 }

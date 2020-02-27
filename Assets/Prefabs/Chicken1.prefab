@@ -248,7 +248,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environmentSpawner: {fileID: 0}
+  meat: {fileID: 116614, guid: 7fe3fdccc2238034cb79964fbbf73d9f, type: 3}
   maxHp: 5
+  meatDropChance: 1
 --- !u!114 &-8924975789912491355
 MonoBehaviour:
   m_ObjectHideFlags: 0

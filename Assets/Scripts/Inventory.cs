@@ -1,27 +1,21 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using TMPro;
 
 public class Inventory : MonoBehaviour
 {
     private AudioSource source;
     public AudioClip pickupSound;
-    public GameObject owner;
-    public int[] itemCounts;
+    private int[] itemCounts;
 
-    private TextMeshProUGUI[] quantityTexts;
+    private UIManager manager;
     // Start is called before the first frame update
     void Start()
     {
         source = GetComponent<AudioSource>();
         itemCounts = new int[GameSettings.NUMITEMTYPES];
-        quantityTexts = new TextMeshProUGUI[GameSettings.NUMITEMTYPES];
-        for (int i = 0; i < GameSettings.NUMITEMTYPES; i++)
-        {
-            Debug.Log(GameSettings.itemTypes[i]);
-            TextMeshProUGUI objectText = GameObject.Find(GameSettings.itemTypes[i] + "QuantityText").GetComponent<TextMeshProUGUI>();
-            quantityTexts[i] = objectText;
-            objectText.transform.parent.gameObject.SetActive(false); //turn buttons off
-        }
+        manager = GameObject.Find("GameScreen").GetComponent<UIManager>();
     }
 
     // Update is called once per frame
@@ -30,44 +24,82 @@ public class Inventory : MonoBehaviour
 
     }
 
-    public void UpdateQuantityText(int item)
-    {
-        quantityTexts[item].text = "" + itemCounts[item];
-        Debug.Log("text of item should have become " + itemCounts[item]);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag.Equals("Item"))
+        if (other.CompareTag("Item"))
         {
-            if (other.gameObject.name.Contains("Stick"))
-            {
-                itemCounts[GameSettings.STICK]++;
-                itemCounts[GameSettings.STICKimage]++;
-                UpdateQuantityText(GameSettings.STICK);
-                UpdateQuantityText(GameSettings.STICKimage);
-                pickup(other.gameObject);
-            }
-            else if (other.gameObject.name.Contains("Rock"))
-            {
-                itemCounts[GameSettings.ROCK]++;
-                itemCounts[GameSettings.ROCKimage]++;
-                UpdateQuantityText(GameSettings.ROCK);
-                UpdateQuantityText(GameSettings.ROCKimage);
-                pickup(other.gameObject);
-            }
-            else if (other.gameObject.name.Contains("Raw Meat"))
-            {
-                itemCounts[GameSettings.RAWMEAT]++;
-                UpdateQuantityText(GameSettings.RAWMEAT);
-                pickup(other.gameObject);
-            }
+            pickup(other.gameObject);
         }
     }
 
     private void pickup(GameObject gameObject)
     {
+        if (gameObject.name.Contains("Stick"))
+        {
+            itemCounts[GameSettings.STICK]++;
+        }
+        else if (gameObject.name.Contains("Rock"))
+        {
+            itemCounts[GameSettings.ROCK]++;
+        }
+        else if (gameObject.name.Contains("Raw Meat"))
+        {
+            itemCounts[GameSettings.RAWMEAT]++;
+        }
         Destroy(gameObject);
         source.PlayOneShot(pickupSound, GameSettings.soundVolume);
+        UpdateQuantities();
+    }
+
+    public bool CheckRecipe(Recipe recipe)
+    {
+        Dictionary<int, int> ingredients = recipe.GetIngredients();
+        foreach (KeyValuePair<int, int> pair in ingredients)
+        {
+            if (pair.Value > itemCounts[pair.Key])
+                return false;
+        }
+        return true;
+    }
+
+    public void CraftRecipe(Recipe recipe)
+    {
+        Dictionary<int, int> ingredients = recipe.GetIngredients();
+        foreach (KeyValuePair<int, int> pair in ingredients)
+        {
+            itemCounts[pair.Key] -= pair.Value;
+        }
+    }
+
+    // ------------------ Accesesors ------------------ //
+
+    public void UpdateQuantities()
+    {
+        manager.UpdateQuantityTexts();
+    }
+
+    public void IncrementQuantity(int item)
+    {
+        AddQuantity(item, 1);
+    }
+
+    public void SubtractQuantity(int item, int amount)
+    {
+        AddQuantity(item, -amount);
+    }
+
+    public void DecrementQuantity(int item)
+    {
+        AddQuantity(item, -1);
+    }
+
+    public void AddQuantity(int item, int amount)
+    {
+        itemCounts[item] += amount;
+    }
+
+    public int GetQuantity(int item)
+    {
+        return itemCounts[item];
     }
 }

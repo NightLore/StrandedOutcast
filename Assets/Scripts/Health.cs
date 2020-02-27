@@ -5,7 +5,9 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public EnvironmentSpawner environmentSpawner;
+    public GameObject meat;
     public int maxHp;
+    public float meatDropChance;
     private int hp;
     // Start is called before the first frame update
     void Start()
@@ -41,6 +43,10 @@ public class Health : MonoBehaviour
         hp -= amount;
         if (hp <= 0)
         {
+            if (Random.Range(0.0f, 1.0f) < meatDropChance) {
+                Debug.Log("drop meat");
+                Instantiate(meat, transform.position, transform.rotation);
+            }
             environmentSpawner.killCount++;
             Destroy(gameObject);
             return true;

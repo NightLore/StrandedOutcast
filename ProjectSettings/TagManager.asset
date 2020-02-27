@@ -9,6 +9,7 @@ TagManager:
   - Button
   - Image
   - NightEnemy
+  - QuantityText
   layers:
   - Default
   - TransparentFX

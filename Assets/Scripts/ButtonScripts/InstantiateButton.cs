@@ -25,16 +25,10 @@ public class InstantiateButton : MonoBehaviour
     }
 
     void Create() {
-        if (inventory.itemCounts[GameSettings.STICK] >= recipe.Get(GameSettings.STICK) &&
-            inventory.itemCounts[GameSettings.ROCK]  >= recipe.Get(GameSettings.ROCK)) {
-            inventory.itemCounts[GameSettings.STICK] -= recipe.Get(GameSettings.STICK);
-            inventory.itemCounts[GameSettings.ROCK]  -= recipe.Get(GameSettings.ROCK);
-            inventory.itemCounts[GameSettings.STICKimage] -= recipe.Get(GameSettings.STICK);
-            inventory.itemCounts[GameSettings.ROCKimage]  -= recipe.Get(GameSettings.ROCK);
-            inventory.UpdateQuantityText(GameSettings.ROCK);
-            inventory.UpdateQuantityText(GameSettings.STICK);
-            inventory.UpdateQuantityText(GameSettings.ROCKimage);
-            inventory.UpdateQuantityText(GameSettings.STICKimage);
+        if (inventory.CheckRecipe(recipe)) {
+            inventory.IncrementQuantity(itemIndex);
+            inventory.CraftRecipe(recipe);
+            inventory.UpdateQuantities();
             Instantiate(toCreate, playerTransform.position, toCreate.transform.rotation);
         }
     }

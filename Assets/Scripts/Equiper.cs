@@ -1,4 +1,6 @@
-﻿using TMPro;
+﻿using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -62,7 +64,7 @@ public class Equiper : MonoBehaviour
             return;
         
         // don't equip non-default weapons that you don't have and can't craft
-        if (weapon != GameSettings.weapons[0] && inventory.itemCounts[weapon.GetID()] <= 0 && !CraftWeapon(weapon))
+        if (weapon != GameSettings.weapons[0] && inventory.GetQuantity(weapon.GetID()) <= 0 && !CraftWeapon(weapon))
             return;
         currentWeaponText.text = weapon.GetName();
         attacker.SetStats(weapon.GetDamage(),
@@ -105,18 +107,12 @@ public class Equiper : MonoBehaviour
     {
         Debug.Log(inventory);
         Recipe recipe = weapon.GetRecipe();
-        Debug.Log("Sticks: " + inventory.itemCounts[GameSettings.STICK] + ", " + recipe.Get(GameSettings.STICK)
-               + "\nRocks: " + inventory.itemCounts[GameSettings.ROCK] + ", " +  recipe.Get(GameSettings.ROCK));
-        if (inventory.itemCounts[GameSettings.STICK] >= recipe.Get(GameSettings.STICK)
-         && inventory.itemCounts[GameSettings.ROCK] >=  recipe.Get(GameSettings.ROCK))
+        if (inventory.CheckRecipe(recipe))
         {
-            inventory.itemCounts[weapon.GetID()]++;
-            Debug.Log(inventory.itemCounts[weapon.GetID()]);
-            inventory.UpdateQuantityText(weapon.GetID());
-            inventory.itemCounts[GameSettings.STICK] -= recipe.Get(GameSettings.STICK);
-            inventory.UpdateQuantityText(GameSettings.STICK);
-            inventory.itemCounts[GameSettings.ROCK] -= recipe.Get(GameSettings.ROCK);
-            inventory.UpdateQuantityText(GameSettings.ROCK);
+            // TODO: combine these lines into the same function
+            inventory.IncrementQuantity(weapon.GetID());
+            inventory.CraftRecipe(recipe);
+            inventory.UpdateQuantities();
             Debug.Log("Successfully Crafted Weapon");
             return true;
         }
