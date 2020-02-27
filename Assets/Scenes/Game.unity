@@ -193,6 +193,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5639337}
   m_CullTransparentMesh: 0
+--- !u!1001 &9325395
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1323605893}
+    m_Modifications:
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_Name
+      value: LightingPlant1 (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 75.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fcffcc4d19baf4c079c493203f7f9b18, type: 3}
+--- !u!4 &9325396 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+    type: 3}
+  m_PrefabInstance: {fileID: 9325395}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &21750601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -275,6 +355,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightingPlant1 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
@@ -1488,6 +1573,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightingPlant1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1562,6 +1652,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightingPlant1 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
@@ -3938,6 +4033,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightingPlant1
       objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4471,6 +4571,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightingPlant1 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4939,6 +5044,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightingPlant1 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5373,6 +5483,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 520543867}
   m_CullTransparentMesh: 0
+--- !u!1001 &527985120
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1323605893}
+    m_Modifications:
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_Name
+      value: LightingPlant1 (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fcffcc4d19baf4c079c493203f7f9b18, type: 3}
+--- !u!4 &527985121 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+    type: 3}
+  m_PrefabInstance: {fileID: 527985120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &534071998
 GameObject:
   m_ObjectHideFlags: 0
@@ -5585,6 +5775,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightingPlant1 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5659,6 +5854,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightingPlant1 (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
@@ -5753,6 +5953,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightingPlant1 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
@@ -6966,6 +7171,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightingPlant1 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7040,6 +7250,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightingPlant1 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
@@ -7385,6 +7600,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightingPlant1 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7459,6 +7679,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightingPlant1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
@@ -7589,6 +7814,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightingPlant1 (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
@@ -8120,6 +8350,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightingPlant1 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8532,6 +8767,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightingPlant1 (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8606,6 +8846,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightingPlant1 (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
@@ -9556,6 +9801,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightingPlant1 (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10134,6 +10384,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightingPlant1 (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10321,6 +10576,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightingPlant1 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
@@ -10591,6 +10851,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightingPlant1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
@@ -10877,6 +11142,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightingPlant1 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
@@ -11314,6 +11584,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightingPlant1 (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11482,6 +11757,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightingPlant1 (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11556,6 +11836,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightingPlant1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
@@ -11963,6 +12248,9 @@ Transform:
   - {fileID: 1206443009}
   - {fileID: 1078189101}
   - {fileID: 730644438}
+  - {fileID: 1616667329}
+  - {fileID: 9325396}
+  - {fileID: 527985121}
   m_Father: {fileID: 1463399273}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13735,6 +14023,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightingPlant1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14109,6 +14402,86 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 446262, guid: 01ad90739a2f7434b80afdd86a794c2c,
     type: 3}
   m_PrefabInstance: {fileID: 1615992166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1616667328
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1323605893}
+    m_Modifications:
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_Name
+      value: LightingPlant1 (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 75.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -33.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fcffcc4d19baf4c079c493203f7f9b18, type: 3}
+--- !u!4 &1616667329 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
+    type: 3}
+  m_PrefabInstance: {fileID: 1616667328}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1624184498
 GameObject:
@@ -14530,6 +14903,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightingPlant1 (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
@@ -15210,6 +15588,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightingPlant1 (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15284,6 +15667,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightingPlant1 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
@@ -15488,6 +15876,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightingPlant1 (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
@@ -16199,6 +16592,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightingPlant1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16336,6 +16734,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightingPlant1 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
@@ -16738,6 +17141,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightingPlant1 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17049,6 +17457,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LightingPlant1 (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128241255251578297, guid: fcffcc4d19baf4c079c493203f7f9b18,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4128241255251808665, guid: fcffcc4d19baf4c079c493203f7f9b18,
         type: 3}
