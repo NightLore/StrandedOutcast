@@ -82,10 +82,9 @@ public class EnvironmentSpawner : MonoBehaviour
         killCount = 0;
         waveNumber = -1;
         GameSettings.day = true;
-                timer = GameSettings.waveDelay;
-        player = Instantiate(playerCharacter);
+        timer = GameSettings.waveDelay;
+        player = SetParent(Instantiate(playerCharacter), playerReference);
         Instantiate(campfire);
-        player.transform.SetParent(playerReference.transform);
         StartCoroutine(SpawnRandomItems());
         StartCoroutine(SpawnPassive());
         SpawnWave();
