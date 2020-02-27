@@ -159,8 +159,8 @@ public class EnvironmentSpawner : MonoBehaviour
         }
         else
         {
-            Debug.Log("there seems to be no ground at this position");
-            return new Vector3();
+            Debug.Log("No ground detected at this position: " + position);
+            return position;
         }
     }
 
