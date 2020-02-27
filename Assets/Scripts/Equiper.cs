@@ -18,6 +18,7 @@ public class Equiper : MonoBehaviour
     public GameObject[] weapons;
     public Sprite[] weaponImages;
     public Sprite defaultImage;
+    public ParticleSystem weaponExplosion;
 
     /*
      * references to scripts
@@ -57,19 +58,20 @@ public class Equiper : MonoBehaviour
      *          currentWeaponText
      *          equipImage
      */
-    public void Equip(Weapon weapon)
+    public void Equip(Weapon weapon, bool force = false)
     {
         // if attacking, don't equip -- current purpose is to avoid hacking the attack speed
-        if (!attacker.CanAttack)
+        if (!attacker.CanAttack && !force)
             return;
-        
+
         // don't equip non-default weapons that you don't have and can't craft
         if (weapon != GameSettings.weapons[0] && inventory.GetQuantity(weapon.GetID()) <= 0 && !CraftWeapon(weapon))
             return;
         currentWeaponText.text = weapon.GetName();
         attacker.SetStats(weapon.GetDamage(),
                             weapon.GetSize(),
-                            weapon.GetSpeed());
+                            weapon.GetSpeed(),
+                            weapon);
         // update visual
         if (weapon == GameSettings.weapons[0])
         {
@@ -118,5 +120,14 @@ public class Equiper : MonoBehaviour
         }
         Debug.Log("Failed to Craft Weapon");
         return false;
+    }
+
+    public void breakWeapon(Weapon weapon)
+    {
+        currentWeapon.SetDurability(weapon.GetMaxDurability());
+        inventory.DecrementQuantity(weapon.GetID());
+        inventory.UpdateQuantities();
+        Equip(GameSettings.weapons[0], true);
+        //weaponExplosion.Play(); TO-DO: Fix particle effect
     }
 }

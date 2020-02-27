@@ -19,7 +19,7 @@ public class BasicEnemyActor : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         attacker = GetComponent<Attacker>();
-        attacker.SetStats(attackDamage, attackScale, attackSpeed);
+        attacker.SetStats(attackDamage, attackScale, attackSpeed, null);
     }
 
     // Update is called once per frame

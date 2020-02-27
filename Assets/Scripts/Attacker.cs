@@ -12,6 +12,7 @@ public class Attacker : MonoBehaviour
     private int damage;
     private Vector3 scale;
     private float speed;
+    public Weapon weapon;
 
     public bool CanAttack { get; private set; }
     // Start is called before the first frame update
@@ -27,11 +28,12 @@ public class Attacker : MonoBehaviour
         
     }
 
-    public void SetStats(int d, Vector3 size, float s)
+    public void SetStats(int d, Vector3 size, float s, Weapon weaponIn)
     {
         damage = d;
         scale = size;
         speed = s;
+        weapon = weaponIn;
     }
 
     public void Attack()

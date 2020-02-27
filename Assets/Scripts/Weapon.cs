@@ -69,4 +69,15 @@ public class Weapon : Item
     {
         return maxDurability;
     }
+
+    public int DecrementDurability()
+    {
+        durability -= 1;
+        return durability;
+    }
+
+    public void SetDurability(int x)
+    {
+        durability = x;
+    }
 }

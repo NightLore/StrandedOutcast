@@ -44,5 +44,13 @@ public class Attack : MonoBehaviour
             Instantiate(bloodSplatter, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }
+
+        if (owner.CompareTag("Player") && owner.GetComponent<Attacker>().weapon.GetMaxDurability() != int.MaxValue)
+        {
+            if (owner.GetComponent<Attacker>().weapon.DecrementDurability() == 0)
+            {
+                owner.GetComponent<Equiper>().breakWeapon(owner.GetComponent<Attacker>().weapon);
+            }
+        }
     }
 }

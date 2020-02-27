@@ -80,11 +80,11 @@ public class GameSettings : MonoBehaviour
         new Weapon(     "Fists", recipe.Reset().Set(STICK, 0).Set(ROCK, 0).GetRecipe(),      FISTS,  1, new Vector3(1.0f, 1.0f, 1.0f), 4.0f, int.MaxValue),
         new Weapon(     "Stick", recipe.Reset().Set(STICK, 1).Set(ROCK, 0).GetRecipe(),      STICK,  1, new Vector3(1.0f, 1.5f, 1.0f), 4.0f, int.MaxValue),
         new Weapon(      "Rock", recipe.Reset().Set(STICK, 0).Set(ROCK, 1).GetRecipe(),       ROCK,  4, new Vector3(1.0f, 1.0f, 1.0f), 1.0f, int.MaxValue),
-        new Weapon(  "StoneAxe", recipe.Reset().Set(STICK, 2).Set(ROCK, 2).GetRecipe(),   STONEAXE,  6, new Vector3(4.0f, 1.0f, 4.0f), 2.0f, 15),
-        new Weapon("StoneSpear", recipe.Reset().Set(STICK, 3).Set(ROCK, 1).GetRecipe(), STONESPEAR,  6, new Vector3(1.0f, 5.0f, 5.0f), 3.0f, 15),
-        new Weapon("StoneKnife", recipe.Reset().Set(STICK, 1).Set(ROCK, 2).GetRecipe(), STONEKNIFE,  3, new Vector3(1.5f, 1.5f, 1.5f), 5.0f, 10),
-        new Weapon( "StonePick", recipe.Reset().Set(STICK, 3).Set(ROCK, 3).GetRecipe(),  STONEPICK,  2, new Vector3(2.0f, 1.5f, 1.5f), 2.5f, 10),
-        new Weapon( "BattleAxe", recipe.Reset().Set(STICK, 4).Set(ROCK, 7).GetRecipe(),  BATTLEAXE, 12, new Vector3(7.0f, 4.0f, 1.5f), 1.5f, 15)
+        new Weapon(  "StoneAxe", recipe.Reset().Set(STICK, 2).Set(ROCK, 2).GetRecipe(),   STONEAXE,  6, new Vector3(4.0f, 1.0f, 4.0f), 2.0f, 15), //15
+        new Weapon("StoneSpear", recipe.Reset().Set(STICK, 3).Set(ROCK, 1).GetRecipe(), STONESPEAR,  6, new Vector3(1.0f, 5.0f, 5.0f), 3.0f, 15), //15
+        new Weapon("StoneKnife", recipe.Reset().Set(STICK, 1).Set(ROCK, 2).GetRecipe(), STONEKNIFE,  3, new Vector3(1.5f, 1.5f, 1.5f), 5.0f, 10), //10
+        new Weapon( "StonePick", recipe.Reset().Set(STICK, 3).Set(ROCK, 3).GetRecipe(),  STONEPICK,  2, new Vector3(2.0f, 1.5f, 1.5f), 2.5f, 10), //10
+        new Weapon( "BattleAxe", recipe.Reset().Set(STICK, 4).Set(ROCK, 7).GetRecipe(),  BATTLEAXE, 12, new Vector3(7.0f, 4.0f, 1.5f), 1.5f, 15)  //15
     };
 
     public static Item[] buildings = 
