@@ -204,6 +204,7 @@ public class EnvironmentSpawner : MonoBehaviour
         waveText.text = "Wave: " + waveNumber;
         SpawnCreatures(aggroPrefabs[0], aggroCreatures, GameSettings.maxSpawnRadius, waveNumber % 5);
         SpawnCreatures(aggroPrefabs[1], aggroCreatures, GameSettings.maxSpawnRadius, waveNumber / 5);
+        SpawnCreatures(aggroPrefabs[2], aggroCreatures, GameSettings.maxSpawnRadius, waveNumber);
     }
 
     void SpawnCreatures(GameObject prefab, GameObject parent, float bounds, int amount)
