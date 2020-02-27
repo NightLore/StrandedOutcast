@@ -49,9 +49,21 @@ public class Recipe
         return ingredients[index];
     }
 
-    public int[] GetIngredients()
+    public int[] GetFullIngredientList()
     {
         return ingredients;
+    }
+
+    public Dictionary<int, int> GetIngredients()
+    {
+        Dictionary<int, int> dictionary = new Dictionary<int, int>();
+        for (int i = 0; i < ingredients.Length; i++)
+        {
+            if (ingredients[i] > 0)
+                dictionary.Add(i, ingredients[i]);
+        }
+
+        return dictionary;
     }
 
     public bool NeedsFire()

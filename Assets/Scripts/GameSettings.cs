@@ -102,4 +102,5 @@ public class GameSettings : MonoBehaviour
     public static float[] foodvalues = {10.0f};
 
     public static bool canCook = false;
+
 }

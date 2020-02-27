@@ -26,10 +26,10 @@ public class ConsumeButton : MonoBehaviour
     }
 
     private void Consume() {
-        if (inventory.itemCounts[GameSettings.COOKEDMEAT] > 0) {
+        if (inventory.GetQuantity(GameSettings.COOKEDMEAT) > 0) {
             hunger.IncreaseHunger(GameSettings.foodvalues[food]);
-            inventory.itemCounts[GameSettings.COOKEDMEAT]--;
-            inventory.UpdateQuantityText(GameSettings.COOKEDMEAT);
+            inventory.SubtractQuantity(GameSettings.COOKEDMEAT, 1);
+            inventory.UpdateQuantities();
         }
     }
 }

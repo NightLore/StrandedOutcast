@@ -784,8 +784,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupSound: {fileID: 8300000, guid: af9f934eb4288464eb120a5857921cc3, type: 3}
-  owner: {fileID: 7937342625486332158}
-  itemCounts: 
+  texts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &7937342625486235176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -799,7 +810,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environmentSpawner: {fileID: 0}
+  meat: {fileID: 0}
   maxHp: 10
+  meatDropChance: 0
 --- !u!114 &7937342625486235179
 MonoBehaviour:
   m_ObjectHideFlags: 0
