@@ -56,10 +56,9 @@ public class Attacker : MonoBehaviour
         Vector3 dir = gameObject.transform.forward;
         Vector3 spawnPos = pos + dir * GameSettings.attackDistance;
 
-        Attack a = Instantiate(attack, spawnPos, Quaternion.LookRotation(attack.transform.forward, dir)).GetComponent<Attack>();
-        a.owner = gameObject;
-        a.damage = damage;
-        a.gameObject.transform.localScale = scale;
+        Instantiate(attack, spawnPos, Quaternion.LookRotation(attack.transform.forward, dir))
+            .GetComponent<Attack>()
+            .Init(gameObject, damage, scale);
     }
 
     private void AllowAttack()

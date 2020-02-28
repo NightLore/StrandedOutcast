@@ -3,23 +3,30 @@
 public class Attack : MonoBehaviour
 {
     public GameObject bloodSplatter;
-    public GameObject owner;
-    public GameObject meat;
-    public int damage;
-    public static float lifeSpan = 0.2f;
 
+    private GameObject owner;
+    private int damage;
     private float time;
+    private bool isPlayer;
     // Start is called before the first frame update
     void Start()
     {
 
     }
 
+    public void Init(GameObject obj, int d, Vector3 scale)
+    {
+        owner = obj;
+        damage = d;
+        gameObject.transform.localScale = scale;
+        isPlayer = owner.CompareTag("Player");
+    }
+
     // Update is called once per frame
     void Update()
     {
         time += Time.deltaTime;
-        if (time > lifeSpan)
+        if (time > GameSettings.attackLifeSpan)
         {
             Destroy(gameObject);
         }
@@ -27,30 +34,27 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Health health = other.gameObject.GetComponent<Health>();
-        Vector3 enemyPosition = other.GetComponent<Transform>().position;
-        enemyPosition.y = 0;
-
-        if (other.gameObject != owner && health != null)
+        Health health = other.GetComponent<Health>();
+        if (other.gameObject != owner && health)
         {
-            if (health.takeDamage(damage) && owner.CompareTag("Player")) // if killed "other" and is from player
-            {
-                /* Spawn meat when enemies are killed, 50% chance of dropping */
-                // if (Random.Range(0, 10) % 2 == 0)
-                // {
-                //     Instantiate(meat, enemyPosition, owner.GetComponent<Transform>().rotation);
-                // }
-            }
+            health.takeDamage(damage);
             Instantiate(bloodSplatter, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
-        }
 
-        if (owner.CompareTag("Player") && owner.GetComponent<Attacker>().weapon.GetMaxDurability() != int.MaxValue)
-        {
-            if (owner.GetComponent<Attacker>().weapon.DecrementDurability() == 0)
+            if (isPlayer)
             {
-                owner.GetComponent<Equiper>().breakWeapon(owner.GetComponent<Attacker>().weapon);
+                Weapon w = owner.GetComponent<Attacker>().weapon;
+                if (w.GetMaxDurability() != int.MaxValue && w.DecrementDurability() == 0)
+                {
+                    owner.GetComponent<Equiper>().breakWeapon(w);
+                }
             }
         }
     }
+
+    public bool IsPlayer()
+    {
+        return isPlayer;
+    }
+
 }

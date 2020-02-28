@@ -990,6 +990,7 @@ GameObject:
   - component: {fileID: -2169323046920905349}
   - component: {fileID: -1186144011539059412}
   - component: {fileID: 4575118210347906969}
+  - component: {fileID: 355282611753554762}
   m_Layer: 0
   m_Name: Fox1
   m_TagString: NightEnemy
@@ -1232,3 +1233,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c03a6158ee8484f6496d7255b350e8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &355282611753554762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063373095095974138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b934715e2cf3cb4db6d90dad3e4a320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - {fileID: 116614, guid: 7fe3fdccc2238034cb79964fbbf73d9f, type: 3}
+  percentages:
+  - 0.5
+  maxDrops: 1

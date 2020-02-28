@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 2027042671202461307}
   - component: {fileID: 2027042671202461308}
   - component: {fileID: -4424214402414449528}
+  - component: {fileID: 1716560789054985156}
   m_Layer: 0
   m_Name: Chicken2
   m_TagString: Untagged
@@ -454,6 +455,23 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 1
+--- !u!114 &1716560789054985156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7410407866785191043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b934715e2cf3cb4db6d90dad3e4a320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - {fileID: 116614, guid: 7fe3fdccc2238034cb79964fbbf73d9f, type: 3}
+  percentages:
+  - 0.25
+  maxDrops: 2
 --- !u!1 &7410407866785194889
 GameObject:
   m_ObjectHideFlags: 0
