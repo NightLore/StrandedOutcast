@@ -12,7 +12,7 @@ public class Attacker : MonoBehaviour
     private int damage;
     private Vector3 scale;
     private float speed;
-    public Weapon weapon;
+    private Weapon weapon;
 
     public bool CanAttack { get; private set; }
     // Start is called before the first frame update
@@ -65,5 +65,10 @@ public class Attacker : MonoBehaviour
     {
         animator.SetFloat("Speed_f", 0.5f);
         CanAttack = true;
+    }
+
+    public Weapon GetWeapon()
+    {
+        return weapon;
     }
 }

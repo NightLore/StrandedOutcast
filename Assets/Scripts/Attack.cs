@@ -43,7 +43,7 @@ public class Attack : MonoBehaviour
 
             if (isPlayer)
             {
-                Weapon w = owner.GetComponent<Attacker>().weapon;
+                Weapon w = owner.GetComponent<Attacker>().GetWeapon();
                 if (w.GetMaxDurability() != int.MaxValue && w.DecrementDurability() == 0)
                 {
                     owner.GetComponent<Equiper>().breakWeapon(w);
