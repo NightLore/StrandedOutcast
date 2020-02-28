@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResourceSource : MonoBehaviour
 {
-
+    public GameObject splatterPrefab;
     public int[] harvestableTools; // use weapon index
 
     private List<Weapon> tools;
@@ -35,6 +35,7 @@ public class ResourceSource : MonoBehaviour
             Vector3 spawnPos = a.GetOwner().transform.position;
             spawnPos.y += 5;
             dropper.Drop(spawnPos);
+            a.Die(splatterPrefab);
         }
     }
 

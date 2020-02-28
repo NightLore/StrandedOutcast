@@ -107,6 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1786de6c09f2da744a17bfd434914b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splatterPrefab: {fileID: 3661188562795830691, guid: 8eb65d8e7f239464a87ba5a246976797,
+    type: 3}
   harvestableTools: 06000000
 --- !u!114 &1145053519
 MonoBehaviour:

@@ -38,8 +38,7 @@ public class Attack : MonoBehaviour
         if (other.gameObject != owner && health)
         {
             health.TakeDamage(damage);
-            Instantiate(bloodSplatter, gameObject.transform.position, gameObject.transform.rotation);
-            Destroy(gameObject);
+            Die(bloodSplatter);
 
             if (isPlayer)
             {
@@ -50,6 +49,12 @@ public class Attack : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void Die(GameObject replacement)
+    {
+        Instantiate(replacement, gameObject.transform.position, gameObject.transform.rotation);
+        Destroy(gameObject);
     }
 
     public bool IsPlayer()
