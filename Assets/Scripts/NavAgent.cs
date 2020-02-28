@@ -24,7 +24,7 @@ public class NavAgent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (agent.pathPending) return;
+        if (agent.pathPending || !target) return;
 
         if (GameSettings.day)
         {
