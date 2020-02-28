@@ -61,7 +61,7 @@ public class Hunger : MonoBehaviour
         hunger--;
         if (hunger < 0)
         {
-            health.takeDamage(1); // damage taken from no hunger determined by hunger rate
+            health.TakeDamage(1); // damage taken from no hunger determined by hunger rate
             hunger = 0;
         }
     }

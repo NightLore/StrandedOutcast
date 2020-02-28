@@ -37,7 +37,7 @@ public class Attack : MonoBehaviour
         Health health = other.GetComponent<Health>();
         if (other.gameObject != owner && health)
         {
-            health.takeDamage(damage);
+            health.TakeDamage(damage);
             Instantiate(bloodSplatter, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
 
