@@ -83,7 +83,7 @@ public class EnvironmentSpawner : MonoBehaviour
         waveNumber = -1;
         GameSettings.day = true;
         timer = GameSettings.waveDelay;
-        player = SetParent(Instantiate(playerCharacter), playerReference);
+        player = Utils.SetParent(Instantiate(playerCharacter), playerReference);
         Instantiate(campfire);
         StartCoroutine(SpawnRandomItems());
         StartCoroutine(SpawnPassive());
@@ -122,67 +122,24 @@ public class EnvironmentSpawner : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    // -------------------------- Utilities ------------------------- //
-
-    float RandomDelay()
-    {
-        return Random.Range(GameSettings.minSpawnDelay, GameSettings.maxSpawnDelay);
-    }
-
-    GameObject RandomPrefab(GameObject[] prefabs)
-    {
-        return prefabs[Random.Range(0, prefabs.Length)];
-    }
-
-    Vector3 RandomInArea(Vector3 center, float maxDistance)
-    {
-        return center + Random.insideUnitSphere * maxDistance;
-    }
-
-    float RandomDirection()
-    {
-        return Random.Range(0, 360);
-    }
-
-    GameObject SetParent(GameObject child, GameObject parent)
-    {
-        child.transform.SetParent(parent.transform);
-        return child;
-    }
-
-    Vector3 GetGroundPoint(Vector3 position)
-    {
-        position.y = 100;
-        // Note: only works if ground is within +/-100 of starting spot
-        if (Physics.Raycast(position, Vector3.down, out RaycastHit hit, 200.0f))
-        {
-            return hit.point;
-        }
-        else
-        {
-            Debug.Log("No ground detected at this position: " + position);
-            return position;
-        }
-    }
-
     // -------------------------- Spawning ------------------------- //
 
     IEnumerator SpawnRandomItems()
     {
         while (inGame)
         {
-            yield return new WaitForSeconds(RandomDelay());
+            yield return new WaitForSeconds(Utils.RandomDelay());
             if (items.GetComponentsInChildren<Transform>().Length < GameSettings.maxItems)
             {
-                SetParent(SpawnAroundLocation(itemsPrefabs[0], GameSettings.stickSpawnCenter, GameSettings.stickSpawnRadius), items);
-                SetParent(SpawnAroundLocation(itemsPrefabs[0], GameSettings.stickSpawnCenter, GameSettings.stickSpawnRadius), items);
-                SetParent(SpawnAroundLocation(itemsPrefabs[1], GameSettings.rockSpawnCenter, GameSettings.rockSpawnRadius), items);
-                SetParent(SpawnAroundLocation(itemsPrefabs[2], GameSettings.rockSpawnCenter, GameSettings.rockSpawnRadius), items);
+                Utils.SetParent(SpawnAroundLocation(itemsPrefabs[0], GameSettings.stickSpawnCenter, GameSettings.stickSpawnRadius), items);
+                Utils.SetParent(SpawnAroundLocation(itemsPrefabs[0], GameSettings.stickSpawnCenter, GameSettings.stickSpawnRadius), items);
+                Utils.SetParent(SpawnAroundLocation(itemsPrefabs[1], GameSettings.rockSpawnCenter, GameSettings.rockSpawnRadius), items);
+                Utils.SetParent(SpawnAroundLocation(itemsPrefabs[2], GameSettings.rockSpawnCenter, GameSettings.rockSpawnRadius), items);
 
-                SetParent(SpawnAroundLocation(itemsPrefabs[0], new Vector3(), GameSettings.maxSpawnRadius), items);
-                SetParent(SpawnAroundLocation(itemsPrefabs[0], new Vector3(), GameSettings.maxSpawnRadius), items);
-                SetParent(SpawnAroundLocation(itemsPrefabs[1], new Vector3(), GameSettings.maxSpawnRadius), items);
-                SetParent(SpawnAroundLocation(itemsPrefabs[2], new Vector3(), GameSettings.maxSpawnRadius), items);
+                Utils.SetParent(SpawnAroundLocation(itemsPrefabs[0], new Vector3(), GameSettings.maxSpawnRadius), items);
+                Utils.SetParent(SpawnAroundLocation(itemsPrefabs[0], new Vector3(), GameSettings.maxSpawnRadius), items);
+                Utils.SetParent(SpawnAroundLocation(itemsPrefabs[1], new Vector3(), GameSettings.maxSpawnRadius), items);
+                Utils.SetParent(SpawnAroundLocation(itemsPrefabs[2], new Vector3(), GameSettings.maxSpawnRadius), items);
             }
         }
     }
@@ -191,10 +148,10 @@ public class EnvironmentSpawner : MonoBehaviour
     {
         while (inGame)
         {
-            yield return new WaitForSeconds(RandomDelay());
+            yield return new WaitForSeconds(Utils.RandomDelay());
             if (passiveCreatures.GetComponentsInChildren<Transform>().Length < GameSettings.maxPassiveCreatures)
             {
-                SpawnCreature(RandomPrefab(passivePrefabs), passiveCreatures, GameSettings.maxSpawnRadius);
+                SpawnCreature(Utils.RandomPrefab(passivePrefabs), passiveCreatures, GameSettings.maxSpawnRadius);
             }
         }
     }
@@ -212,7 +169,7 @@ public class EnvironmentSpawner : MonoBehaviour
     {
         Vector3 direction = player.transform.position.normalized;
         Vector3 newCenter = direction * (GameSettings.maxSpawnRadius - bounds);
-        SetParent(SpawnAroundLocation(prefab, newCenter, bounds), parent);
+        Utils.SetParent(SpawnAroundLocation(prefab, newCenter, bounds), parent);
     }
 
     void SpawnCreatures(GameObject prefab, GameObject parent, float bounds, int amount)
@@ -226,15 +183,15 @@ public class EnvironmentSpawner : MonoBehaviour
 
     void SpawnCreature(GameObject prefab, GameObject parent, float bounds)
     {
-        SetParent(SpawnAroundLocation(prefab, new Vector3(), bounds), parent);
+        Utils.SetParent(SpawnAroundLocation(prefab, new Vector3(), bounds), parent);
         //InstantiateOffScreen(prefabs, bounds).transform.SetParent(storage.transform, true);
     }
 
     GameObject SpawnAroundLocation(GameObject prefab, Vector3 center, float maxDistance)
     {
-        Vector3 spawnPos = GetGroundPoint(RandomInArea(center, maxDistance));
+        Vector3 spawnPos = Utils.GetGroundPoint(Utils.RandomInArea(center, maxDistance));
         spawnPos.y += prefab.transform.position.y; // set Offset from ground
-        return Instantiate(prefab, spawnPos, Quaternion.Euler(Vector3.up * RandomDirection()));
+        return Instantiate(prefab, spawnPos, Utils.RandomYRotation());
     }
 
     //GameObject InstantiateOffScreen(GameObject prefab, float bounds)
