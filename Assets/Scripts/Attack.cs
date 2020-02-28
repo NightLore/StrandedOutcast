@@ -57,4 +57,9 @@ public class Attack : MonoBehaviour
         return isPlayer;
     }
 
+    public GameObject GetOwner()
+    {
+        return owner;
+    }
+
 }

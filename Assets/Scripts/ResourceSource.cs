@@ -31,7 +31,9 @@ public class ResourceSource : MonoBehaviour
         Attack a = other.GetComponent<Attack>();
         if (a && a.IsPlayer())
         {
-            dropper.Drop();
+            Vector3 spawnPos = a.GetOwner().transform.position;
+            spawnPos.y += 5;
+            dropper.Drop(spawnPos);
         }
     }
 }

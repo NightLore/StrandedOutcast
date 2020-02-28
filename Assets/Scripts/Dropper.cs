@@ -30,12 +30,10 @@ public class Dropper : MonoBehaviour
         int index = 0;
         for (int i = 0; i < maxDrops; i++)
         {
-            Debug.Log("i: " + i);
             int j = index;
             index = (index + drops.Length) % (drops.Length + 1);
             for (; j != index; j++)
             {
-                Debug.Log("j, index: " + j + ", " + index);
                 if (j >= drops.Length)
                     j = -1;
                 else if (Random.value < percentages[j])
