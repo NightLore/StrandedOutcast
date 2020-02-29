@@ -100,6 +100,7 @@ public class Inventory : MonoBehaviour
 
     public int GetQuantity(int item)
     {
+        Debug.Log("inventory value: " + itemCounts[item]);
         return itemCounts[item];
     }
 }
