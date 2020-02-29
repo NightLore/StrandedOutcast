@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 4575667694385816555}
   - component: {fileID: 4575667694387110859}
   - component: {fileID: 4575667694388240651}
-  - component: {fileID: 3425686911258276407}
   - component: {fileID: 2275282849624766067}
   - component: {fileID: -9178345392137347807}
   - component: {fileID: 5850045419871751806}
   - component: {fileID: 1814978503088629917}
+  - component: {fileID: 317439285424218377}
   m_Layer: 0
   m_Name: Tree_2
   m_TagString: Untagged
@@ -83,22 +83,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!54 &3425686911258276407
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4575667694386249675}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!136 &2275282849624766067
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -110,9 +94,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.40764576
-  m_Height: 5.009818
+  m_Height: 5.85925
   m_Direction: 1
-  m_Center: {x: 0.016519666, y: 2.4858012, z: -0.1567297}
+  m_Center: {x: 0.016519666, y: 2.0610852, z: -0.1567297}
 --- !u!136 &-9178345392137347807
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -159,3 +143,19 @@ MonoBehaviour:
   splatterPrefab: {fileID: 258373444212026829, guid: 8fa20603e76597e49b0bb436a8ff059f,
     type: 3}
   harvestableTools: 030000000700000000000000
+--- !u!54 &317439285424218377
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4575667694386249675}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
