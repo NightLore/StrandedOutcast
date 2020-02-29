@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3425686911258276407}
   - component: {fileID: 2275282849624766067}
   - component: {fileID: -9178345392137347807}
+  - component: {fileID: 5850045419871751806}
+  - component: {fileID: 1814978503088629917}
   m_Layer: 0
   m_Name: Tree_2
   m_TagString: Untagged
@@ -107,10 +109,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.3418283
+  m_Radius: 0.40764576
   m_Height: 5.009818
   m_Direction: 1
-  m_Center: {x: -0.42032993, y: 2.4858012, z: -0.1567297}
+  m_Center: {x: 0.016519666, y: 2.4858012, z: -0.1567297}
 --- !u!136 &-9178345392137347807
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -119,9 +121,41 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4575667694386249675}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 1.3502057
   m_Height: 5.009818
   m_Direction: 1
   m_Center: {x: -0.3230927, y: 2.4858012, z: -0.0937469}
+--- !u!114 &5850045419871751806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4575667694386249675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b934715e2cf3cb4db6d90dad3e4a320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - {fileID: 8533699120571369429, guid: 1a2c345fd5dbf084eb4128a2b8eba519, type: 3}
+  percentages:
+  - 0.5
+  maxDrops: 1
+--- !u!114 &1814978503088629917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4575667694386249675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1786de6c09f2da744a17bfd434914b0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splatterPrefab: {fileID: 258373444212026829, guid: 8fa20603e76597e49b0bb436a8ff059f,
+    type: 3}
+  harvestableTools: 030000000700000000000000

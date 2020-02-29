@@ -6,7 +6,7 @@ public class Dropper : MonoBehaviour
 {
     public GameObject[] drops; // Drag and drop
     public float[] percentages; // indexes align with drops
-    public int maxDrops;
+    public int maxDrops; // Maximum drops per call/hit
 
     // Start is called before the first frame update
     void Start()
