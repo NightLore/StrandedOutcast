@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public EnvironmentSpawner environmentSpawner;
+    private EnvironmentSpawner environmentSpawner;
+    private Dropper dropper;
+
+    public bool controlStartHealth = false;
     public int maxHp;
     private int hp;
-    private Dropper dropper;
     // Start is called before the first frame update
     void Start()
     {
         environmentSpawner = GameObject.Find("EnvironmentSpawner").GetComponent<EnvironmentSpawner>();
-        hp = maxHp;
         dropper = GetComponent<Dropper>();
+        if (!controlStartHealth)
+        {
+            hp = maxHp;
+        }
     }
 
     // Update is called once per frame
@@ -27,12 +32,25 @@ public class Health : MonoBehaviour
         return hp;
     }
 
+    // sets the starting hp, does not do any checking (use Heal() or TakeDamage() for checking
+    public void SetHP(int newHp)
+    {
+        hp = newHp;
+    }
+
     /*
      * Increases health by the specified amount until maxHp
+     * If hp heals to maxHp, returns true, else returns false
      */ 
-    public void Heal(int amount)
+    public bool Heal(int amount)
     {
-        hp = Mathf.Min(hp + amount, maxHp);
+        hp += amount;
+        if (hp >= maxHp)
+        {
+            hp = maxHp;
+            return true;
+        }
+        return false;
     }
 
     /*

@@ -37,8 +37,9 @@ public class HealthBar : MonoBehaviour
     {
         if (health.GetHP() == health.maxHp) // don't display when full hp
             return;
+        float height = boxCollider ? boxCollider.size.y * transform.localScale.y : transform.localScale.y;
         Vector3 position = transform.position; // get current position
-        position.y += boxCollider.size.y * transform.localScale.y; // move to top of object
+        position.y += height; // move to top of object
         Vector2 targetPos = Camera.main.WorldToScreenPoint(position); // convert to screen coordinates
 
         //draw the background rectangle:

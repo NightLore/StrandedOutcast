@@ -32,6 +32,5 @@ public class QuantityText : MonoBehaviour
             text = GetComponent<TextMeshProUGUI>();
         }
         text.text = "" + inventory.GetQuantity(item);
-        Debug.Log("qText displaying" + inventory.GetQuantity(item));
     }
 }

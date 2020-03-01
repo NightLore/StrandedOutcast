@@ -28,11 +28,11 @@ public class ResourceSource : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Harvest");
         Attack a = other.GetComponent<Attack>();
         if (a && a.IsPlayer() 
          && CanHarvest(a.GetOwner().GetComponent<Attacker>().GetWeapon()))
         {
+            Debug.Log("Harvest");
             Vector3 spawnPos = a.GetOwner().transform.position;
             spawnPos.y += 5;
             if (dropper) dropper.Drop(spawnPos);
