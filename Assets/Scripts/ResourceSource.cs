@@ -32,9 +32,7 @@ public class ResourceSource : MonoBehaviour
         if (a && a.IsPlayer() 
          && CanHarvest(a.GetOwner().GetComponent<Attacker>().GetWeapon()))
         {
-            Vector3 spawnPos = a.GetOwner().transform.position;
-            spawnPos.y += 5;
-            if (dropper) dropper.Drop(spawnPos);
+            if (dropper) dropper.Drop(a.GetOwner().transform.position);
             if (splatterPrefab) a.Die(splatterPrefab);
         }
     }

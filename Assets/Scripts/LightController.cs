@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LightController : MonoBehaviour
 {
+    private EnvironmentSpawner spawner;
     private Light dayLight;
     private float lightIntensity;
     private float timer;
@@ -12,12 +13,13 @@ public class LightController : MonoBehaviour
     {
         dayLight = GetComponent<Light>();
         lightIntensity = 1;
+        spawner = GameObject.Find("EnvironmentSpawner").GetComponent<EnvironmentSpawner>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer = GameObject.Find("EnvironmentSpawner").GetComponent<EnvironmentSpawner>().timer;
+        timer = spawner.GetTime();
         if (GameSettings.day) {
             if (timer > GameSettings.waveDelay / 2) {
                 lightIntensity = (GameSettings.waveDelay - timer + GameSettings.waveDelay / 2) / GameSettings.waveDelay;

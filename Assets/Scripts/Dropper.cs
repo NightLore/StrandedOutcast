@@ -38,9 +38,8 @@ public class Dropper : MonoBehaviour
                     j = -1;
                 else if (Random.value < percentages[j])
                 {
-                    Vector3 spawnPos = Utils.GetGroundPoint(position);
-                    spawnPos.y += drops[j].transform.position.y; // set Offset from ground
-                    Instantiate(drops[j], Utils.GetGroundPoint(spawnPos), Utils.RandomYRotation());
+                    position += drops[j].transform.position;
+                    Instantiate(drops[j], position, Utils.RandomYRotation());
                     index = j + 1;
                 }
             }

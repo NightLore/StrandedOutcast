@@ -154,6 +154,11 @@ public class EnvironmentSpawner : MonoBehaviour
     {
         killCount++;
     }
+    
+    public float GetTime()
+    {
+        return timer;
+    }
 
     // -------------------------- Spawning ------------------------- //
 
