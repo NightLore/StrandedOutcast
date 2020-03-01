@@ -11,12 +11,11 @@ public class EnvironmentSpawner : MonoBehaviour
     public GameObject gameScreen;
     public GameObject gameOverScreen;
     public GameObject creditsScreen;
+    public GameObject gameWinScreen;
 
     public GameObject titleObjects;
     public TextMeshProUGUI waveText;
     public TextMeshProUGUI timeText;
-
-    public TextMeshProUGUI resultText;
 
     public GameObject[] itemsPrefabs;
     public GameObject[] passivePrefabs;
@@ -32,9 +31,9 @@ public class EnvironmentSpawner : MonoBehaviour
     private GameObject player;
     private GameObject playerReference;
     private bool inGame = false;
-    public int killCount;
-    private int waveNumber;
-    public float timer;
+    private int killCount;
+    private int dayCount;
+    private float timer;
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +63,11 @@ public class EnvironmentSpawner : MonoBehaviour
                     Destroy(t.gameObject);
                 }
 
+                if (GameSettings.day)
+                {
+                    dayCount++;
+                    waveText.text = "Wave: " + dayCount;
+                }
                 SpawnWave();
                 timer = GameSettings.waveDelay;
             }
@@ -80,7 +84,7 @@ public class EnvironmentSpawner : MonoBehaviour
     {
         inGame = true;
         killCount = 0;
-        waveNumber = -1;
+        dayCount = 0;
         GameSettings.day = true;
         timer = GameSettings.waveDelay;
         player = Utils.SetParent(Instantiate(playerCharacter), playerReference);
@@ -94,13 +98,21 @@ public class EnvironmentSpawner : MonoBehaviour
         gameScreen.SetActive(true);
     }
 
+    public void GameWin(Vector3 location)
+    {
+        gameScreen.SetActive(false);
+        gameWinScreen.SetActive(true);
+        player.transform.position = location;
+
+        inGame = false;
+    }
+
     public void GameOver()
     {
         gameScreen.SetActive(false);
         gameOverScreen.SetActive(true);
 
         inGame = false;
-        resultText.text = "You killed " + (killCount-1) + " creatures and survived " + waveNumber + " waves!";
     }
 
     public void Credits()
@@ -120,6 +132,27 @@ public class EnvironmentSpawner : MonoBehaviour
     public void Reload()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public int GetDayCount()
+    {
+        return dayCount;
+    }
+
+    public void SetDayCount(int number)
+    {
+        dayCount = number;
+        waveText.text = "Wave: " + dayCount;
+    }
+
+    public int GetKillCount()
+    {
+        return killCount;
+    }
+
+    public void IncrementKillCount()
+    {
+        killCount++;
     }
 
     // -------------------------- Spawning ------------------------- //
@@ -158,11 +191,9 @@ public class EnvironmentSpawner : MonoBehaviour
 
     private void SpawnWave()
     {
-        waveNumber++;
-        waveText.text = "Wave: " + waveNumber;
-        SpawnCreatures(aggroPrefabs[0], aggroCreatures, GameSettings.maxSpawnRadius, waveNumber % 5);
-        SpawnCreatures(aggroPrefabs[1], aggroCreatures, GameSettings.maxSpawnRadius, waveNumber / 5);
-        SpawnCreatures(aggroPrefabs[2], aggroCreatures, GameSettings.maxSpawnRadius, waveNumber);
+        SpawnCreatures(aggroPrefabs[0], aggroCreatures, GameSettings.maxSpawnRadius, dayCount % 5);
+        SpawnCreatures(aggroPrefabs[1], aggroCreatures, GameSettings.maxSpawnRadius, dayCount / 5);
+        SpawnCreatures(aggroPrefabs[2], aggroCreatures, GameSettings.maxSpawnRadius, dayCount);
     }
 
     private void SpawnNearPlayer(GameObject prefab, GameObject parent, float bounds)

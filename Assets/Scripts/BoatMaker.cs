@@ -6,12 +6,14 @@ public class BoatMaker : MonoBehaviour
 {
     public GameObject boat; // drag in
     public ParticleSystem buildParticle;
+    private EnvironmentSpawner spawner;
 
     private Health boatHealth;
     // Start is called before the first frame update
     void Start()
     {
         boatHealth = boat.GetComponent<Health>();
+        spawner = GameObject.Find("EnvironmentSpawner").GetComponent<EnvironmentSpawner>();
     }
 
     // Update is called once per frame
@@ -33,7 +35,7 @@ public class BoatMaker : MonoBehaviour
                 buildParticle.Play();
                 if (boatHealth.Heal(1))
                 {
-                    Debug.Log("Win!");
+                    spawner.GameWin(boat.transform.position + Vector3.up * 2);
                 }
             }
         }

@@ -62,7 +62,7 @@ public class Health : MonoBehaviour
         if (hp <= 0)
         {
             if (dropper) dropper.Drop();
-            environmentSpawner.killCount++;
+            environmentSpawner.IncrementKillCount();
             Destroy(gameObject);
             return true;
         }
