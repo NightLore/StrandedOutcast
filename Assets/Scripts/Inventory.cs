@@ -104,6 +104,17 @@ public class Inventory : MonoBehaviour
 
     public int GetQuantity(int item)
     {
+        if (item == GameSettings.SWORD) {
+            Debug.Log("sword: " + itemCounts[item]);
+        }
+        else if (item == GameSettings.STONEAXE) {
+            Debug.Log("stoneaxe: " + itemCounts[item]);
+        }
+        if (item > 1) {
+           // Debug.Log(item + ": " + itemCounts[item]);
+        }
+        
+        
         return itemCounts[item];
     }
 }

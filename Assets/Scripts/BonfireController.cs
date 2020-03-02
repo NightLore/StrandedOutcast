@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BonfireController : MonoBehaviour
 {
@@ -18,11 +19,19 @@ public class BonfireController : MonoBehaviour
     
     void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("NightEnemy")) {
+            NavMeshAgent agent = other.gameObject.GetComponent<NavMeshAgent>();
+            agent.speed = agent.speed / 2;
+        }
         GameSettings.canCook = true;
     }
 
     void OnTriggerExit(Collider other)
     {
+        if (other.gameObject.CompareTag("NightEnemy")) {
+            NavMeshAgent agent = other.gameObject.GetComponent<NavMeshAgent>();
+            agent.speed = agent.speed * 2;
+        }
         GameSettings.canCook = false;
     }
 

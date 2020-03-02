@@ -24,7 +24,7 @@ public class GameSettings : MonoBehaviour
     // PLAYER STATS
     public static float saturationDelay = 5;
     public static int saturationRegen = 1;
-    public static float hungerRate = 1.0f;
+    public static float hungerRate = 0.6666f;
     public static float playerSpeed = 10.0f;
     public static float playerTurnSpeed = 100.0f;
 

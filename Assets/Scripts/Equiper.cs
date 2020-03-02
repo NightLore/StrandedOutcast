@@ -113,6 +113,7 @@ public class Equiper : MonoBehaviour
         {
             // TODO: combine these lines into the same function
             inventory.IncrementQuantity(weapon.GetID());
+            Debug.Log(weapon.GetID());
             inventory.CraftRecipe(recipe);
             inventory.UpdateQuantities();
             Debug.Log("Successfully Crafted Weapon");
