@@ -5874,6 +5874,7 @@ GameObject:
   m_Component:
   - component: {fileID: 398111245}
   - component: {fileID: 398111244}
+  - component: {fileID: 398111246}
   m_Layer: 0
   m_Name: EnvironmentSpawner
   m_TagString: Untagged
@@ -5935,6 +5936,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &398111246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398111243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ff623302086a34586a70637bd02495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &410975739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7465,7 +7478,6 @@ GameObject:
   - component: {fileID: 616778277}
   - component: {fileID: 616778276}
   - component: {fileID: 616778275}
-  - component: {fileID: 616778274}
   m_Layer: 5
   m_Name: KnifeCategoryButton
   m_TagString: Button
@@ -7494,18 +7506,6 @@ RectTransform:
   m_AnchoredPosition: {x: -150, y: -125}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &616778274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616778272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbdeb22073de12a4ab0c2a2b0a80dc7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &616778275
 MonoBehaviour:
   m_ObjectHideFlags: 0

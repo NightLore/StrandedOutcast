@@ -36,8 +36,6 @@ public class PlayerControl : MonoBehaviour
         Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         controller.SimpleMove(direction.normalized * GameSettings.playerSpeed);
 
-        //transform.position = new Vector3(transform.position.x, 0, transform.position.z); // force player on the ground
-
         Vector3 r = Vector3.RotateTowards(transform.forward, direction, GameSettings.playerTurnSpeed * Time.deltaTime, 0.0f);
         transform.rotation = Quaternion.LookRotation(r);
 

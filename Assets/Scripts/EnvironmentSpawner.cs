@@ -30,6 +30,7 @@ public class EnvironmentSpawner : MonoBehaviour
 
     private GameObject player;
     private GameObject playerReference;
+    private Cheats cheats;
     private bool inGame = false;
     private int killCount;
     private int dayCount;
@@ -39,6 +40,7 @@ public class EnvironmentSpawner : MonoBehaviour
     void Start()
     {
         playerReference = GameObject.Find("PlayerReference");
+        cheats = GetComponent<Cheats>();
     }
 
     // Update is called once per frame
@@ -88,6 +90,7 @@ public class EnvironmentSpawner : MonoBehaviour
         GameSettings.day = true;
         timer = GameSettings.waveDelay;
         player = Utils.SetParent(Instantiate(playerCharacter), playerReference);
+        cheats.Initialize(player);
         Instantiate(campfire);
         StartCoroutine(SpawnRandomItems());
         StartCoroutine(SpawnPassive());
