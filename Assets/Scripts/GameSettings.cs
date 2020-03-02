@@ -9,9 +9,17 @@ public class GameSettings : MonoBehaviour
     public static float musicVolume = 0.10f;
     public static float soundVolume = 1.0f;
 
+    // ----------------- UI ------------------ //
     // HEALTH UI
     public static Vector2 healthBarHorizontal = new Vector2(100, 20);
     public static Vector2 healthBarVertical = new Vector2(40, 200);
+
+    public static float tutorialDelay = 3.0f;
+    public static float blinkTextDelay = 1.0f;
+    public static float oscillationDistance = 20.0f;
+    public static float oscillationSpeed = 10.0f;
+
+    // ----------- GAME STATS -------------- //
 
     // PLAYER STATS
     public static float saturationDelay = 5;
@@ -104,5 +112,4 @@ public class GameSettings : MonoBehaviour
     public static float[] foodvalues = {10.0f};
 
     public static bool canCook = false;
-
 }

@@ -14,7 +14,7 @@ public class EnvironmentSpawner : MonoBehaviour
     public GameObject gameWinScreen;
 
     public GameObject titleObjects;
-    public TextMeshProUGUI waveText;
+    public TextMeshProUGUI dayText;
     public TextMeshProUGUI timeText;
 
     public GameObject[] itemsPrefabs;
@@ -67,8 +67,7 @@ public class EnvironmentSpawner : MonoBehaviour
 
                 if (GameSettings.day)
                 {
-                    dayCount++;
-                    waveText.text = "Wave: " + dayCount;
+                    IncrementDayCount();
                 }
                 SpawnWave();
                 timer = GameSettings.waveDelay;
@@ -86,8 +85,7 @@ public class EnvironmentSpawner : MonoBehaviour
     {
         inGame = true;
         killCount = 0;
-        dayCount = 0;
-        waveText.text = "Day: " + dayCount;
+        SetDayCount(0);
         GameSettings.day = true;
         timer = GameSettings.waveDelay;
         player = Utils.SetParent(Instantiate(playerCharacter), playerReference);
@@ -143,10 +141,15 @@ public class EnvironmentSpawner : MonoBehaviour
         return dayCount;
     }
 
+    public void IncrementDayCount()
+    {
+        SetDayCount(dayCount + 1);
+    }
+
     public void SetDayCount(int number)
     {
         dayCount = number;
-        waveText.text = "Day: " + dayCount;
+        dayText.text = "Day: " + dayCount;
     }
 
     public int GetKillCount()
