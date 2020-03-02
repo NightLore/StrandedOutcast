@@ -39,10 +39,25 @@ public class Cheats : MonoBehaviour
             inventory.UpdateQuantities();
         }
 
-        // Metal
+        // Raw Meat
         if (Input.GetKeyDown(KeyCode.Comma))
         {
+            inventory.IncrementQuantity(GameSettings.RAWMEAT);
+            inventory.UpdateQuantities();
+        }
 
+        // Cooked Meat
+        if (Input.GetKeyDown(KeyCode.Semicolon))
+        {
+            inventory.IncrementQuantity(GameSettings.COOKEDMEAT);
+            inventory.UpdateQuantities();
+        }
+
+        // Metal ore
+        if (Input.GetKeyDown(KeyCode.Quote))
+        {
+            //inventory.IncrementQuantity(GameSettings.RAWMEAT);
+            //inventory.UpdateQuantities();
         }
     }
 }
