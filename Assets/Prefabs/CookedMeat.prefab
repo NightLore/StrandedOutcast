@@ -12,9 +12,12 @@ GameObject:
   - component: {fileID: 33103959567057624}
   - component: {fileID: 23370536939774252}
   - component: {fileID: 114042813152422014}
+  - component: {fileID: 4923301003178832902}
+  - component: {fileID: 205951172202631944}
+  - component: {fileID: -1833728403774001383}
   m_Layer: 0
-  m_Name: Ham
-  m_TagString: Untagged
+  m_Name: CookedMeat
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,8 +29,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103729609193184}
-  m_LocalRotation: {x: -0.18301314, y: -0.6830158, z: 0.18301141, w: -0.6830098}
-  m_LocalPosition: {x: 1.2940004, y: 0.129, z: -0.073}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4418294654674036}
@@ -36,7 +39,7 @@ Transform:
   - {fileID: 4619251270219248}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 30.000002, y: -269.999, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &33103959567057624
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -95,6 +98,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3abfc7198c85ce649bd21dd41e50b870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4923301003178832902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103729609193184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46885a188163a4b429e32129d56b655a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bobbingAmount: 0.005
+--- !u!114 &205951172202631944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103729609193184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbedd61c6e80dd1468f2de2f69035eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 50
+--- !u!65 &-1833728403774001383
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103729609193184}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.19030869, y: 0.29643175, z: 0.2951498}
+  m_Center: {x: 0.0040117204, y: 0.022066547, z: -0.024594594}
 --- !u!1 &1183062911300714
 GameObject:
   m_ObjectHideFlags: 0

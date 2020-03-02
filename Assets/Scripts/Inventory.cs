@@ -42,9 +42,13 @@ public class Inventory : MonoBehaviour
         {
             itemCounts[GameSettings.ROCK]++;
         }
-        else if (gameObject.name.Contains("Raw Meat"))
+        else if (gameObject.name.Contains("RawMeat"))
         {
             itemCounts[GameSettings.RAWMEAT]++;
+        }
+        else if (gameObject.name.Contains("CookedMeat"))
+        {
+            itemCounts[GameSettings.COOKEDMEAT]++;
         }
         Destroy(gameObject);
         source.PlayOneShot(pickupSound, GameSettings.soundVolume);

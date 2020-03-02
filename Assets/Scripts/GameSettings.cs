@@ -38,7 +38,7 @@ public class GameSettings : MonoBehaviour
     public static float waveDelay = 20.0f;
 
     public static float maxSpawnRadius = 100;
-    public static float enemySpawnDistance = 10;
+    public static float enemySpawnDistance = 40;
 
     public static Vector3 stickSpawnCenter = new Vector3(-30, 0, 60);
     public static float stickSpawnRadius = 40;

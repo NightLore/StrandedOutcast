@@ -87,6 +87,7 @@ public class EnvironmentSpawner : MonoBehaviour
         inGame = true;
         killCount = 0;
         dayCount = 0;
+        waveText.text = "Day: " + dayCount;
         GameSettings.day = true;
         timer = GameSettings.waveDelay;
         player = Utils.SetParent(Instantiate(playerCharacter), playerReference);
@@ -134,7 +135,7 @@ public class EnvironmentSpawner : MonoBehaviour
 
     public void Reload()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public int GetDayCount()
@@ -145,7 +146,7 @@ public class EnvironmentSpawner : MonoBehaviour
     public void SetDayCount(int number)
     {
         dayCount = number;
-        waveText.text = "Wave: " + dayCount;
+        waveText.text = "Day: " + dayCount;
     }
 
     public int GetKillCount()
@@ -189,7 +190,8 @@ public class EnvironmentSpawner : MonoBehaviour
     {
         while (inGame)
         {
-            yield return new WaitForSeconds(Utils.RandomDelay());
+            //yield return new WaitForSeconds(Utils.RandomDelay());
+            yield return new WaitForSeconds(0.01f);
             if (passiveCreatures.GetComponentsInChildren<Transform>().Length < GameSettings.maxPassiveCreatures)
             {
                 SpawnCreature(Utils.RandomPrefab(passivePrefabs), passiveCreatures, GameSettings.maxSpawnRadius);
@@ -199,16 +201,16 @@ public class EnvironmentSpawner : MonoBehaviour
 
     private void SpawnWave()
     {
-        SpawnCreatures(aggroPrefabs[0], aggroCreatures, GameSettings.maxSpawnRadius, dayCount % 5);
-        SpawnCreatures(aggroPrefabs[1], aggroCreatures, GameSettings.maxSpawnRadius, dayCount / 5);
-        SpawnCreatures(aggroPrefabs[2], aggroCreatures, GameSettings.maxSpawnRadius, dayCount);
+        SpawnCreatures(aggroPrefabs[0], aggroCreatures, GameSettings.enemySpawnDistance, dayCount % 5 + 1);
+        SpawnCreatures(aggroPrefabs[1], aggroCreatures, GameSettings.enemySpawnDistance, dayCount / 5);
+        SpawnCreatures(aggroPrefabs[2], aggroCreatures, GameSettings.enemySpawnDistance, dayCount % 5);
     }
 
     private void SpawnNearPlayer(GameObject prefab, GameObject parent, float bounds)
     {
-        Vector3 direction = player.transform.position.normalized;
-        Vector3 newCenter = direction * (GameSettings.maxSpawnRadius - bounds);
-        Utils.SetParent(SpawnAroundLocation(prefab, newCenter, bounds), parent);
+        //Vector3 direction = player.transform.position.normalized;
+        //Vector3 newCenter = direction * (GameSettings.maxSpawnRadius - bounds);
+        Utils.SetParent(SpawnAroundLocation(prefab, player.transform.position, bounds), parent);
     }
 
     void SpawnCreatures(GameObject prefab, GameObject parent, float bounds, int amount)

@@ -1114,10 +1114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ddf21a4acb08bc45917e9e3ed3b12ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  environmentSpawner: {fileID: 0}
-  meat: {fileID: 116614, guid: 7fe3fdccc2238034cb79964fbbf73d9f, type: 3}
+  controlStartHealth: 0
   maxHp: 5
-  meatDropChance: 0.5
 --- !u!114 &-2169323046920905349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1248,5 +1246,5 @@ MonoBehaviour:
   drops:
   - {fileID: 116614, guid: 7fe3fdccc2238034cb79964fbbf73d9f, type: 3}
   percentages:
-  - 0.5
+  - 0.9
   maxDrops: 1

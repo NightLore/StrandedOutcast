@@ -1183,6 +1183,7 @@ GameObject:
   - component: {fileID: 1737351596830047816}
   - component: {fileID: -2160139858789641203}
   - component: {fileID: 2082984140593589559}
+  - component: {fileID: -2334157553812185658}
   m_Layer: 0
   m_Name: my_spider
   m_TagString: Untagged
@@ -1411,8 +1412,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ddf21a4acb08bc45917e9e3ed3b12ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  environmentSpawner: {fileID: 0}
+  controlStartHealth: 0
   maxHp: 20
+--- !u!114 &-2334157553812185658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487187098766497960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b934715e2cf3cb4db6d90dad3e4a320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - {fileID: 116614, guid: 7fe3fdccc2238034cb79964fbbf73d9f, type: 3}
+  - {fileID: 1103729609193184, guid: b5633769281ca0940b368cbed17b7ec0, type: 3}
+  percentages:
+  - 0.5
+  - 1
+  maxDrops: 2
 --- !u!1 &1487210051681022902
 GameObject:
   m_ObjectHideFlags: 0
