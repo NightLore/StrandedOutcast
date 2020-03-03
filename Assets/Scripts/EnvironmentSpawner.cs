@@ -27,6 +27,7 @@ public class EnvironmentSpawner : MonoBehaviour
     public GameObject environment;
     public GameObject items;
     public GameObject campfire;
+    public GameObject boat;
 
     private GameObject player;
     private GameObject playerReference;
@@ -99,12 +100,18 @@ public class EnvironmentSpawner : MonoBehaviour
         titleObjects.SetActive(false);
         gameScreen.SetActive(true);
     }
-
+    
     public void GameWin(Vector3 location)
     {
         gameScreen.SetActive(false);
         gameWinScreen.SetActive(true);
         player.transform.position = location;
+
+        // this is really crappy. Maybe I should make a new scene instead?
+        boat.transform.position = new Vector3(boat.transform.position.x + 4, boat.transform.position.y, boat.transform.position.z);
+        boat.transform.Rotate(0.0f, -90.0f, 0.0f, Space.World);
+        Rigidbody boatRb = boat.GetComponent<Rigidbody>();
+        boatRb.AddForce(new Vector3(100, 0, 0));
 
         inGame = false;
     }

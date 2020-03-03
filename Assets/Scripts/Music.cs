@@ -6,6 +6,7 @@ public class Music : MonoBehaviour
 {
     private AudioSource source;
     public AudioClip[] music;
+    private bool prevDayState = true;
 
     private int count;
     // Start is called before the first frame update
@@ -20,6 +21,14 @@ public class Music : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameSettings.day && prevDayState) {
+            Invoke("PlayNextSong", 0.0f);
+            prevDayState = false;
+        }
+        else if (!prevDayState && GameSettings.day) {
+            Invoke("PlayNextSong", 0.0f);
+            prevDayState = true;
+        }
     }
 
     void PlayNextSong()
@@ -28,6 +37,6 @@ public class Music : MonoBehaviour
         source.volume = GameSettings.musicVolume;
         source.Play();
         count++;
-        Invoke("PlayNextSong", source.clip.length);
+        // Invoke("PlayNextSong", source.clip.length);
     }
 }
