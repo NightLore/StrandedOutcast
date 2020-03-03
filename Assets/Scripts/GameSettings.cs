@@ -99,7 +99,8 @@ public class GameSettings : MonoBehaviour
 
     public static Item[] buildings = 
     {
-        new Item(     "Bonfire", recipe.Reset().Set(STICK, 2).Set(ROCK, 2).GetRecipe())
+        new Item(     "Bonfire", recipe.Reset().Set(STICK, 2).Set(ROCK, 2).GetRecipe()),
+        new Item(       "Forge", recipe.Reset().Set(STICK, 2).Set(ROCK, 2).GetRecipe())
     };
 
     public static bool day = true;
