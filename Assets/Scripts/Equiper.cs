@@ -131,4 +131,9 @@ public class Equiper : MonoBehaviour
         Equip(GameSettings.weapons[0], true);
         //weaponExplosion.Play(); TO-DO: Fix particle effect
     }
+
+    public Weapon GetCurrentWeapon()
+    {
+        return currentWeapon;
+    }
 }

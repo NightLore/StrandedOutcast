@@ -33,4 +33,9 @@ public class EquipButton : MonoBehaviour
     {
         equiper.Equip(weapon);
     }
+
+    public Weapon GetWeapon()
+    {
+        return weapon;
+    }
 }
