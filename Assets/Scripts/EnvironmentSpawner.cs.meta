@@ -3,7 +3,23 @@ guid: 9169fa94b1fe0604e892d0b282b4e04d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - titleScreen: {instanceID: 0}
+  - gameScreen: {instanceID: 0}
+  - gameOverScreen: {instanceID: 0}
+  - creditsScreen: {instanceID: 0}
+  - gameWinScreen: {instanceID: 0}
+  - titleObjects: {instanceID: 0}
+  - dayText: {instanceID: 0}
+  - timeText: {instanceID: 0}
+  - playerCharacter: {instanceID: 0}
+  - passiveCreatures: {instanceID: 0}
+  - aggroCreatures: {instanceID: 0}
+  - environment: {instanceID: 0}
+  - items: {instanceID: 0}
+  - campfire: {instanceID: 0}
+  - boat: {instanceID: 0}
+  - Poof: {fileID: 9125212449759046732, guid: cb7cd9b0c56a24d49a40784bd3203ae6, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

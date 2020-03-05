@@ -37,6 +37,8 @@ public class EnvironmentSpawner : MonoBehaviour
     private int dayCount;
     private float timer;
 
+    public ParticleSystem Poof;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +65,7 @@ public class EnvironmentSpawner : MonoBehaviour
                 // delete enemies at the end of each round
                 foreach (Transform t in aggroCreatures.transform)
                 {
+                    Instantiate(Poof, t.position, t.rotation);
                     Destroy(t.gameObject);
                 }
 

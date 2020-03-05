@@ -123,13 +123,13 @@ public class Equiper : MonoBehaviour
         return false;
     }
 
-    public void breakWeapon(Weapon weapon)
+    public void breakWeapon(Weapon weapon, GameObject owner)
     {
         currentWeapon.SetDurability(weapon.GetMaxDurability());
         inventory.DecrementQuantity(weapon.GetID());
         inventory.UpdateQuantities();
         Equip(GameSettings.weapons[0], true);
-        //weaponExplosion.Play(); TO-DO: Fix particle effect
+        Instantiate(weaponExplosion, owner.transform.position, owner.transform.rotation);
     }
 
     public Weapon GetCurrentWeapon()
