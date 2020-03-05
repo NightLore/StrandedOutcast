@@ -43,7 +43,7 @@ public class GameSettings : MonoBehaviour
     public static int maxItems = 20;
     public static int maxPassiveCreatures = 100;
 
-    public static float waveDelay = 20.0f;
+    public static float waveDelay = 30.0f;
 
     public static float maxSpawnRadius = 100;
     public static float enemySpawnDistance = 40;
