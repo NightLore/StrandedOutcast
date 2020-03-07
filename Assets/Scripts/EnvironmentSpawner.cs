@@ -72,9 +72,12 @@ public class EnvironmentSpawner : MonoBehaviour
                 if (GameSettings.day)
                 {
                     IncrementDayCount();
+                    timer = GameSettings.dayLength;
+                }
+                else {
+                    timer = GameSettings.nightLength;
                 }
                 SpawnWave();
-                timer = GameSettings.waveDelay;
             }
             if (!player)
             {
@@ -91,7 +94,7 @@ public class EnvironmentSpawner : MonoBehaviour
         killCount = 0;
         SetDayCount(0);
         GameSettings.day = true;
-        timer = GameSettings.waveDelay;
+        timer = GameSettings.dayLength;
         player = Utils.SetParent(Instantiate(playerCharacter), playerReference);
         cheats.Initialize(player);
         Instantiate(campfire);

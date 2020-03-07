@@ -24,7 +24,7 @@ public class GameSettings : MonoBehaviour
     // PLAYER STATS
     public static float saturationDelay = 5;
     public static int saturationRegen = 1;
-    public static float hungerRate = 0.6666f;
+    public static float hungerRate = 0.3333f;
     public static float playerSpeed = 10.0f;
     public static float playerTurnSpeed = 100.0f;
 
@@ -43,7 +43,8 @@ public class GameSettings : MonoBehaviour
     public static int maxItems = 20;
     public static int maxPassiveCreatures = 100;
 
-    public static float waveDelay = 30.0f;
+    public static float dayLength = 60.0f;
+    public static float nightLength = 30.0f;
 
     public static float maxSpawnRadius = 100;
     public static float enemySpawnDistance = 40;
