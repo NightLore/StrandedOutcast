@@ -46,7 +46,7 @@ public class GameSettings : MonoBehaviour
     public static float dayLength = 60.0f;
     public static float nightLength = 30.0f;
 
-    public static float maxSpawnRadius = 100;
+    public static float maxSpawnRadius = 110;
     public static float enemySpawnDistance = 40;
 
     public static Vector3 stickSpawnCenter = new Vector3(-30, 0, 60);

@@ -225,9 +225,9 @@ public class EnvironmentSpawner : MonoBehaviour
 
     private void SpawnNearPlayer(GameObject prefab, GameObject parent, float bounds)
     {
-        //Vector3 direction = player.transform.position.normalized;
-        //Vector3 newCenter = direction * (GameSettings.maxSpawnRadius - bounds);
-        Utils.SetParent(SpawnAroundLocation(prefab, player.transform.position, bounds), parent);
+        Vector3 direction = player.transform.position.normalized;
+        Vector3 newCenter = direction * Mathf.Min(GameSettings.maxSpawnRadius - bounds, bounds);
+        Utils.SetParent(SpawnAroundLocation(prefab, newCenter, bounds), parent);
     }
 
     void SpawnCreatures(GameObject prefab, GameObject parent, float bounds, int amount)
