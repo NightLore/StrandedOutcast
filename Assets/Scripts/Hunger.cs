@@ -74,6 +74,10 @@ public class Hunger : MonoBehaviour
                 health.TakeDamage(1); // damage taken from no hunger determined by hunger rate
                 hunger = 0;
             }
+            else if (hunger > GameSettings.hungerRegenThreshold)
+            {
+                health.Heal(1);
+            }
         }
     }
 }
