@@ -216,7 +216,8 @@ public class EnvironmentSpawner : MonoBehaviour
     {
         SpawnCreatures(aggroPrefabs[0], aggroCreatures, GameSettings.enemySpawnDistance, 2 * (dayCount % 5 + 1));
         SpawnCreatures(aggroPrefabs[1], aggroCreatures, GameSettings.enemySpawnDistance, 2 * (dayCount / 5));
-        SpawnCreatures(aggroPrefabs[2], aggroCreatures, GameSettings.enemySpawnDistance, 2 * (dayCount % 5));
+        SpawnCreatures(aggroPrefabs[2], aggroCreatures, GameSettings.enemySpawnDistance, 2 * ((dayCount + 2) % 5));
+        SpawnCreatures(aggroPrefabs[3], aggroCreatures, GameSettings.enemySpawnDistance, 2 * ((dayCount ) % 3));
     }
 
     private void SpawnNearPlayer(GameObject prefab, GameObject parent, float bounds)
