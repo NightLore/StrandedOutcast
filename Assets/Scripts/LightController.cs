@@ -21,19 +21,19 @@ public class LightController : MonoBehaviour
     {
         timer = spawner.GetTime();
         if (GameSettings.day) {
-            if (timer > GameSettings.waveDelay / 2) {
-                lightIntensity = (GameSettings.waveDelay - timer + GameSettings.waveDelay / 2) / GameSettings.waveDelay;
+            if (timer > GameSettings.dayLength / 2) {
+                lightIntensity = (GameSettings.dayLength - timer + GameSettings.dayLength / 2) / GameSettings.dayLength;
             }
             else {
-                lightIntensity = (timer + GameSettings.waveDelay / 2) / GameSettings.waveDelay;
+                lightIntensity = (timer + GameSettings.dayLength / 2) / GameSettings.dayLength;
             }
         }
         else { // fix this CLAY
-            if (timer > GameSettings.waveDelay / 2) {
-                lightIntensity = (timer - GameSettings.waveDelay / 2) / GameSettings.waveDelay;
+            if (timer > GameSettings.nightLength / 2) {
+                lightIntensity = (timer - GameSettings.nightLength / 2) / GameSettings.nightLength;
             }
             else {
-                lightIntensity = (GameSettings.waveDelay / 2 - timer) / GameSettings.waveDelay;
+                lightIntensity = (GameSettings.nightLength / 2 - timer) / GameSettings.nightLength;
             }
         }
         dayLight.intensity = lightIntensity;

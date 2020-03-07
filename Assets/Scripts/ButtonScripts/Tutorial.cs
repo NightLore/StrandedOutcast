@@ -7,6 +7,9 @@ public class Tutorial : MonoBehaviour
     public GameObject movementText;
     public GameObject interactText;
     public GameObject craftingText;
+    public GameObject harvestText;
+    public GameObject forgeText;
+    public GameObject boatText;
 
     // Start is called before the first frame update
     void Start()
@@ -16,12 +19,6 @@ public class Tutorial : MonoBehaviour
     private void OnEnable()
     {
         StartCoroutine("WaitForMovement");
-        // Invoke("ActivateMovementText", GameSettings.tutorialDelay * 0);
-        // Invoke("DeactivateMovementText", GameSettings.tutorialDelay * 1);
-        // Invoke("ActivateInteractText", GameSettings.tutorialDelay * 2);
-        // Invoke("DeactivateInteractText", GameSettings.tutorialDelay * 3);
-        // Invoke("ActivateCraftingText", GameSettings.tutorialDelay * 4);
-        // Invoke("DeactivateCraftingText", GameSettings.tutorialDelay * 6);
     }
 
     // Update is called once per frame
@@ -60,6 +57,36 @@ public class Tutorial : MonoBehaviour
         craftingText.SetActive(false);
     }
 
+    private void ActivateHarvestText()
+    {
+        harvestText.SetActive(true);
+    }
+
+    private void DeactivateHarvestText()
+    {
+        harvestText.SetActive(false);
+    }
+
+    private void ActivateForgeText()
+    {
+        forgeText.SetActive(true);
+    }
+
+    private void DeactivateForgeText()
+    {
+        forgeText.SetActive(false);
+    }
+
+    private void ActivateBoatText()
+    {
+        boatText.SetActive(true);
+    }
+
+    private void DeactivateBoatText()
+    {
+        boatText.SetActive(false);
+    }
+
     IEnumerator WaitForMovement()
     {
         ActivateMovementText();
@@ -78,14 +105,37 @@ public class Tutorial : MonoBehaviour
             yield return null;
         }
         DeactivateInteractText();
-        StartCoroutine("WaitForClick");
+        StartCoroutine("CategoriesClickable");
     }
 
-    IEnumerator WaitForClick()
+    IEnumerator CategoriesClickable()
     {
         ActivateCraftingText();
-        
         yield return new WaitForSeconds(GameSettings.tutorialDelay);
         DeactivateCraftingText();
+        StartCoroutine("AxeAndPick");
+    }
+
+    IEnumerator AxeAndPick()
+    {
+        ActivateHarvestText();
+        yield return new WaitForSeconds(GameSettings.tutorialDelay * 2);
+        DeactivateHarvestText();
+        StartCoroutine("ForgeFunction");
+    }
+
+    IEnumerator ForgeFunction()
+    {
+        ActivateForgeText();
+        yield return new WaitForSeconds(GameSettings.tutorialDelay);
+        DeactivateForgeText();
+        StartCoroutine("BoatWin");
+    }
+
+    IEnumerator BoatWin()
+    {
+        ActivateBoatText();
+        yield return new WaitForSeconds(GameSettings.tutorialDelay);
+        DeactivateBoatText();
     }
 }
