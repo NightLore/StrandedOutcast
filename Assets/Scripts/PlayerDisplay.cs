@@ -20,7 +20,7 @@ public class PlayerDisplay : MonoBehaviour
     {
         health = GetComponent<Health>();
         hunger = GetComponent<Hunger>();
-
+        
         healthBar = GameObject.Find("FullHealthBar").GetComponent<RectTransform>();
         hungerBar = GameObject.Find("FullHungerBar").GetComponent<RectTransform>();
         durabilityBar = GameObject.Find("FullDurabilityBar").GetComponent<RectTransform>();

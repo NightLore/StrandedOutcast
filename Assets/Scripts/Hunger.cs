@@ -10,11 +10,14 @@ public class Hunger : MonoBehaviour
     private float maxHunger = 100;
     private float hunger;
 
+    private float saturation;
+
     // Start is called before the first frame update
     void Start()
     {
         health = GetComponent<Health>();
         hunger = maxHunger;
+        saturation = GameSettings.startingSaturation;
 
         InvokeRepeating("DecreaseHunger", GameSettings.saturationDelay, 1.0f / GameSettings.hungerRate);
     }
@@ -41,6 +44,7 @@ public class Hunger : MonoBehaviour
      */
     public void IncreaseHunger(float amount)
     {
+        saturation += amount;
         hunger += amount;
         if (hunger > GetMaxHunger())
         {
@@ -58,11 +62,22 @@ public class Hunger : MonoBehaviour
      */
     void DecreaseHunger()
     {
-        hunger--;
-        if (hunger < 0)
+        if (saturation > 0)
         {
-            health.TakeDamage(1); // damage taken from no hunger determined by hunger rate
-            hunger = 0;
+            saturation--;
+        }
+        else
+        {
+            hunger--;
+            if (hunger < 0)
+            {
+                health.TakeDamage(1); // damage taken from no hunger determined by hunger rate
+                hunger = 0;
+            }
+            else if (hunger > GameSettings.hungerRegenThreshold)
+            {
+                health.Heal(1);
+            }
         }
     }
 }
