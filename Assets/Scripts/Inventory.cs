@@ -52,6 +52,7 @@ public class Inventory : MonoBehaviour
         }
         else if (gameObject.name.Contains("Metal"))
         {
+            Debug.Log("GATHERING METAL");
             itemCounts[GameSettings.METAL]++;
         }
         Destroy(gameObject);
