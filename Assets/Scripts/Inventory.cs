@@ -50,6 +50,10 @@ public class Inventory : MonoBehaviour
         {
             itemCounts[GameSettings.COOKEDMEAT]++;
         }
+        else if (gameObject.name.Contains("Metal"))
+        {
+            itemCounts[GameSettings.METAL]++;
+        }
         Destroy(gameObject);
         source.PlayOneShot(pickupSound, GameSettings.soundVolume);
         UpdateQuantities();
