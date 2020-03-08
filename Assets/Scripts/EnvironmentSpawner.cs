@@ -90,21 +90,23 @@ public class EnvironmentSpawner : MonoBehaviour
 
     public void StartGame()
     {
+        titleScreen.SetActive(false);
+        titleObjects.SetActive(false);
+
         inGame = true;
         killCount = 0;
         SetDayCount(0);
         GameSettings.day = true;
         timer = GameSettings.dayLength;
         player = Utils.SetParent(Instantiate(playerCharacter), playerReference);
+
+        gameScreen.SetActive(true);
+
         cheats.Initialize(player);
         Instantiate(campfire);
         StartCoroutine(SpawnRandomItems());
         StartCoroutine(SpawnPassive());
         SpawnWave();
-
-        titleScreen.SetActive(false);
-        titleObjects.SetActive(false);
-        gameScreen.SetActive(true);
     }
     
     public void GameWin(Vector3 location)
