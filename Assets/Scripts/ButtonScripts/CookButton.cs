@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class CookButton : MonoBehaviour
 {
+    public int food;
+
     private Inventory inventory;
     private Button button;
     // Start is called before the first frame update
@@ -22,11 +24,12 @@ public class CookButton : MonoBehaviour
     }
 
     private void Cook() {
-        // TODO: use CraftRecipe()
-        if (inventory.GetQuantity(GameSettings.RAWMEAT) > 0 && GameSettings.canCook) {
-            inventory.DecrementQuantity(GameSettings.RAWMEAT);
-            inventory.IncrementQuantity(GameSettings.COOKEDMEAT);
+        Debug.Log("Cook");
+        if (inventory.CanCraft(food)) {
+            Debug.Log("Success");
+            inventory.CraftItem(food);
             inventory.UpdateQuantities();
         }
+        Debug.Log("Failed");
     }
 }

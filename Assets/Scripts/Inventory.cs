@@ -49,6 +49,11 @@ public class Inventory : MonoBehaviour
         UpdateQuantities();
     }
 
+    public bool CanCraft(int index)
+    {
+        return CheckRecipe(GameSettings.itemList[index].GetRecipe());
+    }
+
     public bool CheckRecipe(Recipe recipe)
     {
         foreach (KeyValuePair<int, int> pair in recipe.GetIngredients())
@@ -64,10 +69,13 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
-    public void CraftRecipe(Recipe recipe)
+    public void CraftItem(int index)
     {
-        foreach (KeyValuePair<int, int> pair in recipe.GetIngredients())
+        Item item = GameSettings.itemList[index];
+        IncrementQuantity(index);
+        foreach (KeyValuePair<int, int> pair in item.GetRecipe().GetIngredients())
         {
+            Debug.Log("index " + pair.Key + "," + pair.Value);
             itemCounts[pair.Key] -= pair.Value;
         }
     }

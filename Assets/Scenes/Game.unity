@@ -1643,7 +1643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237364c4284c91948b8931fcb5905e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: 7
+  item: 8
 --- !u!114 &72252317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1977,7 +1977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47dbe210d6d375449b76dfbbe68812bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: 0
+  food: 10
 --- !u!114 &88753054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2002,7 +2002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2464de11ba75a8347bafe33ee30c16bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIndex: 0
+  itemIndex: 10
 --- !u!114 &88753056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2031,12 +2031,12 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 88753048}
-          m_MethodName: 
+        - m_Target: {fileID: 88753055}
+          m_MethodName: UpdateInfo
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -2773,7 +2773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237364c4284c91948b8931fcb5905e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: 3
+  item: 4
 --- !u!1001 &155549929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4162,9 +4162,9 @@ GameObject:
   - component: {fileID: 214194032}
   - component: {fileID: 214194031}
   - component: {fileID: 214194030}
+  - component: {fileID: 214194034}
   - component: {fileID: 214194029}
   - component: {fileID: 214194033}
-  - component: {fileID: 214194034}
   - component: {fileID: 214194035}
   m_Layer: 5
   m_Name: RawMeatButton
@@ -4205,6 +4205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb1a7f7c966e7047916b6efad053fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  food: 10
 --- !u!114 &214194030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4296,7 +4297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2464de11ba75a8347bafe33ee30c16bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIndex: 0
+  itemIndex: 9
 --- !u!114 &214194034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6188,8 +6189,8 @@ GameObject:
   - component: {fileID: 394536904}
   - component: {fileID: 394536903}
   - component: {fileID: 394536902}
-  - component: {fileID: 394536901}
   - component: {fileID: 394536905}
+  - component: {fileID: 394536901}
   - component: {fileID: 394536906}
   - component: {fileID: 394536907}
   m_Layer: 5
@@ -6231,7 +6232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2464de11ba75a8347bafe33ee30c16bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIndex: 0
+  itemIndex: 11
 --- !u!114 &394536902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6379,7 +6380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toCreate: {fileID: 4997032211960612610, guid: adcbd4099c44bfb4297f245977033389,
     type: 3}
-  itemIndex: 0
+  itemIndex: 11
 --- !u!114 &394536907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6900,7 +6901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237364c4284c91948b8931fcb5905e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: 6
+  item: 7
 --- !u!1001 &422305837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11415,7 +11416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237364c4284c91948b8931fcb5905e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: 5
+  item: 6
 --- !u!1 &819273623
 GameObject:
   m_ObjectHideFlags: 0
@@ -20264,8 +20265,8 @@ GameObject:
   - component: {fileID: 1634456475}
   - component: {fileID: 1634456474}
   - component: {fileID: 1634456473}
-  - component: {fileID: 1634456472}
   - component: {fileID: 1634456471}
+  - component: {fileID: 1634456472}
   - component: {fileID: 1634456470}
   - component: {fileID: 1634456469}
   m_Layer: 5
@@ -20320,7 +20321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toCreate: {fileID: 1701385238162528, guid: d8a3982d045f8e74d9df34be3e13c13b, type: 3}
-  itemIndex: 1
+  itemIndex: 12
 --- !u!114 &1634456471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20387,7 +20388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2464de11ba75a8347bafe33ee30c16bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemIndex: 1
+  itemIndex: 12
 --- !u!114 &1634456473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21750,7 +21751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237364c4284c91948b8931fcb5905e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: 2
+  item: 3
 --- !u!1001 &1834824741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22576,7 +22577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237364c4284c91948b8931fcb5905e35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: 4
+  item: 5
 --- !u!1001 &1936092708
 PrefabInstance:
   m_ObjectHideFlags: 0

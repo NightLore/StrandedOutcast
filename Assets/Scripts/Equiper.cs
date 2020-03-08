@@ -107,16 +107,10 @@ public class Equiper : MonoBehaviour
      */
     private bool CraftWeapon(Weapon weapon)
     {
-        Debug.Log(inventory);
-        Recipe recipe = weapon.GetRecipe();
-        if (inventory.CheckRecipe(recipe))
+        if (inventory.CheckRecipe(weapon.GetRecipe()))
         {
-            // TODO: combine these lines into the same function
-            inventory.IncrementQuantity(weapon.GetID());
-            Debug.Log(weapon.GetID());
-            inventory.CraftRecipe(recipe);
+            inventory.CraftItem(weapon.GetID());
             inventory.UpdateQuantities();
-            Debug.Log("Successfully Crafted Weapon");
             return true;
         }
         Debug.Log("Failed to Craft Weapon");

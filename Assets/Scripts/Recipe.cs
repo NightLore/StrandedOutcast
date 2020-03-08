@@ -62,6 +62,11 @@ public class Recipe
     public override string ToString()
     {
         string s = "";
+        foreach (KeyValuePair<int, bool> pair in needs)
+        {
+            if (pair.Value)
+                s += "Needs " + GameSettings.itemList[pair.Key].GetName() + "\n";
+        }
         foreach (KeyValuePair<int, int> pair in ingredients)
         {
             if (pair.Value > 0)

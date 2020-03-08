@@ -12,24 +12,20 @@ public class InstantiateButton : MonoBehaviour
     private Button button;
     private Inventory inventory;
     private Transform playerTransform;
-    private Item item;
-    private Recipe recipe;
     // Start is called before the first frame update
     void OnEnable() {
         button = GetComponent<Button>();
         button.onClick.AddListener(Create);
         playerTransform = GameObject.FindWithTag("Player").transform;
         inventory = GameObject.FindWithTag("Player").GetComponent<Inventory>();
-        item = GameSettings.buildings[itemIndex];
-        recipe = item.GetRecipe();
     }
 
     void Create() {
-        if (inventory.CheckRecipe(recipe)) {
-            inventory.IncrementQuantity(itemIndex);
-            inventory.CraftRecipe(recipe);
-            inventory.UpdateQuantities();
+        if (inventory.CanCraft(itemIndex)) {
+            inventory.CraftItem(itemIndex);
             Instantiate(toCreate, playerTransform.position, toCreate.transform.rotation);
+            inventory.DecrementQuantity(itemIndex);
+            inventory.UpdateQuantities();
         }
     }
 
