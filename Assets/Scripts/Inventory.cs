@@ -8,13 +8,15 @@ public class Inventory : MonoBehaviour
     private AudioSource source;
     public AudioClip pickupSound;
     private int[] itemCounts;
+    private bool[] hasNeeds;
 
     private UIManager manager;
     // Start is called before the first frame update
     void Start()
     {
         source = GetComponent<AudioSource>();
-        itemCounts = new int[GameSettings.NUMITEMTYPES];
+        itemCounts = new int[GameSettings.itemList.Length];
+        hasNeeds = new bool[GameSettings.itemList.Length];
         manager = GameObject.Find("GameScreen").GetComponent<UIManager>();
     }
 
@@ -28,39 +30,35 @@ public class Inventory : MonoBehaviour
     {
         if (other.CompareTag("Item"))
         {
-            pickup(other.gameObject);
+            Pickup(other.gameObject);
         }
     }
 
-    private void pickup(GameObject gameObject)
+    private void Pickup(GameObject obj)
     {
-        if (gameObject.name.Contains("Stick"))
+        for (int i = 0; i < GameSettings.itemList.Length; i++)
         {
-            itemCounts[GameSettings.STICK]++;
+            if (obj.name.Contains(GameSettings.itemList[i].GetName()))
+            {
+                itemCounts[i]++;
+                break;
+            }
         }
-        else if (gameObject.name.Contains("Rock"))
-        {
-            itemCounts[GameSettings.ROCK]++;
-        }
-        else if (gameObject.name.Contains("RawMeat"))
-        {
-            itemCounts[GameSettings.RAWMEAT]++;
-        }
-        else if (gameObject.name.Contains("CookedMeat"))
-        {
-            itemCounts[GameSettings.COOKEDMEAT]++;
-        }
-        Destroy(gameObject);
+        Destroy(obj);
         source.PlayOneShot(pickupSound, GameSettings.soundVolume);
         UpdateQuantities();
     }
 
     public bool CheckRecipe(Recipe recipe)
     {
-        Dictionary<int, int> ingredients = recipe.GetIngredients();
-        foreach (KeyValuePair<int, int> pair in ingredients)
+        foreach (KeyValuePair<int, int> pair in recipe.GetIngredients())
         {
             if (pair.Value > itemCounts[pair.Key])
+                return false;
+        }
+        foreach (KeyValuePair<int, bool> pair in recipe.GetNeeds())
+        {
+            if (pair.Value && !hasNeeds[pair.Key])
                 return false;
         }
         return true;
@@ -68,8 +66,7 @@ public class Inventory : MonoBehaviour
 
     public void CraftRecipe(Recipe recipe)
     {
-        Dictionary<int, int> ingredients = recipe.GetIngredients();
-        foreach (KeyValuePair<int, int> pair in ingredients)
+        foreach (KeyValuePair<int, int> pair in recipe.GetIngredients())
         {
             itemCounts[pair.Key] -= pair.Value;
         }
@@ -105,5 +102,10 @@ public class Inventory : MonoBehaviour
     public int GetQuantity(int item)
     {
         return itemCounts[item];
+    }
+
+    public void SetNeed(int index, bool has)
+    {
+        hasNeeds[index] = has;
     }
 }
