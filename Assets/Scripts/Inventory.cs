@@ -75,7 +75,6 @@ public class Inventory : MonoBehaviour
         IncrementQuantity(index);
         foreach (KeyValuePair<int, int> pair in item.GetRecipe().GetIngredients())
         {
-            Debug.Log("index " + pair.Key + "," + pair.Value);
             itemCounts[pair.Key] -= pair.Value;
         }
     }
