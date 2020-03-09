@@ -25,6 +25,8 @@ public class GameSettings : MonoBehaviour
     public static float saturationDelay = 5;
     public static int saturationRegen = 1;
     public static float hungerRate = 0.3333f;
+    public static float hungerRegenThreshold = 75.0f;
+    public static float startingSaturation = 30.0f;
     public static float playerSpeed = 10.0f;
     public static float playerTurnSpeed = 100.0f;
 
@@ -46,7 +48,7 @@ public class GameSettings : MonoBehaviour
     public static float dayLength = 60.0f;
     public static float nightLength = 30.0f;
 
-    public static float maxSpawnRadius = 100;
+    public static float maxSpawnRadius = 110;
     public static float enemySpawnDistance = 40;
 
     public static Vector3 stickSpawnCenter = new Vector3(-30, 0, 60);
@@ -60,20 +62,23 @@ public class GameSettings : MonoBehaviour
     public const int FISTS = -1;
     public const int STICK = 0;
     public const int ROCK = 1;
-    public const int STONEAXE = 2;
-    public const int STONESPEAR = 3;
-    public const int STONEKNIFE = 4;
-    public const int STONEPICK = 5;
-    public const int BATTLEAXE = 6;
-    public const int SWORD = 7;
-    public const int ROCKimage = 8;
+    public const int METAL = 2;
+    public const int STONEAXE = 3;
+    public const int STONESPEAR = 4;
+    public const int STONEKNIFE = 5;
+    public const int STONEPICK = 6;
+    public const int BATTLEAXE = 7;
+    public const int SWORD = 8;
     public const int RAWMEAT = 9;
     public const int COOKEDMEAT = 10;
     public const int BONFIRE = 11;
-    public const int NUMITEMTYPES = 12;
+    public const int FORGE = 12;
+    public const int NUMITEMTYPES = 13;
     public static string[] itemTypes = 
-    {   "Stick", "Rock", "Axe", "Spear", "Knife", "SPick", "Battleaxe", "Sword", "RockImage",
-        "RawMeat", "CookedMeat", "Bonfire" };
+    {   "Stick", "Rock", "Metal", "Axe", "Spear", "Knife", "SPick", "Battleaxe", "Sword", "RockImage",
+        "RawMeat", "CookedMeat", "Bonfire", "Forge" };
+
+    private static readonly Recipe.Builder recipe = new Recipe.Builder();
 
     /*
      * Weapon defaults
@@ -84,24 +89,40 @@ public class GameSettings : MonoBehaviour
      * 
      * NOTE: ID is deprecated, will try to remove soon.
      */
-    private static readonly Recipe.Builder recipe = new Recipe.Builder();
-    public static Weapon[] weapons =
+    public static Item[] itemList =
     {
-        new Weapon(     "Fists", recipe.Reset().Set(STICK, 0).Set(ROCK, 0).GetRecipe(),      FISTS,  1, new Vector3(1.0f, 1.0f, 1.0f), 4.0f, int.MaxValue),
-        new Weapon(     "Stick", recipe.Reset().Set(STICK, 1).Set(ROCK, 0).GetRecipe(),      STICK,  1, new Vector3(1.0f, 1.5f, 1.0f), 4.0f, int.MaxValue),
-        new Weapon(      "Rock", recipe.Reset().Set(STICK, 0).Set(ROCK, 1).GetRecipe(),       ROCK,  4, new Vector3(1.0f, 1.0f, 1.0f), 1.0f, int.MaxValue),
-        new Weapon(  "StoneAxe", recipe.Reset().Set(STICK, 2).Set(ROCK, 2).GetRecipe(),   STONEAXE,  6, new Vector3(4.0f, 1.0f, 4.0f), 2.0f, 15),
-        new Weapon("StoneSpear", recipe.Reset().Set(STICK, 3).Set(ROCK, 1).GetRecipe(), STONESPEAR,  6, new Vector3(1.0f, 5.0f, 5.0f), 3.0f, 15),
-        new Weapon("StoneKnife", recipe.Reset().Set(STICK, 1).Set(ROCK, 2).GetRecipe(), STONEKNIFE,  3, new Vector3(1.5f, 1.5f, 1.5f), 5.0f, 10),
-        new Weapon( "StonePick", recipe.Reset().Set(STICK, 3).Set(ROCK, 3).GetRecipe(),  STONEPICK,  2, new Vector3(2.0f, 1.5f, 1.5f), 2.5f, 10),
-        new Weapon( "BattleAxe", recipe.Reset().Set(STICK, 4).Set(ROCK, 7).GetRecipe(),  BATTLEAXE, 12, new Vector3(7.0f, 4.0f, 1.5f), 1.5f, 15),
-        new Weapon(     "Sword", recipe.Reset().Set(STICK, 6).Set(ROCK, 4).GetRecipe(),      SWORD,  8, new Vector3(3.0f, 3.0f, 1.5f), 4.0f, 15)
+/* 0 */ new Weapon(     "Stick", recipe.Reset().Set(STICK, 1).Set(ROCK, 0).Set(METAL, 0).GetRecipe(),      STICK,  1, new Vector3(1.0f, 1.5f, 1.0f), 4.0f, int.MaxValue),
+/* 1 */ new Weapon(      "Rock", recipe.Reset().Set(STICK, 0).Set(ROCK, 1).Set(METAL, 0).GetRecipe(),       ROCK,  4, new Vector3(1.0f, 1.0f, 1.0f), 1.0f, int.MaxValue),
+/* 2 */ new Weapon(     "Metal", recipe.Reset().Set(STICK, 0).Set(ROCK, 0).Set(METAL, 1).GetRecipe(),      METAL,  2, new Vector3(1.0f, 1.0f, 1.0f), 2.0f, int.MaxValue),
+/* 3 */ new Weapon(  "StoneAxe", recipe.Reset().Set(STICK, 2).Set(ROCK, 2).Set(METAL, 0).GetRecipe(),   STONEAXE,  6, new Vector3(4.0f, 1.0f, 4.0f), 2.0f, 15),
+/* 4 */ new Weapon("StoneSpear", recipe.Reset().Set(STICK, 3).Set(ROCK, 1).Set(METAL, 0).GetRecipe(), STONESPEAR,  6, new Vector3(1.0f, 5.0f, 5.0f), 3.0f, 15),
+/* 5 */ new Weapon("StoneKnife", recipe.Reset().Set(STICK, 1).Set(ROCK, 2).Set(METAL, 0).GetRecipe(), STONEKNIFE,  3, new Vector3(1.5f, 1.5f, 1.5f), 5.0f, 10),
+/* 6 */ new Weapon( "StonePick", recipe.Reset().Set(STICK, 3).Set(ROCK, 3).Set(METAL, 0).GetRecipe(),  STONEPICK,  2, new Vector3(2.0f, 1.5f, 1.5f), 2.5f, 10),
+/* 7 */ new Weapon( "BattleAxe", recipe.Reset().Set(STICK, 4).Set(ROCK, 7).Set(METAL, 0).GetRecipe(),  BATTLEAXE, 12, new Vector3(7.0f, 4.0f, 1.5f), 1.5f, 15),
+/* 8 */ new Weapon(     "Sword", recipe.Reset().Set(STICK, 6).Set(ROCK, 4).Set(METAL, 0).GetRecipe(),      SWORD,  8, new Vector3(3.0f, 3.0f, 1.5f), 4.0f, 15),
+/* 9 */ new Item(     "RawMeat", recipe.Reset().GetRecipe()),
+/*10 */ new Item(  "CookedMeat", recipe.Reset().Needs(BONFIRE).Set(RAWMEAT, 1).GetRecipe()),
+/*11 */ new Item(     "Bonfire", recipe.Reset().Set(STICK, 2).Set(ROCK, 2).GetRecipe()),
+/*12 */ new Item(       "Forge", recipe.Reset().Set(STICK, 2).Set(ROCK, 2).GetRecipe())
     };
 
-    public static Item[] buildings = 
+    public static Item[] materials =
     {
-        new Item(     "Bonfire", recipe.Reset().Set(STICK, 2).Set(ROCK, 2).GetRecipe()),
-        new Item(       "Forge", recipe.Reset().Set(STICK, 2).Set(ROCK, 2).GetRecipe())
+        itemList[STICK],
+        itemList[ROCK]
+    };
+
+    public static Weapon[] weapons =
+    {
+        new Weapon("Fists", recipe.Reset().GetRecipe(), FISTS, 1, new Vector3(1.0f, 1.0f, 1.0f), 4.0f, int.MaxValue),
+        itemList[STICK] as Weapon,
+        itemList[ROCK] as Weapon,
+        itemList[STONEAXE] as Weapon,
+        itemList[STONESPEAR] as Weapon,
+        itemList[STONEKNIFE] as Weapon,
+        itemList[STONEPICK] as Weapon,
+        itemList[BATTLEAXE] as Weapon,
+        itemList[SWORD] as Weapon
     };
 
     public static bool day = true;
@@ -111,7 +132,5 @@ public class GameSettings : MonoBehaviour
     public static float minDeltaFlicker = -0.1f;
     public static float maxDeltaFlicker = 0.1f;
 
-    public static float[] foodvalues = {10.0f};
-
-    public static bool canCook = false;
+    public static float foodValue = 15.0f;
 }

@@ -35,7 +35,7 @@ public class Attack : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Health health = other.GetComponent<Health>();
-        if (other.gameObject != owner && health)
+        if (other.gameObject != owner && other.gameObject.name != "Boat" && health)
         {
             health.TakeDamage(damage);
             Die(bloodSplatter);

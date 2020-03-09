@@ -90,21 +90,23 @@ public class EnvironmentSpawner : MonoBehaviour
 
     public void StartGame()
     {
+        titleScreen.SetActive(false);
+        titleObjects.SetActive(false);
+
         inGame = true;
         killCount = 0;
         SetDayCount(0);
         GameSettings.day = true;
         timer = GameSettings.dayLength;
         player = Utils.SetParent(Instantiate(playerCharacter), playerReference);
+
+        gameScreen.SetActive(true);
+
         cheats.Initialize(player);
         Instantiate(campfire);
         StartCoroutine(SpawnRandomItems());
         StartCoroutine(SpawnPassive());
         SpawnWave();
-
-        titleScreen.SetActive(false);
-        titleObjects.SetActive(false);
-        gameScreen.SetActive(true);
     }
     
     public void GameWin(Vector3 location)
@@ -225,9 +227,9 @@ public class EnvironmentSpawner : MonoBehaviour
 
     private void SpawnNearPlayer(GameObject prefab, GameObject parent, float bounds)
     {
-        //Vector3 direction = player.transform.position.normalized;
-        //Vector3 newCenter = direction * (GameSettings.maxSpawnRadius - bounds);
-        Utils.SetParent(SpawnAroundLocation(prefab, player.transform.position, bounds), parent);
+        Vector3 direction = player.transform.position.normalized;
+        Vector3 newCenter = direction * Mathf.Min(GameSettings.maxSpawnRadius - bounds, bounds);
+        Utils.SetParent(SpawnAroundLocation(prefab, newCenter, bounds), parent);
     }
 
     void SpawnCreatures(GameObject prefab, GameObject parent, float bounds, int amount)

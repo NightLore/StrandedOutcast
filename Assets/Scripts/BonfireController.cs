@@ -21,18 +21,16 @@ public class BonfireController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("NightEnemy")) {
             NavMeshAgent agent = other.gameObject.GetComponent<NavMeshAgent>();
-            agent.speed = agent.speed / 2;
+            agent.speed /= 2;
         }
-        GameSettings.canCook = true;
     }
 
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("NightEnemy")) {
             NavMeshAgent agent = other.gameObject.GetComponent<NavMeshAgent>();
-            agent.speed = agent.speed * 2;
+            agent.speed *= 2;
         }
-        GameSettings.canCook = false;
     }
 
 }

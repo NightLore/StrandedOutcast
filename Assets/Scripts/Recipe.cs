@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class Recipe
 {
-    private readonly int[] ingredients;
-    private readonly bool needsFire = false;
+    private readonly Dictionary<int, int> ingredients;
+    private readonly Dictionary<int, bool> needs;
 
     public class Builder
     {
-        private int[] ingredients = new int[GameSettings.NUMITEMTYPES];
-        private bool needsFire = false;
+        private Dictionary<int, int> ingredients;
+        private Dictionary<int, bool> needs;
+
+        public Builder()
+        {
+            Reset();
+        }
 
         public Builder Reset()
         {
-            ingredients = new int[GameSettings.NUMITEMTYPES];
-            needsFire = false;
+            ingredients = new Dictionary<int, int>();
+            needs = new Dictionary<int, bool>();
             return this;
         }
 
@@ -25,59 +30,47 @@ public class Recipe
             return this;
         }
 
-        public Builder SetNeedsFire()
+        public Builder Needs(int index)
         {
-            needsFire = true;
+            needs[index] = true;
             return this;
         }
 
         public Recipe GetRecipe()
         {
-            return new Recipe(ingredients, needsFire);
+            return new Recipe(ingredients, needs);
         }
     }
 
 
-    private Recipe(int[] ingredients, bool needsFire)
+    private Recipe(Dictionary<int, int> ingredients, Dictionary<int, bool> needs)
     {
         this.ingredients = ingredients;
-        this.needsFire = needsFire;
-    }
-
-    public int Get(int index)
-    {
-        return ingredients[index];
-    }
-
-    public int[] GetFullIngredientList()
-    {
-        return ingredients;
+        this.needs = needs;
     }
 
     public Dictionary<int, int> GetIngredients()
     {
-        Dictionary<int, int> dictionary = new Dictionary<int, int>();
-        for (int i = 0; i < ingredients.Length; i++)
-        {
-            if (ingredients[i] > 0)
-                dictionary.Add(i, ingredients[i]);
-        }
-
-        return dictionary;
+        return ingredients;
     }
 
-    public bool NeedsFire()
+    public Dictionary<int, bool> GetNeeds()
     {
-        return needsFire;
+        return needs;
     }
 
     public override string ToString()
     {
         string s = "";
-        for (int i = 0; i < ingredients.Length; i++)
+        foreach (KeyValuePair<int, bool> pair in needs)
         {
-            if (ingredients[i] > 0)
-                s += GameSettings.itemTypes[i] + ": " + ingredients[i] + "\n";
+            if (pair.Value)
+                s += "Needs " + GameSettings.itemList[pair.Key].GetName() + "\n";
+        }
+        foreach (KeyValuePair<int, int> pair in ingredients)
+        {
+            if (pair.Value > 0)
+                s += GameSettings.itemList[pair.Key].GetName() + ": " + pair.Value + "\n";
         }
         return s;
     }
