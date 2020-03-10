@@ -23,7 +23,7 @@ public class InstantiateButton : MonoBehaviour
     void Create() {
         if (inventory.CanCraft(itemIndex)) {
             inventory.CraftItem(itemIndex);
-            Instantiate(toCreate, playerTransform.position, toCreate.transform.rotation);
+            Instantiate(toCreate, playerTransform.position + playerTransform.forward.normalized, toCreate.transform.rotation);
             inventory.DecrementQuantity(itemIndex);
             inventory.UpdateQuantities();
         }

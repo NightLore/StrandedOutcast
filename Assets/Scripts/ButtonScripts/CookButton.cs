@@ -31,5 +31,6 @@ public class CookButton : MonoBehaviour
             inventory.UpdateQuantities();
         }
         Debug.Log("Failed");
+        Debug.Log(inventory.CanCraft(food));
     }
 }

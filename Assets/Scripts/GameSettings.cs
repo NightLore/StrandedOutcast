@@ -73,6 +73,7 @@ public class GameSettings : MonoBehaviour
     public const int COOKEDMEAT = 10;
     public const int BONFIRE = 11;
     public const int FORGE = 12;
+    public const int NAILS = 13;
     public const int NUMITEMTYPES = 13;
     public static string[] itemTypes = 
     {   "Stick", "Rock", "Metal", "Axe", "Spear", "Knife", "SPick", "Battleaxe", "Sword", "RockImage",
@@ -103,7 +104,8 @@ public class GameSettings : MonoBehaviour
 /* 9 */ new Item(     "RawMeat", recipe.Reset().GetRecipe()),
 /*10 */ new Item(  "CookedMeat", recipe.Reset().Needs(BONFIRE).Set(RAWMEAT, 1).GetRecipe()),
 /*11 */ new Item(     "Bonfire", recipe.Reset().Set(STICK, 2).Set(ROCK, 2).GetRecipe()),
-/*12 */ new Item(       "Forge", recipe.Reset().Set(STICK, 2).Set(ROCK, 2).GetRecipe())
+/*12 */ new Item(       "Forge", recipe.Reset().Set(STICK, 2).Set(ROCK, 2).GetRecipe()),
+/*13 */ new Item(       "Nails", recipe.Reset().Needs(FORGE).Set(METAL, 1).GetRecipe())
     };
 
     public static Item[] materials =
