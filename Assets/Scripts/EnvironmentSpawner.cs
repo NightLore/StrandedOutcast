@@ -52,12 +52,7 @@ public class EnvironmentSpawner : MonoBehaviour
         if (inGame)
         {
             timer -= Time.deltaTime;
-            if (GameSettings.day) {
-                timeText.text = "Time left in day: " + Mathf.Round(timer);
-            }
-            else {
-                timeText.text = "Time left in night: " + Mathf.Round(timer);
-            }
+            UpdateTimerText();
             if (timer <= 0)
             {
                 GameSettings.day = !GameSettings.day;
@@ -149,6 +144,24 @@ public class EnvironmentSpawner : MonoBehaviour
     public void Reload()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void SpeedUpTimer()
+    {
+        timer--;
+        UpdateTimerText();
+    }
+
+    public void UpdateTimerText()
+    {
+        if (GameSettings.day)
+        {
+            timeText.text = "Time left in day: " + Mathf.Round(timer);
+        }
+        else
+        {
+            timeText.text = "Time left in night: " + Mathf.Round(timer);
+        }
     }
 
     public int GetDayCount()

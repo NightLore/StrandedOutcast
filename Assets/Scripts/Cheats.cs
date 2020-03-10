@@ -7,10 +7,11 @@ public class Cheats : MonoBehaviour
     private bool initialized = false;
     private GameObject player;
     private Inventory inventory;
+    private EnvironmentSpawner spawner;
     // Start is called before the first frame update
     void Start()
     {
-
+        spawner = GetComponent<EnvironmentSpawner>();
     }
 
     public void Initialize(GameObject player)
@@ -56,8 +57,13 @@ public class Cheats : MonoBehaviour
         // Metal ore
         if (Input.GetKeyDown(KeyCode.Quote))
         {
-            //inventory.IncrementQuantity(GameSettings.RAWMEAT);
-            //inventory.UpdateQuantities();
+            inventory.IncrementQuantity(GameSettings.METAL);
+            inventory.UpdateQuantities();
+        }
+
+        if (Input.GetKeyDown(KeyCode.BackQuote))
+        {
+            spawner.SpeedUpTimer();
         }
     }
 }
