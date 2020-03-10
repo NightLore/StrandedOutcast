@@ -236,8 +236,14 @@ public class EnvironmentSpawner : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            //SpawnCreature(prefab, parent, bounds);
-            SpawnNearPlayer(prefab, parent, bounds);
+            if (GameSettings.day)
+            {
+                SpawnCreature(prefab, parent, GameSettings.maxSpawnRadius);
+            }
+            else
+            {
+                SpawnNearPlayer(prefab, parent, bounds);
+            }
         }
     }
 
