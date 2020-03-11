@@ -44,7 +44,7 @@ public class NavAgent : MonoBehaviour
             }
             else
             {
-                agent.SetDestination(agent.transform.position);
+                agent.SetDestination(Utils.RandomInArea(agent.transform.position, 20));
             }
         }
         else

@@ -94,7 +94,7 @@ public class EnvironmentSpawner : MonoBehaviour
         gameScreen.SetActive(true);
 
         cheats.Initialize(player);
-        Instantiate(passivePrefabs[1], player.transform.position + new Vector3(5, 5, 5), Utils.RandomYRotation());
+        SpawnAroundLocation(passivePrefabs[1], player.transform.position, 5);
         StartCoroutine(SpawnRandomItems());
         StartCoroutine(SpawnPassive());
         SpawnWave();
