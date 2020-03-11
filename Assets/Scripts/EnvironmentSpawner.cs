@@ -58,11 +58,7 @@ public class EnvironmentSpawner : MonoBehaviour
                 GameSettings.day = !GameSettings.day;
 
                 // delete enemies at the end of each round
-                foreach (Transform t in aggroCreatures.transform)
-                {
-                    Instantiate(Poof, t.position, t.rotation);
-                    Destroy(t.gameObject);
-                }
+                DespawnCreatures(aggroCreatures);
 
                 if (GameSettings.day)
                 {
@@ -270,7 +266,17 @@ public class EnvironmentSpawner : MonoBehaviour
     {
         Vector3 spawnPos = Utils.GetGroundPoint(Utils.RandomInArea(center, maxDistance));
         spawnPos.y += prefab.transform.position.y; // set Offset from ground
+        Instantiate(Poof, spawnPos, Utils.RandomYRotation());
         return Instantiate(prefab, spawnPos, Utils.RandomYRotation());
+    }
+
+    private void DespawnCreatures(GameObject parent)
+    {
+        foreach (Transform t in parent.transform)
+        {
+            Instantiate(Poof, t.position, t.rotation);
+            Destroy(t.gameObject);
+        }
     }
 
     //GameObject InstantiateOffScreen(GameObject prefab, float bounds)
