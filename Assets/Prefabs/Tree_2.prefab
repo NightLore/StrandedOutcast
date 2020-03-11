@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splatterPrefab: {fileID: 258373444212026829, guid: 8fa20603e76597e49b0bb436a8ff059f,
     type: 3}
-  harvestableTools: 030000000700000000000000
+  harvestableTools: 0300000007000000
 --- !u!54 &317439285424218377
 Rigidbody:
   m_ObjectHideFlags: 0
