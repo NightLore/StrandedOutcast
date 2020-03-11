@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7869822900707192974}
   - component: {fileID: -1759055737431775847}
   m_Layer: 0
-  m_Name: Small_Plane02
+  m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c798a974e8e2c4cbd1076c4f49a3b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  need: pickaxes
+  need: pickaxe
 --- !u!1 &2643266263538596287
 GameObject:
   m_ObjectHideFlags: 0

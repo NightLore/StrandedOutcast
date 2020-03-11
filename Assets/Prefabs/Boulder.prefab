@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c798a974e8e2c4cbd1076c4f49a3b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  need: pickaxes
+  need: pickaxe
 --- !u!1 &1291954423120672
 GameObject:
   m_ObjectHideFlags: 0
