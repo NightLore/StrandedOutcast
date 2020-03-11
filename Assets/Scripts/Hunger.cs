@@ -19,7 +19,7 @@ public class Hunger : MonoBehaviour
         hunger = maxHunger;
         saturation = GameSettings.startingSaturation;
 
-        InvokeRepeating("DecreaseHunger", GameSettings.saturationDelay, 1.0f / GameSettings.hungerRate);
+        InvokeRepeating("DecreaseHunger", 0, 1.0f / GameSettings.hungerRate);
     }
 
     // Update is called once per frame
@@ -45,12 +45,7 @@ public class Hunger : MonoBehaviour
     public void IncreaseHunger(float amount)
     {
         saturation += amount;
-        hunger += amount;
-        if (hunger > GetMaxHunger())
-        {
-            health.Heal(GameSettings.saturationRegen);
-            hunger = GetMaxHunger();
-        }
+        hunger = Mathf.Min(hunger + amount, maxHunger);
     }
 
     /*
@@ -76,7 +71,7 @@ public class Hunger : MonoBehaviour
             }
             else if (hunger > GameSettings.hungerRegenThreshold)
             {
-                health.Heal(1);
+                health.Heal(GameSettings.saturationRegen);
             }
         }
     }

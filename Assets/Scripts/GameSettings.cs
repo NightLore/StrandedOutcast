@@ -22,11 +22,10 @@ public class GameSettings : MonoBehaviour
     // ----------- GAME STATS -------------- //
 
     // PLAYER STATS
-    public static float saturationDelay = 5;
     public static int saturationRegen = 1;
     public static float hungerRate = 0.3333f;
     public static float hungerRegenThreshold = 75.0f;
-    public static float startingSaturation = 30.0f;
+    public static float startingSaturation = 10.0f;
     public static float playerSpeed = 10.0f;
     public static float playerTurnSpeed = 100.0f;
 

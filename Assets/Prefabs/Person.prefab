@@ -799,7 +799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controlStartHealth: 0
-  maxHp: 10
+  maxHp: 20
 --- !u!114 &7937342625486235179
 MonoBehaviour:
   m_ObjectHideFlags: 0
