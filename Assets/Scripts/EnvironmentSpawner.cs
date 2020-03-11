@@ -204,15 +204,15 @@ public class EnvironmentSpawner : MonoBehaviour
             yield return new WaitForSeconds(Utils.RandomDelay());
             if (items.GetComponentsInChildren<Transform>().Length < GameSettings.maxItems)
             {
-                Utils.SetParent(SpawnAroundLocation(itemsPrefabs[0], GameSettings.stickSpawnCenter, GameSettings.stickSpawnRadius), items);
-                Utils.SetParent(SpawnAroundLocation(itemsPrefabs[0], GameSettings.stickSpawnCenter, GameSettings.stickSpawnRadius), items);
-                Utils.SetParent(SpawnAroundLocation(itemsPrefabs[1], GameSettings.rockSpawnCenter, GameSettings.rockSpawnRadius), items);
-                Utils.SetParent(SpawnAroundLocation(itemsPrefabs[2], GameSettings.rockSpawnCenter, GameSettings.rockSpawnRadius), items);
+                Utils.DestroyAboveSpawnHeight(Utils.SetParent(SpawnAroundLocation(itemsPrefabs[0], GameSettings.stickSpawnCenter, GameSettings.stickSpawnRadius), items));
+                Utils.DestroyAboveSpawnHeight(Utils.SetParent(SpawnAroundLocation(itemsPrefabs[0], GameSettings.stickSpawnCenter, GameSettings.stickSpawnRadius), items));
+                Utils.DestroyAboveSpawnHeight(Utils.SetParent(SpawnAroundLocation(itemsPrefabs[1], GameSettings.rockSpawnCenter, GameSettings.rockSpawnRadius), items));
+                Utils.DestroyAboveSpawnHeight(Utils.SetParent(SpawnAroundLocation(itemsPrefabs[2], GameSettings.rockSpawnCenter, GameSettings.rockSpawnRadius), items));
 
-                Utils.SetParent(SpawnAroundLocation(itemsPrefabs[0], new Vector3(), GameSettings.maxSpawnRadius), items);
-                Utils.SetParent(SpawnAroundLocation(itemsPrefabs[0], new Vector3(), GameSettings.maxSpawnRadius), items);
-                Utils.SetParent(SpawnAroundLocation(itemsPrefabs[1], new Vector3(), GameSettings.maxSpawnRadius), items);
-                Utils.SetParent(SpawnAroundLocation(itemsPrefabs[2], new Vector3(), GameSettings.maxSpawnRadius), items);
+                Utils.DestroyAboveSpawnHeight(Utils.SetParent(SpawnAroundLocation(itemsPrefabs[0], new Vector3(), GameSettings.maxSpawnRadius), items));
+                Utils.DestroyAboveSpawnHeight(Utils.SetParent(SpawnAroundLocation(itemsPrefabs[0], new Vector3(), GameSettings.maxSpawnRadius), items));
+                Utils.DestroyAboveSpawnHeight(Utils.SetParent(SpawnAroundLocation(itemsPrefabs[1], new Vector3(), GameSettings.maxSpawnRadius), items));
+                Utils.DestroyAboveSpawnHeight(Utils.SetParent(SpawnAroundLocation(itemsPrefabs[2], new Vector3(), GameSettings.maxSpawnRadius), items));
             }
         }
     }

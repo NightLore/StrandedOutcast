@@ -17,8 +17,8 @@ public class Weapon : Item
         int id,
         int damage,
         Vector3 size,
-        float speed,
-        int maxDurability) : base(name, recipe)
+        float speed = 1,
+        int maxDurability = int.MaxValue) : base(name, recipe)
     {
         this.id = id;
         this.damage = damage;

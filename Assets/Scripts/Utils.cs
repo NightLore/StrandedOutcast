@@ -38,6 +38,16 @@ public class Utils : MonoBehaviour
         return child;
     }
 
+    public static bool DestroyAboveSpawnHeight(GameObject obj)
+    {
+        if(obj.transform.position.y > GameSettings.maxSpawnHeight)
+        {
+            Destroy(obj);
+            return true;
+        }
+        return false;
+    }
+
     public static Vector3 GetGroundPoint(Vector3 position)
     {
         position.y = 100;
