@@ -21,7 +21,7 @@ public class EnvironmentSpawner : MonoBehaviour
     public GameObject[] passivePrefabs;
     public GameObject[] aggroPrefabs;
 
-    public GameObject playerCharacter;
+    public GameObject playerPrefab;
     public GameObject passiveCreatures;
     public GameObject aggroCreatures;
     public GameObject environment;
@@ -93,12 +93,12 @@ public class EnvironmentSpawner : MonoBehaviour
         SetDayCount(0);
         GameSettings.day = true;
         timer = GameSettings.dayLength;
-        player = Utils.SetParent(Instantiate(playerCharacter), playerReference);
+        player = Utils.SetParent(Instantiate(playerPrefab), playerReference);
 
         gameScreen.SetActive(true);
 
         cheats.Initialize(player);
-        Instantiate(campfire);
+        Instantiate(passivePrefabs[1], player.transform.position + new Vector3(5, 5, 5), Utils.RandomYRotation());
         StartCoroutine(SpawnRandomItems());
         StartCoroutine(SpawnPassive());
         SpawnWave();
