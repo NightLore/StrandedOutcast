@@ -248,10 +248,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ddf21a4acb08bc45917e9e3ed3b12ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  environmentSpawner: {fileID: 0}
-  meat: {fileID: 116614, guid: 7fe3fdccc2238034cb79964fbbf73d9f, type: 3}
+  bloodSplatter: {fileID: 331467393979060907, guid: 8a0d9482392f38747b9568c57410f1c3,
+    type: 3}
+  controlStartHealth: 0
+  destroyable: 1
   maxHp: 5
-  meatDropChance: 1
 --- !u!114 &-8924975789912491355
 MonoBehaviour:
   m_ObjectHideFlags: 0

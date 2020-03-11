@@ -117,13 +117,16 @@ public class Equiper : MonoBehaviour
         return false;
     }
 
-    public void breakWeapon(Weapon weapon, GameObject owner)
+    public void CheckCurrentWeapon()
     {
-        currentWeapon.SetDurability(weapon.GetMaxDurability());
-        inventory.DecrementQuantity(weapon.GetID());
-        inventory.UpdateQuantities();
-        Equip(GameSettings.weapons[0], true);
-        Instantiate(weaponExplosion, owner.transform.position, owner.transform.rotation);
+        if (currentWeapon.GetMaxDurability() != int.MaxValue && currentWeapon.DecrementDurability() == 0)
+        {
+            currentWeapon.SetDurability(currentWeapon.GetMaxDurability());
+            inventory.DecrementQuantity(currentWeapon.GetID());
+            inventory.UpdateQuantities();
+            Equip(GameSettings.weapons[0], true);
+            Instantiate(weaponExplosion, transform.position, transform.rotation);
+        }
     }
 
     public Weapon GetCurrentWeapon()

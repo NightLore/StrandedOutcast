@@ -32,25 +32,6 @@ public class Attack : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Health health = other.GetComponent<Health>();
-        if (other.gameObject != owner && other.gameObject.name != "Boat" && health)
-        {
-            health.TakeDamage(damage);
-            Die(bloodSplatter);
-
-            if (isPlayer)
-            {
-                Weapon w = owner.GetComponent<Attacker>().GetWeapon();
-                if (w.GetMaxDurability() != int.MaxValue && w.DecrementDurability() == 0)
-                {
-                    owner.GetComponent<Equiper>().breakWeapon(w, owner);
-                }
-            }
-        }
-    }
-
     public void Die(GameObject replacement)
     {
         Instantiate(replacement, gameObject.transform.position, gameObject.transform.rotation);
@@ -65,6 +46,11 @@ public class Attack : MonoBehaviour
     public GameObject GetOwner()
     {
         return owner;
+    }
+
+    public int GetDamage()
+    {
+        return damage;
     }
 
 }

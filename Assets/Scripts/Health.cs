@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public GameObject bloodSplatter;
+
     private EnvironmentSpawner environmentSpawner;
     private Dropper dropper;
 
     public bool controlStartHealth = false;
+    public bool destroyable = true;
     public int maxHp;
     private int hp;
     // Start is called before the first frame update
@@ -67,5 +70,17 @@ public class Health : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Attack a = other.GetComponent<Attack>();
+        if (destroyable && a && gameObject != a.GetOwner())
+        {
+            TakeDamage(a.GetDamage());
+            a.Die(bloodSplatter);
+            Equiper e = a.GetOwner().GetComponent<Equiper>();
+            if (e) e.CheckCurrentWeapon();
+        }
     }
 }
