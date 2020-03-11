@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2643266263538499344}
   - component: {fileID: -6799213591273000422}
   - component: {fileID: 7869822900707192974}
+  - component: {fileID: -1759055737431775847}
   m_Layer: 0
   m_Name: Small_Plane02
   m_TagString: Untagged
@@ -107,7 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1786de6c09f2da744a17bfd434914b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  need: pickaxes
   splatterPrefab: {fileID: 3661188562795830691, guid: 8eb65d8e7f239464a87ba5a246976797,
     type: 3}
   harvestableTools: 06000000
@@ -128,6 +128,19 @@ MonoBehaviour:
   percentages:
   - 0.5
   maxDrops: 1
+--- !u!114 &-1759055737431775847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2643266263538596285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c798a974e8e2c4cbd1076c4f49a3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  need: pickaxes
 --- !u!1 &2643266263538596287
 GameObject:
   m_ObjectHideFlags: 0

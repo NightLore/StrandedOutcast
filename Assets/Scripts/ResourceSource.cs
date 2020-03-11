@@ -1,20 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
+[RequireComponent(typeof(ResourceText))]
 public class ResourceSource : MonoBehaviour
 {
-    private TextMeshProUGUI resourceText;
-    public string need;
     public GameObject splatterPrefab;
     public int[] harvestableTools; // use weapon index
 
+    private ResourceText resourceText;
     private List<Weapon> tools;
     private Dropper dropper;
     // Start is called before the first frame update
     void Start()
     {
+        resourceText = GetComponent<ResourceText>();
         tools = new List<Weapon>();
         foreach (int index in harvestableTools)
         {
@@ -26,15 +26,7 @@ public class ResourceSource : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!resourceText)
-        {
-            GameObject g = GameObject.Find("ResourceText");
-            if (g)
-            {
-                resourceText = g.GetComponent<TextMeshProUGUI>();
-                resourceText.enabled = false;
-            }
-        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -49,9 +41,7 @@ public class ResourceSource : MonoBehaviour
             }
             else
             {
-                resourceText.text = "Need " + need + " to harvest";
-                resourceText.enabled = true;
-                Invoke("DisableText", 3);
+                resourceText.DisplayText();
             }
         }
     }
@@ -64,10 +54,5 @@ public class ResourceSource : MonoBehaviour
                 return true;
         }
         return false;
-    }
-
-    private void DisableText()
-    {
-        resourceText.enabled = false;
     }
 }

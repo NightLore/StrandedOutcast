@@ -24509,6 +24509,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1653305379568214207}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1536354591858309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536354591858308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c798a974e8e2c4cbd1076c4f49a3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  need: 
 --- !u!4 &4160848213629902 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1657166605288422257, guid: 00be5a487a8f30345b87f3ef61debbba,
@@ -25782,7 +25795,7 @@ PrefabInstance:
     - target: {fileID: 2643266263538596285, guid: 87eb05117c6f39c40b26cd236060461b,
         type: 3}
       propertyPath: m_Name
-      value: Small_Plane02
+      value: Plane
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87eb05117c6f39c40b26cd236060461b, type: 3}

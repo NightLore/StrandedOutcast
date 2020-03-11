@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5850045419871751806}
   - component: {fileID: 1814978503088629917}
   - component: {fileID: 317439285424218377}
+  - component: {fileID: 2718396297536677175}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -140,7 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1786de6c09f2da744a17bfd434914b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  need: axes
   splatterPrefab: {fileID: 258373444212026829, guid: 8fa20603e76597e49b0bb436a8ff059f,
     type: 3}
   harvestableTools: 0300000007000000
@@ -160,3 +160,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &2718396297536677175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4575667694386249675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c798a974e8e2c4cbd1076c4f49a3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  need: axes

@@ -75,7 +75,8 @@ public class GameSettings : MonoBehaviour
     public const int FIRE = 11;
     public const int FORGE = 12;
     public const int NAILS = 13;
-    public const int NUMITEMTYPES = 13;
+    public const int BOAT = 14;
+    public const int NUMITEMTYPES = 15;
 
     private static readonly Recipe.Builder recipe = new Recipe.Builder();
 
@@ -103,13 +104,8 @@ public class GameSettings : MonoBehaviour
 /*10 */ new Item(  "CookedMeat", recipe.Reset().Needs(FIRE).Set(RAWMEAT, 1).GetRecipe()),
 /*11 */ new Item(        "Fire", recipe.Reset().Set(STICK, 2).Set(ROCK, 2).GetRecipe()),
 /*12 */ new Item(       "Forge", recipe.Reset().Set(STICK, 2).Set(ROCK, 2).GetRecipe()),
-/*13 */ new Item(       "Nails", recipe.Reset().Needs(FORGE).Set(METAL, 1).GetRecipe())
-    };
-
-    public static Item[] materials =
-    {
-        itemList[STICK],
-        itemList[ROCK]
+/*13 */ new Item(       "Nails", recipe.Reset().Needs(FORGE).Set(METAL, 1).GetRecipe()),
+/*13 */ new Item(       "Boat", recipe.Reset().Set(STICK, 30).Set(NAILS, 10).GetRecipe())
     };
 
     public static Weapon[] weapons =
