@@ -93,8 +93,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 16.176592, y: 3.1011434, z: 11.767624}
-  m_Center: {x: -0.094781905, y: 2.241293, z: -2.454963}
+  m_Size: {x: 2.8213158, y: 2.508844, z: 11.767624}
+  m_Center: {x: 0.037424427, y: 1.9451377, z: -2.454964}
 --- !u!114 &-6799213591273000422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1786de6c09f2da744a17bfd434914b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  need: pickaxes
   splatterPrefab: {fileID: 3661188562795830691, guid: 8eb65d8e7f239464a87ba5a246976797,
     type: 3}
   harvestableTools: 06000000

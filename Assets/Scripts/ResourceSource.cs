@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ResourceSource : MonoBehaviour
 {
+    private TextMeshProUGUI resourceText;
+    public string need;
     public GameObject splatterPrefab;
     public int[] harvestableTools; // use weapon index
 
@@ -23,17 +26,33 @@ public class ResourceSource : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!resourceText)
+        {
+            GameObject g = GameObject.Find("ResourceText");
+            if (g)
+            {
+                resourceText = g.GetComponent<TextMeshProUGUI>();
+                resourceText.enabled = false;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         Attack a = other.GetComponent<Attack>();
-        if (a && a.IsPlayer() 
-         && CanHarvest(a.GetOwner().GetComponent<Attacker>().GetWeapon()))
+        if (a && a.IsPlayer())
         {
-            if (dropper) dropper.Drop(a.GetOwner().transform.position);
-            if (splatterPrefab) a.Die(splatterPrefab);
+            if (CanHarvest(a.GetOwner().GetComponent<Attacker>().GetWeapon()))
+            {
+                if (dropper) dropper.Drop(a.GetOwner().transform.position);
+                if (splatterPrefab) a.Die(splatterPrefab);
+            }
+            else
+            {
+                resourceText.text = "Need " + need + " to harvest";
+                resourceText.enabled = true;
+                Invoke("DisableText", 3);
+            }
         }
     }
 
@@ -45,5 +64,10 @@ public class ResourceSource : MonoBehaviour
                 return true;
         }
         return false;
+    }
+
+    private void DisableText()
+    {
+        resourceText.enabled = false;
     }
 }
