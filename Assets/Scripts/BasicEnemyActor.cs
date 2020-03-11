@@ -28,7 +28,7 @@ public class BasicEnemyActor : MonoBehaviour
         if (player && attacker.CanAttack)
         {
             //Track();
-            if ((player.transform.position - transform.position).magnitude <= GameSettings.attackDistance + 1)
+            if ((player.transform.position - transform.position).magnitude <= bufferDistance)
             {
                 attacker.Attack();
             }

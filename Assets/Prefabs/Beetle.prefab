@@ -456,9 +456,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  bufferDistance: 2
-  attackDamage: 2
-  attackScale: {x: 1, y: 1, z: 1}
+  bufferDistance: 6
+  attackDamage: 5
+  attackScale: {x: 2, y: 2, z: 2}
   attackSpeed: 2
 --- !u!114 &3220764366530312518
 MonoBehaviour:
