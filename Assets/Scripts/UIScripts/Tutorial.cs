@@ -16,7 +16,10 @@ public class Tutorial : MonoBehaviour
     }
     private void OnEnable()
     {
-        StartCoroutine("WaitForMovement");
+        if (!GameSettings.tutorialFinished)
+        {
+            StartCoroutine("WaitForMovement");
+        }
     }
 
     // Update is called once per frame
