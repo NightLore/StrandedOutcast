@@ -78,7 +78,7 @@ public class BoatMaker : MonoBehaviour
 
     private void UpdateText()
     {
-        string text = "Boat needs ";
+        string text = "";
         string padding = "";
         for (int i = ingredients.Length - 1; i >= 0; i--)
         {

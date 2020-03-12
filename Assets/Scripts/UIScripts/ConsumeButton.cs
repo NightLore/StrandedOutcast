@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ConsumeButton : MonoBehaviour
 {
     public int food;
 
+    private TextMeshProUGUI recipeText;
     private Inventory inventory;
     private Button button;
     private Hunger hunger;
@@ -17,6 +19,11 @@ public class ConsumeButton : MonoBehaviour
         button.onClick.AddListener(Consume);
         hunger = GameObject.FindWithTag("Player").GetComponent<Hunger>();
         inventory = GameObject.FindWithTag("Player").GetComponent<Inventory>();
+    }
+
+    private void OnEnable()
+    {
+        recipeText = GameObject.Find("/Canvas/GameScreen/InfoPanel/RecipeText").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -31,5 +38,10 @@ public class ConsumeButton : MonoBehaviour
             inventory.DecrementQuantity(food);
             inventory.UpdateQuantities();
         }
+    }
+
+    public void UpdateInfo()
+    {
+        recipeText.text = "Consume\n" + GameSettings.itemList[food].GetName();
     }
 }
