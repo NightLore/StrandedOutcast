@@ -16,7 +16,7 @@ public class TutorialBoundaries : MonoBehaviour
         boundaryText.SetActive(false);
     }
     
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && !beenDisplayed
             && GameSettings.tutorialFinished)

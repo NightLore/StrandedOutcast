@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5146,7 +5146,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 271672906}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5024e018c30cafd419dcec1e5b13a83c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c143b9d7a6884648b4baee5f19a7b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boundaryText: {fileID: 48159998}
@@ -7046,7 +7046,7 @@ MonoBehaviour:
   titleObjects: {fileID: 1646657744}
   dayText: {fileID: 873053529}
   timeText: {fileID: 1754340751}
-  timeWarning: {fileID: 1754340753}
+  timeWarning: {fileID: 0}
   itemsPrefabs:
   - {fileID: 8533699120571369429, guid: 1a2c345fd5dbf084eb4128a2b8eba519, type: 3}
   - {fileID: 556113956712541055, guid: 47a62679af8474f449a5bf9d3a5cb93a, type: 3}
@@ -7868,7 +7868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boat: {fileID: 1536354591858308}
   buildParticle: {fileID: 1630597079}
-  buildSound: {fileID: 8300000, guid: 913d6445ee8cc4152a9c18da590ee203, type: 3}
+  buildSound: {fileID: 0}
 --- !u!1 &483402791
 GameObject:
   m_ObjectHideFlags: 0
@@ -11642,7 +11642,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 676761826}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5024e018c30cafd419dcec1e5b13a83c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c143b9d7a6884648b4baee5f19a7b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boundaryText: {fileID: 293617091}
@@ -21369,7 +21369,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1644427128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5024e018c30cafd419dcec1e5b13a83c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c143b9d7a6884648b4baee5f19a7b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boundaryText: {fileID: 659190738}
@@ -22585,7 +22585,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1848516979}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5024e018c30cafd419dcec1e5b13a83c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c143b9d7a6884648b4baee5f19a7b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boundaryText: {fileID: 615086500}
