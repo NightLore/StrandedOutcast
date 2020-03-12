@@ -15,7 +15,8 @@ public class CategoryButton : MonoBehaviour
         // categoryButtons[1] = GameObject.Find("BuildingButton");
         // categoryButtons[2] = GameObject.Find("FoodButton");
         // categoryButtons[3] = GameObject.Find("MaterialsButton");
-        
+
+        Debug.Log("Set Buttons");
         button = GetComponent<Button>();
         button.onClick.AddListener(DisplaySubButtons);
         button.onClick.AddListener(CloseOtherSubButtons);
