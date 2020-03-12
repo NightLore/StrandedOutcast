@@ -6,19 +6,26 @@ public class BoatMaker : MonoBehaviour
 {
     public GameObject boat; // drag in
     public ParticleSystem buildParticle;
+    public AudioClip buildSound;
+
     private EnvironmentSpawner spawner;
+    private AudioSource audioSource;
+    private Rigidbody boatRigidBody;
 
     private ResourceText resourceText;
     private Health boatHealth;
     private int[] ingredients;
+    private bool won;
     // Start is called before the first frame update
     void Start()
     {
         spawner = GameObject.Find("EnvironmentSpawner").GetComponent<EnvironmentSpawner>();
+        audioSource = boat.GetComponent<AudioSource>();
         resourceText = boat.GetComponent<ResourceText>();
         boatHealth = boat.GetComponent<Health>();
-        ingredients = new int[GameSettings.NUMITEMTYPES];
+        boatRigidBody = boat.GetComponent<Rigidbody>();
 
+        ingredients = new int[GameSettings.NUMITEMTYPES];
         int total = 0;
         foreach (KeyValuePair<int, int> pair in GameSettings.itemList[GameSettings.BOAT].GetRecipe().GetIngredients())
         {
@@ -26,12 +33,16 @@ public class BoatMaker : MonoBehaviour
             total += pair.Value;
         }
         boatHealth.maxHp = total;
+        won = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (won)
+        {
+            boatRigidBody.velocity = new Vector3(10, 0, 0);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -54,9 +65,11 @@ public class BoatMaker : MonoBehaviour
                 inventory.DecrementQuantity(i);
                 inventory.UpdateQuantities();
                 buildParticle.Play();
+                audioSource.PlayOneShot(buildSound, GameSettings.soundVolume);
                 if (boatHealth.Heal(1))
                 {
                     spawner.GameWin(boat.transform.position + Vector3.up * 2);
+                    won = true;
                 }
             }
         }

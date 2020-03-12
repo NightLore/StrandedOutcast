@@ -7886,6 +7886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boat: {fileID: 1536354591858308}
   buildParticle: {fileID: 1630597079}
+  buildSound: {fileID: 8300000, guid: 913d6445ee8cc4152a9c18da590ee203, type: 3}
 --- !u!1001 &493418674
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25064,19 +25065,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1653305379568214207}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1536354591858309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536354591858308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49c798a974e8e2c4cbd1076c4f49a3b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  need: 
 --- !u!4 &4160848213629902 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1657166605288422257, guid: 00be5a487a8f30345b87f3ef61debbba,
@@ -26223,6 +26211,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 707824908}
     m_Modifications:
+    - target: {fileID: 1536354591858320, guid: 00be5a487a8f30345b87f3ef61debbba, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1654172593954340411, guid: 00be5a487a8f30345b87f3ef61debbba,
         type: 3}
       propertyPath: m_Name
@@ -26292,21 +26284,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 707824908}
     m_Modifications:
-    - target: {fileID: 2375293226189282769, guid: 87eb05117c6f39c40b26cd236060461b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375293226189282769, guid: 87eb05117c6f39c40b26cd236060461b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.92
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375293226189282769, guid: 87eb05117c6f39c40b26cd236060461b,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.62
-      objectReference: {fileID: 0}
     - target: {fileID: 2643266263538361757, guid: 87eb05117c6f39c40b26cd236060461b,
         type: 3}
       propertyPath: m_LocalPosition.x

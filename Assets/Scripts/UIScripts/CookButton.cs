@@ -24,13 +24,13 @@ public class CookButton : MonoBehaviour
     }
 
     private void Cook() {
-        Debug.Log("Cook");
         if (inventory.CanCraft(food)) {
-            Debug.Log("Success");
             inventory.CraftItem(food);
             inventory.UpdateQuantities();
         }
-        Debug.Log("Failed");
-        Debug.Log(inventory.CanCraft(food));
+        else
+        {
+            Debug.Log("Cook Failed");
+        }
     }
 }
