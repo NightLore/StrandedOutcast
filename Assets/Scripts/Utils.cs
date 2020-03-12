@@ -50,7 +50,7 @@ public class Utils : MonoBehaviour
 
     public static Vector3 GetGroundPoint(Vector3 position)
     {
-        position.y = 100;
+        position.y = 5;
         // Note: only works if ground is within +/-100 of starting spot
         if (Physics.Raycast(position, Vector3.down, out RaycastHit hit, 200.0f))
         {
