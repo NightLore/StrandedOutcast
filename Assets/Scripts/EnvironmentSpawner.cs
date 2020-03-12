@@ -24,10 +24,9 @@ public class EnvironmentSpawner : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject passiveCreatures;
     public GameObject aggroCreatures;
-    public GameObject environment;
     public GameObject items;
-    public GameObject campfire;
     public GameObject boat;
+    public GameObject plane;
 
     private GameObject player;
     private GameObject playerReference;
@@ -89,7 +88,7 @@ public class EnvironmentSpawner : MonoBehaviour
         SetDayCount(0);
         GameSettings.day = true;
         timer = GameSettings.dayLength;
-        player = Utils.SetParent(Instantiate(playerPrefab), playerReference);
+        player = Utils.SetParent(SpawnAroundLocation(playerPrefab, plane.transform.position, 10), playerReference);
 
         gameScreen.SetActive(true);
 
