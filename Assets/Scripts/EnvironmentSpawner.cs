@@ -88,12 +88,12 @@ public class EnvironmentSpawner : MonoBehaviour
         SetDayCount(0);
         GameSettings.day = true;
         timer = GameSettings.dayLength;
-        player = Utils.SetParent(SpawnAroundLocation(playerPrefab, plane.transform.position, 10), playerReference);
+        player = Utils.SetParent(SpawnAroundLocation(playerPrefab, plane.transform.position - Vector3.right * 5, 0), playerReference);
 
         gameScreen.SetActive(true);
 
         cheats.Initialize(player);
-        SpawnAroundLocation(passivePrefabs[1], player.transform.position, 5);
+        SpawnAroundLocation(passivePrefabs[1], player.transform.position - Vector3.right * 5, 0);
         StartCoroutine(SpawnRandomItems());
         StartCoroutine(SpawnPassive());
         SpawnWave();
