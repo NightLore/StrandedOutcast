@@ -122,6 +122,8 @@ public class GameSettings : MonoBehaviour
     };
 
     public static bool day = true;
+    public static float nightDarkness = 0.3f;
+
     public static float flickerSpeed = 0.2f;
     public static float minFlicker = 0.5f;
     public static float maxFlicker = 1.0f;

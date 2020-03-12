@@ -36,13 +36,6 @@ public class LightController : MonoBehaviour
                 lightIntensity = (GameSettings.nightLength / 2 - timer) / GameSettings.nightLength;
             }
         }
-        dayLight.intensity = lightIntensity;
-        // if (GameSettings.day) {
-
-        //     dayLight.intensity = 1;
-        // }
-        // else {
-        //     dayLight.intensity = 0;
-        // }
+        dayLight.intensity = Mathf.Max(lightIntensity, GameSettings.nightDarkness);
     }
 }
