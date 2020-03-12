@@ -11,12 +11,6 @@ public class CategoryButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // categoryButtons[0] = GameObject.Find("WeaponButton");
-        // categoryButtons[1] = GameObject.Find("BuildingButton");
-        // categoryButtons[2] = GameObject.Find("FoodButton");
-        // categoryButtons[3] = GameObject.Find("MaterialsButton");
-
-        Debug.Log("Set Buttons");
         button = GetComponent<Button>();
         button.onClick.AddListener(DisplaySubButtons);
         button.onClick.AddListener(CloseOtherSubButtons);
