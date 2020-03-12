@@ -6018,6 +6018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e3677e36c2b26b44b817a7b703cf492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: survived
 --- !u!1 &361628464
 GameObject:
   m_ObjectHideFlags: 0
@@ -10923,6 +10924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e3677e36c2b26b44b817a7b703cf492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  description: took
 --- !u!114 &651734861
 MonoBehaviour:
   m_ObjectHideFlags: 0

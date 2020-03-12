@@ -59,12 +59,12 @@ public class Health : MonoBehaviour
     /*
      * Decreases health by the specified amount. Returns true if health is less than or equal to 0 and Destroys this gameobject
      */
-    public bool TakeDamage(int amount)
+    public bool TakeDamage(int amount, bool shouldDrop = false)
     {
         hp -= amount;
         if (hp <= 0)
         {
-            if (dropper) dropper.Drop();
+            if (dropper && shouldDrop) dropper.Drop();
             environmentSpawner.IncrementKillCount();
             Destroy(gameObject);
             return true;
@@ -77,7 +77,7 @@ public class Health : MonoBehaviour
         Attack a = other.GetComponent<Attack>();
         if (destroyable && a && gameObject != a.GetOwner())
         {
-            TakeDamage(a.GetDamage());
+            TakeDamage(a.GetDamage(), a.IsPlayer());
             a.Die(bloodSplatter);
             Equiper e = a.GetOwner().GetComponent<Equiper>();
             if (e) e.CheckCurrentWeapon();
