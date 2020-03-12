@@ -41,7 +41,7 @@ public class BoatMaker : MonoBehaviour
     {
         if (won)
         {
-            boatRigidBody.velocity = new Vector3(10, 0, 0);
+            boatRigidBody.velocity = new Vector3(1, 0, 0);
         }
     }
 
