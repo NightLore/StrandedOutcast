@@ -137,5 +137,6 @@ public class Tutorial : MonoBehaviour
         ActivateBoatText();
         yield return new WaitForSeconds(GameSettings.tutorialDelay);
         DeactivateBoatText();
+        GameSettings.tutorialFinished = true;
     }
 }

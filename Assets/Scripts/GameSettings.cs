@@ -129,4 +129,6 @@ public class GameSettings : MonoBehaviour
     public static float maxDeltaFlicker = 0.1f;
 
     public static float foodValue = 15.0f;
+
+    public static bool tutorialFinished = false;
 }
