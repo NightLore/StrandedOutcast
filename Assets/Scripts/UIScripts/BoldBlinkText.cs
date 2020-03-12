@@ -5,6 +5,9 @@ using TMPro;
 
 public class BoldBlinkText : MonoBehaviour
 {
+    public Color blinkColor;
+    private Color normalColor;
+
     private TextMeshProUGUI text;
     private bool blinking;
     // Start is called before the first frame update
@@ -12,6 +15,7 @@ public class BoldBlinkText : MonoBehaviour
     {
         text = GetComponent<TextMeshProUGUI>();
         blinking = false;
+        normalColor = text.color;
     }
 
     // Update is called once per frame
@@ -38,16 +42,19 @@ public class BoldBlinkText : MonoBehaviour
             if (isBolded)
             {
                 text.fontStyle = FontStyles.Normal;
+                text.color = normalColor;
             }
             else
             {
-                text.fontStyle = FontStyles.Bold | FontStyles.Italic;
+                text.fontStyle = FontStyles.Bold;
+                text.color = blinkColor;
             }
             isBolded = !isBolded;
             yield return new WaitForSeconds(GameSettings.blinkTextDelay);
             timer += GameSettings.blinkTextDelay;
         }
         text.fontStyle = FontStyles.Normal;
+        text.color = normalColor;
         blinking = false;
     }
 }

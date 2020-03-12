@@ -22023,6 +22023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fa42b5b40851f45bb1ae7904ff07b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blinkColor: {r: 1, g: 0.7568628, b: 0.96470594, a: 1}
 --- !u!1001 &1769201389
 PrefabInstance:
   m_ObjectHideFlags: 0
