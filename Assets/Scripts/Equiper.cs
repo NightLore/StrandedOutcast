@@ -72,7 +72,13 @@ public class Equiper : MonoBehaviour
                             weapon.GetSize(),
                             weapon.GetSpeed(),
                             weapon);
+        Debug.Log("weapon is " + weapon.GetID());
         // update visual
+        
+        // deactivate old weapon if not default weapon
+        if (currentWeapon != GameSettings.weapons[0])
+            weapons[currentWeapon.GetID()].SetActive(false);
+
         if (weapon == GameSettings.weapons[0])
         {
             equipImage.sprite = defaultImage;
@@ -82,10 +88,6 @@ public class Equiper : MonoBehaviour
             weapons[weapon.GetID()].SetActive(true);
             equipImage.sprite = weaponImages[weapon.GetID()];
         }
-
-        // deactivate old weapon if not default weapon
-        if (currentWeapon != GameSettings.weapons[0])
-            weapons[currentWeapon.GetID()].SetActive(false);
 
         // update currentWeapon to new weapon
         currentWeapon = weapon;
