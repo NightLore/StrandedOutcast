@@ -16,6 +16,7 @@ public class EnvironmentSpawner : MonoBehaviour
     public GameObject titleObjects;
     public TextMeshProUGUI dayText;
     public TextMeshProUGUI timeText;
+    public BoldBlinkText timeWarning;
 
     public GameObject[] itemsPrefabs;
     public GameObject[] passivePrefabs;
@@ -147,6 +148,11 @@ public class EnvironmentSpawner : MonoBehaviour
 
     public void UpdateTimerText()
     {
+        if (GameSettings.blinkWarningTime < timer 
+            && timer <= GameSettings.blinkWarningTime + 0.5)
+        {
+            timeWarning.Blink();
+        }
         if (GameSettings.day)
         {
             timeText.text = "Time left in day: " + Mathf.Round(timer);

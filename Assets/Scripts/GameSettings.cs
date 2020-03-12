@@ -16,6 +16,7 @@ public class GameSettings : MonoBehaviour
 
     public static float tutorialDelay = 3.0f;
     public static float blinkTextDelay = 1.0f;
+    public static float blinkWarningTime = 5.0f;
     public static float oscillationDistance = 20.0f;
     public static float oscillationSpeed = 10.0f;
 
