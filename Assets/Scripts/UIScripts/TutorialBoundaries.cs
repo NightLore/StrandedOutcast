@@ -7,16 +7,11 @@ public class TutorialBoundaries : MonoBehaviour
     public GameObject boundaryText;
     
     private bool beenDisplayed = false;
-    private bool normalTutorialFinished = false;
     // Start is called before the first frame update
     private void Update() {
-        normalTutorialFinished = GameSettings.tutorialFinished;
+
     }
     
-    void ActivateBoundaryText() {
-        boundaryText.SetActive(true);
-    }
-
     void DeactivateBoundaryText() {
         boundaryText.SetActive(false);
     }
@@ -24,9 +19,9 @@ public class TutorialBoundaries : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && !beenDisplayed
-            && normalTutorialFinished) {
-            Debug.Log("Entered Tutorial Boundary");
-            ActivateBoundaryText();
+            && GameSettings.tutorialFinished)
+        {
+            boundaryText.SetActive(true);
             Invoke("DeactivateBoundaryText", GameSettings.tutorialDelay);
             beenDisplayed = true;
         }

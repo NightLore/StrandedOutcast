@@ -7,8 +7,6 @@ public class Tutorial : MonoBehaviour
     public GameObject movementText;
     public GameObject interactText;
     public GameObject craftingText;
-    public GameObject harvestText;
-    public GameObject forgeText;
     public GameObject boatText;
 
     // Start is called before the first frame update
@@ -27,116 +25,40 @@ public class Tutorial : MonoBehaviour
         
     }
 
-    private void ActivateMovementText()
-    {
-        movementText.SetActive(true);
-    }
-
-    private void DeactivateMovementText()
-    {
-        movementText.SetActive(false);
-    }
-
-    private void ActivateInteractText()
-    {
-        interactText.SetActive(true);
-    }
-
-    private void DeactivateInteractText()
-    {
-        interactText.SetActive(false);
-    }
-
-    private void ActivateCraftingText()
-    {
-        craftingText.SetActive(true);
-    }
-
-    private void DeactivateCraftingText()
-    {
-        craftingText.SetActive(false);
-    }
-
-    private void ActivateHarvestText()
-    {
-        harvestText.SetActive(true);
-    }
-
-    private void DeactivateHarvestText()
-    {
-        harvestText.SetActive(false);
-    }
-
-    private void ActivateForgeText()
-    {
-        forgeText.SetActive(true);
-    }
-
-    private void DeactivateForgeText()
-    {
-        forgeText.SetActive(false);
-    }
-
-    private void ActivateBoatText()
-    {
-        boatText.SetActive(true);
-    }
-
-    private void DeactivateBoatText()
-    {
-        boatText.SetActive(false);
-    }
-
     IEnumerator WaitForMovement()
     {
-        ActivateMovementText();
+        movementText.SetActive(true);
         while (!Input.GetKeyDown(KeyCode.W) && !Input.GetKeyDown(KeyCode.A) &&
                !Input.GetKeyDown(KeyCode.S) && !Input.GetKeyDown(KeyCode.D)) {
             yield return null;
         }
-        DeactivateMovementText();
+        movementText.SetActive(false);
         StartCoroutine("WaitForInteraction");
     }
 
     IEnumerator WaitForInteraction()
     {
-        ActivateInteractText();
+        interactText.SetActive(true);
         while (!Input.GetKeyDown(KeyCode.Space)) {
             yield return null;
         }
-        DeactivateInteractText();
+        interactText.SetActive(false);
         StartCoroutine("CategoriesClickable");
     }
 
     IEnumerator CategoriesClickable()
     {
-        ActivateCraftingText();
+        craftingText.SetActive(true);
         yield return new WaitForSeconds(GameSettings.tutorialDelay);
-        DeactivateCraftingText();
-        StartCoroutine("AxeAndPick");
-    }
-
-    IEnumerator AxeAndPick()
-    {
-        ActivateHarvestText();
-        yield return new WaitForSeconds(GameSettings.tutorialDelay * 2);
-        DeactivateHarvestText();
-        StartCoroutine("ForgeFunction");
-    }
-
-    IEnumerator ForgeFunction()
-    {
-        ActivateForgeText();
-        yield return new WaitForSeconds(GameSettings.tutorialDelay);
-        DeactivateForgeText();
+        craftingText.SetActive(false);
         StartCoroutine("BoatWin");
     }
 
     IEnumerator BoatWin()
     {
-        ActivateBoatText();
+        boatText.SetActive(true);
         yield return new WaitForSeconds(GameSettings.tutorialDelay);
-        DeactivateBoatText();
+        boatText.SetActive(false);
         GameSettings.tutorialFinished = true;
     }
 }
