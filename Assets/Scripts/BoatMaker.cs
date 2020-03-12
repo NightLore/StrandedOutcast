@@ -71,6 +71,7 @@ public class BoatMaker : MonoBehaviour
                     spawner.GameWin(boat.transform.position + Vector3.up * 2);
                     won = true;
                 }
+                break;
             }
         }
     }

@@ -919,7 +919,7 @@ MonoBehaviour:
   m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -943,10 +943,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 48160001}
-    characterCount: 41
+    characterCount: 40
     spriteCount: 0
-    spaceCount: 8
-    wordCount: 9
+    spaceCount: 7
+    wordCount: 8
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -6506,7 +6506,6 @@ RectTransform:
   - {fileID: 1650516953}
   - {fileID: 170559243}
   - {fileID: 870400459}
-  - {fileID: 2053685014}
   m_Father: {fileID: 683135862}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13770,6 +13769,7 @@ RectTransform:
   - {fileID: 48159999}
   - {fileID: 615086501}
   - {fileID: 293617092}
+  - {fileID: 2053685014}
   m_Father: {fileID: 377127748}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24086,8 +24086,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 377127748}
-  m_RootOrder: 8
+  m_Father: {fileID: 913205219}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
