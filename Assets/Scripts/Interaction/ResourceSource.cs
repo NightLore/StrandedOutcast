@@ -36,6 +36,8 @@ public class ResourceSource : MonoBehaviour
         {
             if (CanHarvest(a.GetOwner().GetComponent<Attacker>().GetWeapon()))
             {
+                Equiper e = a.GetOwner().GetComponent<Equiper>();
+                if (e) e.CheckCurrentWeapon();
                 if (dropper) dropper.Drop(a.GetOwner().transform.position);
                 if (splatterPrefab) a.Die(splatterPrefab);
             }

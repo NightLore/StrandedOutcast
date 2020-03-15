@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BonfireController : MonoBehaviour
+public class SlowEffect : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

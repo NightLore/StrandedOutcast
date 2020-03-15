@@ -72,13 +72,12 @@ public class Equiper : MonoBehaviour
                             weapon.GetSize(),
                             weapon.GetSpeed(),
                             weapon);
-        Debug.Log("weapon is " + weapon.GetID());
-        // update visual
         
         // deactivate old weapon if not default weapon
         if (currentWeapon != GameSettings.weapons[0])
             weapons[currentWeapon.GetID()].SetActive(false);
 
+        // update visual
         if (weapon == GameSettings.weapons[0])
         {
             equipImage.sprite = defaultImage;

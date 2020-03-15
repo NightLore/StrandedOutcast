@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class BonfireFlicker : MonoBehaviour
+public class FireFlicker : MonoBehaviour
 {
     private Light campfireLight;
     private float lightIntensity;
