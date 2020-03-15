@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3378516579028638704}
   - component: {fileID: 7930675083362005061}
   - component: {fileID: 5043994162405864992}
+  - component: {fileID: 475290677}
   m_Layer: 0
   m_Name: Dock
   m_TagString: Untagged
@@ -110,5 +111,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 13.378884, y: 5.1839423, z: 6.299996}
-  m_Center: {x: -2.41056, y: -2.4349577, z: -0.0000002384195}
+  m_Size: {x: 13.378902, y: 5.309619, z: 6.299996}
+  m_Center: {x: -2.410569, y: -2.3721242, z: -0.0000002384195}
+--- !u!114 &475290677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3953651265893248812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bb975a661fb4e8409d9822d24b03c4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boat: {fileID: 0}
+  buildParticle: {fileID: 0}
+  buildSound: {fileID: 8300000, guid: 913d6445ee8cc4152a9c18da590ee203, type: 3}
