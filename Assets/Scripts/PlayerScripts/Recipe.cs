@@ -65,7 +65,7 @@ public class Recipe
         foreach (KeyValuePair<int, bool> pair in needs)
         {
             if (pair.Value)
-                s += "Needs " + GameSettings.itemList[pair.Key].GetName() + "\n";
+                s += "Need " + GameSettings.itemList[pair.Key].GetName() + "\n";
         }
         foreach (KeyValuePair<int, int> pair in ingredients)
         {
