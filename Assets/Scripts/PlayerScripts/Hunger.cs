@@ -10,6 +10,7 @@ public class Hunger : MonoBehaviour
     private float maxHunger = 100;
     private float hunger;
 
+    private float maxSaturation = GameSettings.foodValue;
     private float saturation;
 
     // Start is called before the first frame update
@@ -44,7 +45,7 @@ public class Hunger : MonoBehaviour
      */
     public void IncreaseHunger(float amount)
     {
-        saturation += amount;
+        saturation = Mathf.Min(saturation + amount, maxSaturation);
         hunger = Mathf.Min(hunger + amount, maxHunger);
     }
 

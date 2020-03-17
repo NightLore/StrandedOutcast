@@ -231,12 +231,16 @@ public class EnvironmentSpawner : MonoBehaviour
 
     private void SpawnWave()
     {
-        SpawnCreatures(aggroPrefabs[0], aggroCreatures, GameSettings.enemySpawnDistance, 2 * (dayCount % 5 + 1));
-        SpawnCreatures(aggroPrefabs[1], aggroCreatures, GameSettings.enemySpawnDistance, 2 * (dayCount / 5));
+        SpawnCreatures(aggroPrefabs[0], aggroCreatures, GameSettings.enemySpawnDistance, 
+            dayCount % 5 + 1);
+        SpawnCreatures(aggroPrefabs[1], aggroCreatures, GameSettings.enemySpawnDistance, 
+            dayCount / 5);
         if (!GameSettings.day)
         {
-            SpawnCreatures(aggroPrefabs[2], aggroCreatures, GameSettings.enemySpawnDistance, 2 * ((dayCount + 2) % 5) - 2);
-            SpawnCreatures(aggroPrefabs[3], aggroCreatures, GameSettings.enemySpawnDistance, 2 * ((dayCount) % 3) - 2);
+            SpawnCreatures(aggroPrefabs[2], aggroCreatures, GameSettings.enemySpawnDistance, 
+                dayCount >= 10 ? dayCount / 10 - dayCount % 5 : 0);
+            SpawnCreatures(aggroPrefabs[3], aggroCreatures, GameSettings.enemySpawnDistance, 
+                dayCount > 10 && dayCount % 5 == 0 ? (dayCount - 10) / 5 : 0);
         }
     }
 
